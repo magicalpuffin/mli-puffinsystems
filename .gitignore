@@ -1,3 +1,7 @@
+# Powershell
+env.ps1
+
+# svelte
 .DS_Store
 node_modules
 build

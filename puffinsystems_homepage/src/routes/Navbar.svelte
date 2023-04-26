@@ -15,6 +15,9 @@
                         <a class="nav-link" href="/projects">Projects</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/notebooks">Notebooks</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/demos">Demos</a>
                     </li>
                 </ul>

@@ -7,8 +7,11 @@
 
     <main>
         <div class="container mt-2">
-
-            <slot/>
+            <div class="row justify-content-md-center">
+                <div class="col-md-6">
+                    <slot/>
+                </div>
+            </div>
         </div>
     </main>
 </div>
