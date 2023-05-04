@@ -11,7 +11,7 @@
             <p>Basic manufacturing kanban board in a single page app. Create parts, locations and workorders. Drag and drop to move workorders around.</p>
             <p>django, sqlite3, sortable, lambda</p>
             <ul style="list-style-type: none;">
-                <li><a href="https://demo.puffinsystems.com/dev">https://demo.puffinsystems.com/dev</a></li>
+                <li><a href="https://demo.puffinsystems.com/manufacturingkanban/">https://demo.puffinsystems.com/manufacturingkanban/</a></li>
                 <li><a href="https://github.com/magicalpuffin/Demo-Manufacturing-Kanban">https://github.com/magicalpuffin/Demo-Manufacturing-Kanban</a></li>
             </ul>
         </div>
