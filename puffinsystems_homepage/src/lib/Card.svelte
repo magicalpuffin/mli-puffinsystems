@@ -1,22 +1,14 @@
 <script>
-    export let img_src="";
-    export let card_title="";
-
+  export let img_src = "";
+  export let card_title = "";
 </script>
 
-<div class="card mt-2">
-    <img src={img_src} class="card-img-top" alt="">
-    <div class="card-body">
-        <h5 class="card-title">{card_title}</h5>
-        <div class="card-text">
-            <slot/>
-        </div>
+<div class="max-w-xl overflow-hidden rounded py-4 shadow-lg">
+  <img class="h-48 w-full object-cover" src={img_src} alt="" />
+  <div class="px-6 py-4">
+    <div class="mb-2 text-xl font-bold">{card_title}</div>
+    <div>
+      <slot />
     </div>
+  </div>
 </div>
-
-<style>
-    .card-img-top{
-        height: 200px;
-        object-fit: cover;
-    }
-</style>

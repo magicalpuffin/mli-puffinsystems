@@ -1,6 +1,7 @@
 <h1>Puffin Systems</h1>
 <p>Site currently under development. Created with svelte.</p>
 
+<!--
 <h1
   class="text-center text-3xl font-bold underline
     hover:bg-purple-600 hover:text-white"
@@ -31,3 +32,4 @@
     >
   </div>
 </div>
+-->
