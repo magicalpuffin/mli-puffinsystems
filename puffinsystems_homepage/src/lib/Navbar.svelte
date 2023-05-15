@@ -1,27 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light bg-body-tertiary justify-content-center">
-        <div class="d-flex" >
-            <!-- <a class="navbar-brand" href="./">Puffin Systems</a> -->
-    
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/notebooks">Notebooks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/demos">Demos</a>
-                    </li>
-                </ul>
-    
-            </div>
-        </div>
+<script>
+  let showMenu = false;
+
+  function toggleNavbar() {
+    showMenu = !showMenu;
+  }
+</script>
+
+<nav
+  class="container mx-auto max-w-xl py-4 md:flex md:items-center md:justify-between"
+>
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <a
+      class="px-6 text-xl font-bold text-gray-800 hover:text-blue-400 md:text-2xl"
+      href="/"
+      >Puffin Systems
+    </a>
+    <!-- Mobile menu button -->
+    <button
+      on:click={toggleNavbar}
+      class="flex text-gray-800 hover:text-gray-400 focus:text-gray-400 focus:outline-none md:hidden"
+      type="button"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+    </button>
+  </div>
+  <!-- Nav Links -->
+  <div
+    class="mt-8 flex-col space-y-4 md:mt-0 md:flex md:flex-row md:items-center md:space-x-10 md:space-y-0 {showMenu
+      ? 'flex'
+      : 'hidden'}"
+  >
+    <a class="text-gray-800 hover:text-blue-400" href="/">Home</a>
+    <a class="text-gray-800 hover:text-blue-400" href="/projects">Projects</a>
+    <a class="text-gray-800 hover:text-blue-400" href="/notebooks">Notebooks</a>
+    <a class="text-gray-800 hover:text-blue-400" href="/demos">Demos</a>
+  </div>
 </nav>

@@ -1,17 +1,18 @@
 <script>
-    import Card from "$lib/Card.svelte";
+  import Card from "$lib/Card.svelte";
+  import SpendingTracker from "./SpendingTracker.md";
 </script>
 
-<h1>Projects</h1>
-<p>Various projects, usually cleaner and more </p>
+<article class="prose">
+  <h2>Projects</h2>
+  <p>Various personal projects</p>
+</article>
 
 <Card
-img_src= "/card_images/spending_tracker.png"
-card_title= "Spending Tracker">
-    <p>Basic spending tracker. Allows users to create and categorize transactions. Displays a basic figure of transactions over time.</p>
-    <p>django, postgres, plotly, lambda</p>
-    <ul style="list-style-type: none;">
-        <li><a href="https://spendingtracker.puffinsystems.com">https://spendingtracker.puffinsystems.com</a></li>
-        <li><a href="https://github.com/magicalpuffin/Spending-Tracker">https://github.com/magicalpuffin/Spending-Tracker</a></li>
-    </ul>
+  img_src="/card_images/spending_tracker.png"
+  card_title="Spending Tracker"
+  github_link="https://github.com/magicalpuffin/Spending-Tracker"
+  detail_link="https://spendingtracker.puffinsystems.com"
+>
+  <SpendingTracker />
 </Card>
