@@ -7,7 +7,7 @@
 </script>
 
 <nav
-  class="container mx-auto max-w-xl py-4 md:flex md:items-center md:justify-between"
+  class="container mx-auto max-w-xl border-b py-4 md:flex md:items-center md:justify-between"
 >
   <div class="flex items-center justify-between">
     <!-- Logo -->
