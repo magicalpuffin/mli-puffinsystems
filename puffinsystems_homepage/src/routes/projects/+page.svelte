@@ -4,16 +4,11 @@
 
   let notebookCards: CardType[] = [
     {
-      img_src: "/card_images/spending_tracker.png",
+      title: "Spending Tracker",
+      body_url: "/md_content/card_body/spending_tracker.md",
+      img_src: "/images/card_image/spending_tracker.png",
       github_link: "https://github.com/magicalpuffin/Spending-Tracker",
       detail_link: "https://spendingtracker.puffinsystems.com",
-      card_title: "Spending Tracker",
-      card_body: `
-A basic django web app for tracking your sepending. Create, upload, and categorize transactions.
-View a breakdown of your transactions by category over time.
-
-django, postgres, plotly, lambda
-`,
     },
   ];
 </script>

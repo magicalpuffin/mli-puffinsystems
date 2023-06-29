@@ -4,27 +4,18 @@
 
   let notebookCards: CardType[] = [
     {
-      img_src: "/card_images/demo_manufacturing_kanban.png",
+      title: "Demo Manufacturing Kanban",
+      img_src: "/images/card_image/demo_mfg_kanban.png",
+      body_url: "/md_content/card_body/demo_mfg_kanban.md",
       github_link: "https://github.com/magicalpuffin/Demo-Manufacturing-Kanban",
       detail_link: "https://demo.puffinsystems.com/manufacturingkanban/",
-      card_title: "Demo Manufacturing Kanban",
-      card_body: `
-Basic manufacturing kanban board in a single page app. Create parts,
-locations and workorders. Drag and drop to move workorders around.
-
-django, sqlite3, sortable, lambda
-      `,
     },
     {
-      img_src: "/card_images/demo_markdown_notebook.png",
+      title: "Demo Markdown Notebook",
+      img_src: "/images/card_image/demo_md_notebook.png",
+      body_url: "/md_content/card_body/demo_md_notebook.md",
       github_link: "https://github.com/magicalpuffin/Demo-Markdown-Notebook",
       detail_link: "https://demo.puffinsystems.com/markdownnotebook/",
-      card_title: "Demo Markdown Notebook",
-      card_body: `
-A single page app markdown editor. Create, edit and save markdown notebooks.
-
-svelte, tailwindcss, ace, S3
-      `,
     },
   ];
 </script>
