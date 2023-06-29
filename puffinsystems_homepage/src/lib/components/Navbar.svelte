@@ -6,15 +6,13 @@
   }
 </script>
 
-<nav
-  class="container mx-auto max-w-xl border-b py-4 md:flex md:items-center md:justify-between"
->
+<nav class="mx-2 border-b py-4 md:flex md:justify-center">
   <div class="flex items-center justify-between">
     <!-- Logo -->
     <a
       class="px-6 text-xl font-bold text-gray-800 hover:text-blue-400 md:text-2xl"
       href="/"
-      >Puffin Systems
+      >Michael Li
     </a>
     <!-- Mobile menu button -->
     <button
