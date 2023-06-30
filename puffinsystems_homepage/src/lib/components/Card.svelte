@@ -5,10 +5,15 @@
   import OpenInWindowIcon from "$lib/icons/OpenInWindowIcon.svelte";
 
   import { fetchMarkdown } from "$lib/utils/fetchMarkdown";
+  import { onMount } from "svelte";
 
   export let cardContent: CardType;
 
-  let promise_cardBody = fetchMarkdown(cardContent.body_url);
+  let promise_cardBody: Promise<string>
+  onMount(() => {
+
+    promise_cardBody = fetchMarkdown(cardContent.body_url);
+  })
 </script>
 
 <div class="my-4 max-w-xl overflow-hidden rounded-xl border shadow-lg">
