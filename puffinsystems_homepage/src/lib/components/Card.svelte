@@ -4,18 +4,11 @@
   import GithubIcon from "$lib/icons/GithubIcon.svelte";
   import OpenInWindowIcon from "$lib/icons/OpenInWindowIcon.svelte";
 
-  import { markdown_to_html } from "$lib/utils/markdown_to_html";
   import { fetchMarkdown } from "$lib/utils/fetchMarkdown";
-  
-  import { onMount } from "svelte";
 
   export let cardContent: CardType;
 
-  let cardBody = "";
-
-  onMount(async () => {
-    cardBody = markdown_to_html(await fetchMarkdown(cardContent.body_url));
-  });
+  let promise_cardBody = fetchMarkdown(cardContent.body_url);
 </script>
 
 <div class="my-4 max-w-xl overflow-hidden rounded-xl border shadow-lg">
@@ -41,7 +34,11 @@
       </div>
     </div>
     <article class="prose">
-      {@html cardBody}
+      {#await promise_cardBody}
+        <p>Loading...</p>
+      {:then cardBody}
+        {@html cardBody}
+      {/await}
     </article>
   </div>
 </div>
