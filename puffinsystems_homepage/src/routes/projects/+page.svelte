@@ -7,7 +7,7 @@
 
   export let data: PageData;
 
-  let tempText = data.tempText;
+  // let tempText = data.tempText;
 
   // let promise_tempText: Promise<string>;
   // onMount(() => {
@@ -17,17 +17,17 @@
   // });
 </script>
 
-<article class="prose">
+<!-- <article class="prose">
   <h1>Projects</h1>
   <p>Various personal projects</p>
   <div>{@html tempText}</div>
-  <!-- {#await promise_tempText}
+  {#await promise_tempText}
     <p>Loading...</p>
   {:then tempText}
     {@html tempText}
-  {/await} -->
-</article>
+  {/await}
+</article> -->
 
-{#each projectCards as cardContent}
+{#each data.cards as cardContent}
   <Card {cardContent} />
 {/each}
