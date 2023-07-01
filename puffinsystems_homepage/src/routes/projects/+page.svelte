@@ -1,6 +1,8 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
-  import { projectCards } from "$lib/data/cardData";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
 </script>
 
 <article class="prose">
@@ -8,6 +10,6 @@
   <p>Various personal projects</p>
 </article>
 
-{#each projectCards as cardContent}
+{#each data.cards as cardContent}
   <Card {cardContent} />
 {/each}

@@ -1,6 +1,6 @@
-import type { CardType } from "$lib/types/card";
+import type { CardDataType } from "$lib/types/card";
 
-export let notebookCards: CardType[] = [
+export let notebookCards: CardDataType[] = [
   {
     title: "INVH Housing Data Analysis",
     body_url: "/md_content/card_body/invh_data.md",
@@ -27,7 +27,7 @@ export let notebookCards: CardType[] = [
   },
 ];
 
-export let demoCards: CardType[] = [
+export let demoCards: CardDataType[] = [
   {
     title: "Demo Manufacturing Kanban",
     img_src: "/images/card_image/demo_mfg_kanban.png",
@@ -44,7 +44,7 @@ export let demoCards: CardType[] = [
   },
 ];
 
-export let projectCards: CardType[] = [
+export let projectCards: CardDataType[] = [
   {
     title: "Spending Tracker",
     body_url: "/md_content/card_body/spending_tracker.md",
