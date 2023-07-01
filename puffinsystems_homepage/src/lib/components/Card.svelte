@@ -30,11 +30,7 @@
       </div>
     </div>
     <article class="prose">
-      {#await cardContent.body_html}
-        <p>Loading...</p>
-      {:then cardBody}
-        {@html cardBody}
-      {/await}
+      {@html cardContent.body_html}
     </article>
   </div>
 </div>

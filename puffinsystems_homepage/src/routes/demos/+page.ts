@@ -2,11 +2,11 @@ import type { PageLoad } from "./$types";
 import type { CardType } from "$lib/types/card";
 
 import { fetchMarkdown } from "$lib/utils/fetchMarkdown";
-import { projectCards } from "$lib/data/cardData";
+import { demoCards } from "$lib/data/cardData";
 
 export const load = (async ({ fetch }) => {
   let cards: CardType[] = await Promise.all(
-    projectCards.map(async (card) => {
+    demoCards.map(async (card) => {
       return {
         title: card.title,
         body_html: await fetchMarkdown(card.body_url, fetch),

@@ -1,6 +1,6 @@
 export type CardType = {
   title: string;
-  body_html: Promise<string>;
+  body_html: string;
   img_src: string;
   github_link: string;
   detail_link: string;
