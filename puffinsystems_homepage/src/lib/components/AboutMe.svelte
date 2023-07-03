@@ -1,7 +1,7 @@
 <div
   class="flex max-w-3xl flex-row justify-between rounded-lg border shadow-lg md:h-96"
 >
-  <div class="mx-4 my-2 overflow-hidden">
+  <div class="mx-4 my-2 w-full overflow-hidden">
     <div class="flex h-24 flex-row justify-between">
       <article class="prose">
         <h1 class="my-0">Michael Li</h1>
