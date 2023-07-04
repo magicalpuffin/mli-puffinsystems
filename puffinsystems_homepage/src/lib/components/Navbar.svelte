@@ -42,8 +42,9 @@
       ? 'flex'
       : 'hidden'}"
   >
-    <a class="text-gray-800 hover:text-blue-400" href="/projects">Projects</a>
-    <a class="text-gray-800 hover:text-blue-400" href="/notebooks">Notebooks</a>
-    <a class="text-gray-800 hover:text-blue-400" href="/demos">Demos</a>
+    <a class="text-gray-800 hover:text-blue-400" href="/#demos">Demos</a>
+    <a class="text-gray-800 hover:text-blue-400" href="/#notebooks">Notebooks</a
+    >
+    <a class="text-gray-800 hover:text-blue-400" href="/blog">Blog</a>
   </div>
 </nav>
