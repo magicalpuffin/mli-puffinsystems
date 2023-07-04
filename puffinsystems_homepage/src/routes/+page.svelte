@@ -1,16 +1,56 @@
-<div class="flex flex-row">
-  <article class="prose">
-    <h1 class="mb-0">Michael Li</h1>
-    <p class="prose-sm my-2">someone with website</p>
-    <p>Hi, I deploy garabge to this domain and its subdomains. Check it out.</p>
-  </article>
-  <img
-    class="my-auto h-36 rounded-full object-cover shadow-md shadow-black"
-    src={"self_portrait.jpg"}
-    alt="self portrait"
-  />
+<script lang="ts">
+  import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
+
+  import AboutMe from "$lib/components/AboutMe.svelte";
+
+  import MdNotebookCard from "$lib/components/cards/demos/MDNotebookCard.svelte";
+  import MfgKanbanCard from "$lib/components/cards/demos/MFGKanbanCard.svelte";
+
+  import InvhDataCard from "$lib/components/cards/notebooks/INVHDataCard.svelte";
+  import TinyWarsStatsCard from "$lib/components/cards/notebooks/TinyWarsStatsCard.svelte";
+  import LpTubeCuttingCard from "$lib/components/cards/notebooks/LPTubeCuttingCard.svelte";
+
+  // let mountComplete = false;
+  // onMount(() => {
+  //   mountComplete = true;
+  // });
+</script>
+
+<div transition:fade class="container flex max-w-3xl flex-col gap-4">
+  <div class="">
+    <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="aboutme">
+      About Me
+    </h2>
+    <AboutMe />
+  </div>
+  <div class="">
+    <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="demos">
+      Demos
+    </h2>
+    <div class="flex snap-x snap-mandatory flex-row gap-16 overflow-x-scroll">
+      <div class="w-full shrink-0 snap-center">
+        <MdNotebookCard />
+      </div>
+      <div class="w-full shrink-0 snap-center">
+        <MfgKanbanCard />
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="notebooks">
+      Notebooks
+    </h2>
+    <div class="flex snap-x snap-mandatory flex-row gap-16 overflow-x-scroll">
+      <div class="w-full shrink-0 snap-center">
+        <InvhDataCard />
+      </div>
+      <div class="w-full shrink-0 snap-center">
+        <TinyWarsStatsCard />
+      </div>
+      <div class="w-full shrink-0 snap-center">
+        <LpTubeCuttingCard />
+      </div>
+    </div>
+  </div>
 </div>
-<article class="prose mt-2">
-  <h3>Bio</h3>
-  <p>2023: Not dead.</p>
-</article>

@@ -6,10 +6,8 @@
 <div>
   <Navbar />
   <main>
-    <div class="my-2 flex justify-center">
-      <div class="container mx-2 max-w-xl">
-        <slot />
-      </div>
+    <div class="mx-2 my-2 flex justify-center">
+      <slot />
     </div>
   </main>
 </div>

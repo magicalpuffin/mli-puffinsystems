@@ -1,11 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "100ch",
+          },
+        },
+      },
+    },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
-
+  plugins: [require("@tailwindcss/typography")],
+};
