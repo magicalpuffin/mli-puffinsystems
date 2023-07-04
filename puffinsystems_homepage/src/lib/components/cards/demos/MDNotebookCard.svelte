@@ -7,9 +7,9 @@
 </script>
 
 <CardTemplate {title} {detail_link} {github_link}>
-  <div class="flex h-full flex-row overflow-hidden">
+  <div class="flex h-full flex-col overflow-hidden md:flex-row">
     <img
-      class="hidden h-full md:block"
+      class="aspect-square max-h-48 w-full object-cover md:aspect-auto md:h-full md:max-h-none"
       src={"/images/card_image/demo_md_notebook.png"}
       alt=""
     />

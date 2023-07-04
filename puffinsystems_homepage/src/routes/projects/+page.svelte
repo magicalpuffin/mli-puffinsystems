@@ -1,6 +1,8 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
   import type { PageData } from "./$types";
+  import AboutMe from "$lib/components/AboutMe.svelte";
+  import MdNotebookCard from "$lib/components/cards/demos/MDNotebookCard.svelte";
 
   // export let data: PageData;
 </script>
@@ -14,7 +16,11 @@
   <Card {cardContent} />
 {/each} -->
 
-<div class="container flex h-96 max-w-xl flex-col border">
+<div class="flex flex-col">
+  <AboutMe />
+  <!-- <MdNotebookCard /> -->
+</div>
+<!-- <div class="container flex h-96 max-w-xl flex-col border">
   <h1 class="bg-gray-200 py-2 text-lg">This is a header</h1>
   <div class="flex h-full flex-row overflow-hidden">
     <img class="h-full" src="/images/orange_rectangle.png" alt="" />
@@ -30,4 +36,4 @@
       </p>
     </article>
   </div>
-</div>
+</div> -->

@@ -13,21 +13,21 @@
 </script>
 
 {#if mountComplete}
-  <div transition:fade class="flex flex-col gap-4">
-    <div>
-      <h2 class="text-3xl font-bold tracking-widest">About Me</h2>
+  <div transition:fade class="container flex max-w-3xl flex-col gap-4">
+    <div class="">
+      <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest">About Me</h2>
       <AboutMe />
     </div>
-    <!-- <div class="max-w-3xl">
-      <h2 class="text-3xl font-bold tracking-widest">Demos</h2>
+    <div class="">
+      <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest">Demos</h2>
       <div class="flex snap-x snap-mandatory flex-row gap-16 overflow-x-scroll">
-        <div class="snap-center md:shrink-0">
+        <div class="w-full shrink-0 snap-center">
           <MdNotebookCard />
         </div>
-        <div class="snap-center md:shrink-0">
+        <div class="w-full shrink-0 snap-center">
           <MfgKanbanCard />
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 {/if}

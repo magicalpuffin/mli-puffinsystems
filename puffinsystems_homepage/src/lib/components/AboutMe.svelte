@@ -3,10 +3,10 @@
 >
   <img
     class="aspect-square max-h-96 w-full rounded-t-lg object-cover md:aspect-auto md:w-auto md:rounded-l-none md:rounded-r-lg"
-    src={"images/self_portrait.JPG"}
+    src={"/images/self_portrait.JPG"}
     alt="self portrait"
   />
-  <div class="flex flex-col overflow-hidden">
+  <div class="flex grow flex-col overflow-hidden">
     <div class="flex flex-col bg-gray-200 px-2 py-2 md:rounded-tl-lg">
       <h1 class="text-3xl font-bold">Michael Li</h1>
       <p class="text-md font-light">subtitle goes here</p>

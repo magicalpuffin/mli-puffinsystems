@@ -1,16 +1,16 @@
 <script lang="ts">
   import CardTemplate from "$lib/components/CardTemplate.svelte";
 
-  let title = "Markdown Notebook";
+  let title = "Manufacturing Kanban";
   let detail_link = "https://demo.puffinsystems.com/manufacturingkanban/";
   let github_link =
     "https://github.com/magicalpuffin/Demo-Manufacturing-Kanban";
 </script>
 
 <CardTemplate {title} {detail_link} {github_link}>
-  <div class="flex h-full flex-row overflow-hidden">
+  <div class="flex h-full flex-col overflow-hidden md:flex-row">
     <img
-      class="hidden h-full md:block"
+      class="aspect-square h-full max-h-48 object-cover md:aspect-auto md:h-full md:max-h-none"
       src={"/images/card_image/demo_mfg_kanban.png"}
       alt=""
     />
