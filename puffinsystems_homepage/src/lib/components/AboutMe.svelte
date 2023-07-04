@@ -1,19 +1,17 @@
 <div
-  class="flex max-w-3xl flex-row justify-between rounded-lg border shadow-lg md:h-96"
+  class="flex flex-col justify-between rounded-lg border shadow-lg md:h-96 md:flex-row-reverse"
 >
-  <div class="mx-4 my-2 w-full overflow-hidden">
-    <div class="flex h-24 flex-row justify-between">
-      <article class="prose">
-        <h1 class="my-0">Michael Li</h1>
-        <p class="prose-sm my-2">subtitle goes here</p>
-      </article>
-      <img
-        class="h-24 w-24 shrink-0 rounded-full object-cover shadow-sm shadow-black md:hidden"
-        src={"images/self_portrait.JPG"}
-        alt="self portrait"
-      />
+  <img
+    class="aspect-square max-h-96 w-full rounded-t-lg object-cover md:aspect-auto md:w-auto md:rounded-l-none md:rounded-r-lg"
+    src={"images/self_portrait.JPG"}
+    alt="self portrait"
+  />
+  <div class="flex flex-col overflow-hidden">
+    <div class="flex flex-col bg-gray-200 px-2 py-2 md:rounded-tl-lg">
+      <h1 class="text-3xl font-bold">Michael Li</h1>
+      <p class="text-md font-light">subtitle goes here</p>
     </div>
-    <article class="prose">
+    <article class="prose mx-2 my-2">
       <p>
         Hi, I am still developing this site, this is just some filler text for
         now.
@@ -26,9 +24,4 @@
       <p>Maybe insert some resume content here</p>
     </article>
   </div>
-  <img
-    class="hidden h-full w-auto rounded-lg object-cover shadow-sm shadow-black md:block"
-    src={"images/self_portrait.JPG"}
-    alt="self portrait"
-  />
 </div>
