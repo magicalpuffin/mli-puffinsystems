@@ -19,6 +19,7 @@ Despite still using the layout I was used to, the ortholinear design was enough 
 | 07/06 | <30 |
 | 07/07 | 37  |
 | 07/08 | 48  |
+| 07/09 | 57  |
 
 WPM
 

@@ -1,9 +1,13 @@
 <script lang="ts">
   import { blogList } from "$lib/data/blogData";
   import { slugToTitle } from "$lib/utils/slugToTiltle";
+  import { fade } from "svelte/transition";
 </script>
 
-<div class="container mx-2 my-2 max-w-3xl rounded-lg">
+<div
+  in:fade
+  class="container mx-2 my-2 max-w-3xl rounded-lg"
+>
   <article class="prose">
     <h1>Blog</h1>
     <p>

@@ -25,3 +25,10 @@ I plan on writing blog posts for the following:
 
 _Look at this cat._
 ![Picture of a cat](/images/blog/20220827_cat.jpg)
+
+### Testing markdown code block
+
+```
+def sayHello():
+    print("Hello World")
+```

@@ -1,13 +1,17 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { slugToTitle } from "$lib/utils/slugToTiltle";
+  import { fade } from "svelte/transition";
 
   export let data: PageData;
 
   let blog_title = slugToTitle(data.slug);
 </script>
 
-<div class="container mx-2 my-2 max-w-3xl rounded-lg border">
+<div
+  in:fade
+  class="container mx-2 my-2 max-w-3xl rounded-lg border"
+>
   <div class="mx-8 my-4">
     <article class="prose">
       <h1>
