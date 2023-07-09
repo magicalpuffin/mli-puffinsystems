@@ -15,5 +15,5 @@ export const load = (async ({ params, fetch }) => {
     console.log(error);
   }
 
-  return { blog_html };
+  return { date: params.dateId, slug: params.slug, blog_html: blog_html };
 }) satisfies PageLoad;
