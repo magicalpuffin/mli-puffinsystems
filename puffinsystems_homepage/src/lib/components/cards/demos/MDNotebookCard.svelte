@@ -22,6 +22,7 @@
         All files are kept in local browser storage. Web app was deployed as
         static files on AWS S3.
       </p>
+      <a href="/blog/2023-07-12/demo-markdown-notebook/">Read More</a>
     </article>
   </div>
 </CardTemplate>
