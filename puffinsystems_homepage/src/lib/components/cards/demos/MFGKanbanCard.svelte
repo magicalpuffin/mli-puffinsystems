@@ -20,6 +20,7 @@
         locations and workorders. Drag and drop to move workorders around.
       </p>
       <p>django, sqlite3, sortable, lambda</p>
+      <a href="/blog/2023-07-15/demo-mfg-kanban/">Read More</a>
     </article>
   </div>
 </CardTemplate>
