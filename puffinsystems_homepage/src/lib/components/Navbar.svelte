@@ -7,18 +7,16 @@
   }
 </script>
 
-<nav class="mx-2 border-b py-4 md:flex md:justify-center">
-  <div class="flex items-center justify-between">
+<nav class="navbar flex-col border-b md:flex-row md:justify-center">
+  <div class="w-full grow justify-between md:w-auto md:grow-0">
     <!-- Logo -->
-    <a
-      class="px-6 text-xl font-bold text-gray-800 hover:text-blue-400 md:text-2xl"
-      href="/"
+    <a class="hover:text-secondary px-6 text-xl font-bold md:text-2xl" href="/"
       >Michael Li
     </a>
     <!-- Mobile menu button -->
     <button
       on:click={toggleNavbar}
-      class="flex text-gray-800 hover:text-gray-400 focus:text-gray-400 focus:outline-none md:hidden"
+      class="btn btn-ghost hover:text-secondary px-6 md:hidden"
       type="button"
     >
       <MenuIcon />
@@ -26,13 +24,12 @@
   </div>
   <!-- Nav Links -->
   <div
-    class="mt-8 flex-col space-y-4 md:mt-0 md:flex md:flex-row md:items-center md:space-x-10 md:space-y-0 {showMenu
+    class="mt-4 flex-col space-y-4 md:mt-0 md:flex md:flex-row md:items-center md:space-x-10 md:space-y-0 {showMenu
       ? 'flex'
       : 'hidden'}"
   >
-    <a class="text-gray-800 hover:text-blue-400" href="/#demos">Demos</a>
-    <a class="text-gray-800 hover:text-blue-400" href="/#notebooks">Notebooks</a
-    >
-    <a class="text-gray-800 hover:text-blue-400" href="/blog">Blog</a>
+    <a class="hover:text-secondary" href="/#demos">Demos</a>
+    <a class="hover:text-secondary" href="/#notebooks">Notebooks</a>
+    <a class="hover:text-secondary" href="/blog">Blog</a>
   </div>
 </nav>
