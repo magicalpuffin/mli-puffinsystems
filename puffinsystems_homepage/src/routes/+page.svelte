@@ -13,7 +13,7 @@
   // });
 </script>
 
-<div in:fade class="container flex max-w-3xl snap-y flex-col gap-4">
+<div in:fade class="flex snap-y flex-col gap-4">
   <div class="">
     <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="aboutme">
       About Me
