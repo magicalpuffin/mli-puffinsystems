@@ -1,7 +1,7 @@
 <script>
   import MenuIcon from "$lib/icons/MenuIcon.svelte";
   import NameLogo from "./NameLogo.svelte";
-  let showMenu = false;
+  import NavbarLinks from "./NavbarLinks.svelte";
 </script>
 
 <nav class="navbar bg-base-100 border-b">
@@ -14,15 +14,7 @@
     <div class="hidden md:flex">
       <NameLogo />
       <ul class="menu menu-horizontal">
-        <li>
-          <a class="hover:text-secondary" href="/#demos">Demos</a>
-        </li>
-        <li>
-          <a class="hover:text-secondary" href="/#notebooks">Notebooks</a>
-        </li>
-        <li>
-          <a class="hover:text-secondary" href="/blog">Blog</a>
-        </li>
+        <NavbarLinks />
       </ul>
     </div>
   </div>
@@ -35,15 +27,7 @@
       <ul
         class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
       >
-        <li>
-          <a class="hover:text-secondary" href="/#demos">Demos</a>
-        </li>
-        <li>
-          <a class="hover:text-secondary" href="/#notebooks">Notebooks</a>
-        </li>
-        <li>
-          <a class="hover:text-secondary" href="/blog">Blog</a>
-        </li>
+        <NavbarLinks />
       </ul>
     </div>
   </div>
