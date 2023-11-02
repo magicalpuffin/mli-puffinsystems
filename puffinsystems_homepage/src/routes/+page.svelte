@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
 
-  import AboutMe from "$lib/components/AboutMe.svelte";
+  import AboutMe from "$lib/components/cards/AboutMe.svelte";
 
   import DemosSection from "$lib/components/sections/DemosSection.svelte";
   import NotebooksSection from "$lib/components/sections/NotebooksSection.svelte";
