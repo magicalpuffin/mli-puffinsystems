@@ -1,33 +1,30 @@
-<script>
-  import AboutMeCard from "$lib/components/cardTemplates/AboutCard.svelte";
-</script>
+<div class="card bg-base-100 border shadow-lg md:h-96">
+  <div class="card-body flex flex-col gap-0 p-0">
+    <div class="bg-base-200 rounded-t-2xl p-2">
+      <h2 class="card-title text-xl md:text-3xl">Markdown Notebook</h2>
+    </div>
+  </div>
+  <figure>
+    <img src="/testScreenshot.png" alt="" />
+  </figure>
+</div>
 
-<AboutMeCard
-  title="Michael Li"
-  subtitle="Manufacturing Engineer, Software Enjoyer"
-  imgsrc="/images/self_portrait.JPG"
-  imgalt="self portrait"
->
-  <p>
-    I'm a Manufacturing Engineer with an interest in developing software and
-    utilizing data to drive process improvements. This site is still in progress
-    but currently showcases a few of my personal projects.
-  </p>
-  <h3 class="my-0">Contact</h3>
-  <ul>
-    <li>
-      <a
-        href="https://linkedin.com/in/michael-li-745a13199"
-        target="_blank"
-        rel="noopener noreferrer">Linkedin</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://github.com/magicalpuffin"
-        target="_blank"
-        rel="noopener noreferrer">Github</a
-      >
-    </li>
-  </ul>
-</AboutMeCard>
+<!-- <article class="prose p-2">
+    <p>
+      Create, edit and save markdown notebooks. I created this app to learn
+      Svelte and how it could be used with JS libraries such as Ace Editor.
+    </p>
+    <p>
+      All files are kept in local browser storage. Web app was deployed as
+      static files on AWS S3.
+    </p>
+    <a href="/blog/2023-07-12/demo-markdown-notebook/">Read More</a>
+  </article>
+</div> -->
+
+<!-- Adding CSS because tailwind couldn't override daisyui -->
+<style>
+  figure {
+    align-items: start;
+  }
+</style>

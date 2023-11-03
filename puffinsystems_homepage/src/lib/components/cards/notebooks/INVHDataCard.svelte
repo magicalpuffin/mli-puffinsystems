@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CardTemplate from "$lib/components/CardTemplate.svelte";
+  import CardTemplate from "$lib/components/cardTemplates/ProjectCard.svelte";
 
   let title = "INVH Data";
   let detail_link = "";

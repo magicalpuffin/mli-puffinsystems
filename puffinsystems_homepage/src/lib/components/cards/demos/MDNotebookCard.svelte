@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CardTemplate from "$lib/components/CardTemplate.svelte";
+  import CardTemplate from "$lib/components/cardTemplates/ProjectCard.svelte";
 
   let title = "Markdown Notebook";
   let detail_link = "https://demo.puffinsystems.com/markdownnotebook/";
