@@ -8,4 +8,4 @@ def test_getBlogTitle():
 
 def test_getSlug():
     testFilename = "2023-07-12_demo-markdown-notebook.md"
-    assert getSlug(testFilename) == "/blog/2023-07-12/demo-markdown-notebook"
+    assert getSlug(testFilename) == "2023-07-12_demo-markdown-notebook"

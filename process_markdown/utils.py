@@ -1,7 +1,7 @@
 import frontmatter
 import re
 
-from .types import BlogPost
+from .blog_types import BlogPost
 
 
 def getBlogTitle(filename: str) -> str:
@@ -14,9 +14,7 @@ def getBlogTitle(filename: str) -> str:
 
 
 def getSlug(filename: str) -> str:
-    date, nameWithExtension = re.split("_", filename)
-    name = re.split(r"\.", nameWithExtension)[0]
-    slugUrl = "/blog/" + date + "/" + name
+    slugUrl = re.split(r"\.", filename)[0]
 
     return slugUrl
 
