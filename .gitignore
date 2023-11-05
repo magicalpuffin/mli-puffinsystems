@@ -18,3 +18,4 @@ cdk.context.json
 
 # python virtual environment
 .venv
+__pycache__
