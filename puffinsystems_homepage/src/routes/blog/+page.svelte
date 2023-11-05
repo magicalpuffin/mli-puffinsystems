@@ -20,7 +20,7 @@
   <div class="menu bg-base-200 rounded-box">
     {#each blogPostList as blogPost}
       <li>
-        <a href={blogPost.content_url}>
+        <a href={blogPost.slug_url}>
           <p>{blogPost.date_created} {blogPost.title}</p>
         </a>
       </li>
