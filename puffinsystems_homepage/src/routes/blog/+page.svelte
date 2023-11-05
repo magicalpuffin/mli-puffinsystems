@@ -1,7 +1,12 @@
 <script lang="ts">
-  import { blogList } from "$lib/data/blogData";
+  import type { PageData } from "./$types";
+  import type { BlogPost } from "$lib/types/blog";
   import { slugToTitle } from "$lib/utils/slugToTiltle";
   import { fade } from "svelte/transition";
+
+  export let data: PageData;
+
+  let blogPostList: BlogPost[] = data.blogPostList;
 </script>
 
 <div in:fade class="container mx-2 my-2 max-w-3xl rounded-lg">
@@ -13,10 +18,10 @@
     </p>
   </article>
   <div class="menu bg-base-200 rounded-box">
-    {#each blogList as blogData}
+    {#each blogPostList as blogPost}
       <li>
-        <a href="/blog/{blogData.dateId}/{blogData.slug}">
-          <p>{blogData.dateId} {slugToTitle(blogData.slug)}</p>
+        <a href={blogPost.content_url}>
+          <p>{blogPost.date_created} {blogPost.title}</p>
         </a>
       </li>
     {/each}
