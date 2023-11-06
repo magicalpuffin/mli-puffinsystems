@@ -17,8 +17,7 @@ export type CardDataType = {
 export type CardContent = {
   title: string;
   body: string;
-  detail_link: string;
-  github_link: string;
+  detail_url: string;
+  github_url: string;
   img_src: string;
-  img_alt: string;
 };

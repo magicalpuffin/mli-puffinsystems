@@ -18,12 +18,12 @@
     <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="aboutme">
       About Me
     </h2>
-    <AboutMe />
+    <!-- <AboutMe /> -->
   </div>
   <div class="">
-    <DemosSection />
+    <!-- <DemosSection /> -->
   </div>
   <div class="">
-    <NotebooksSection />
+    <!-- <NotebooksSection /> -->
   </div>
 </div>

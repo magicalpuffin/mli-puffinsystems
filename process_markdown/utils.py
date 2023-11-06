@@ -1,10 +1,10 @@
 import frontmatter
 import re
 
-from .blog_types import BlogPost
+from .blog_types import BlogPost, CardContent
 
 
-def getBlogTitle(filename: str) -> str:
+def getTitle(filename: str) -> str:
     nameWithExtension = re.split("_", filename)[-1]
     name = re.split(r"\.", nameWithExtension)[0]
     titleList = re.split("-", name)
@@ -29,7 +29,7 @@ def getBlogPost(filepath: str) -> BlogPost:
 
     contentUrl = "/blog/" + filename
     slugUrl = getSlug(filename)
-    title = getBlogTitle(filename)
+    title = getTitle(filename)
 
     blogPost: BlogPost = {
         "title": title,
@@ -40,3 +40,26 @@ def getBlogPost(filepath: str) -> BlogPost:
     }
 
     return blogPost
+
+
+def getCardContent(filepath: str) -> CardContent:
+    filename = re.split("/", filepath)[-1]
+
+    with open(filepath) as f:
+        post = frontmatter.load(f)
+        postContent = post.content
+        postImgSrc = post.metadata["img_src"]
+        postGithubUrl = post.metadata["github_url"]
+        postDetailUrl = post.metadata["detail_url"]
+
+    title = getTitle(filename)
+
+    cardContent: CardContent = {
+        "title": title,
+        "body": postContent,
+        "img_src": postImgSrc,
+        "github_url": postGithubUrl,
+        "detail_url": postDetailUrl,
+    }
+
+    return cardContent
