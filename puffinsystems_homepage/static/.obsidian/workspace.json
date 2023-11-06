@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "448b4e78e6acf674",
+        "id": "2a3a9d6f1bf6b37e",
         "type": "tabs",
         "children": [
           {
-            "id": "2ca3b8a7fbaea630",
+            "id": "0db37dfe5849d475",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -146,12 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2ca3b8a7fbaea630",
+  "active": "0db37dfe5849d475",
   "lastOpenFiles": [
+    "blog/2023-07-15_demo-manufacturing-kanban.md",
     "blog/2023-08-01_confluence-to-obsidian.md",
     "data/blogPostList.json",
     "data",
-    "blog/2023-07-15_demo-manufacturing-kanban.md",
     "blog/2023-07-12_demo-markdown-notebook.md",
     "blog/2023-07-08_first-blog-post.md",
     "card",

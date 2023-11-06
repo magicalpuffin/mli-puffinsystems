@@ -13,11 +13,15 @@
 
 <Breadcrumbs />
 <div in:fade>
-  <h1 class="text-3xl font-bold">
+  <h1 class="text-4xl font-medium">
     {blogPost.title}
   </h1>
-  <p class="text-md font-light">Created Date: {blogPost.date_created}</p>
-  <p class="text-md font-light">Updated Date: {blogPost.date_updated}</p>
+  <div class="flex">
+    <p class="text-md font-light">Created {blogPost.date_created}</p>
+    <div class="divider divider-horizontal" />
+    <p class="text-md font-light">Updated {blogPost.date_updated}</p>
+  </div>
+  <div class="divider" />
   <article class="prose">
     {@html blog_html}
   </article>
