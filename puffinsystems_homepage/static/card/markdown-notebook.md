@@ -8,4 +8,4 @@ Create, edit and save markdown notebooks. I created this app to learn Svelte and
 
 All files are kept in local browser storage. Web app was deployed as static files on AWS S3.
 
-[Read More](http://localhost:5173/blog/2023-07-12/demo-markdown-notebook/)
+[Read More](/blog/2023-07-12_demo-markdown-notebook/)
