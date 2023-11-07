@@ -1,28 +1,25 @@
 <script lang="ts">
-  import { blogList } from "$lib/data/blogData";
-  import { slugToTitle } from "$lib/utils/slugToTiltle";
+  import type { PageData } from "./$types";
+  import type { BlogPost } from "$lib/types/blog";
   import { fade } from "svelte/transition";
+  import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
+  import Header from "$lib/components/Header.svelte";
+
+  export let data: PageData;
+
+  let blogPostList: BlogPost[] = data.blogPostList;
 </script>
 
-<div
-  in:fade
-  class="container mx-2 my-2 max-w-3xl rounded-lg"
->
-  <article class="prose">
-    <h1>Blog</h1>
-    <p>
-      This page is still in progress. Here are some of the links to some blog
-      posts.
-    </p>
-  </article>
-  <div class="my-4 flex flex-col">
-    {#each blogList as blogData}
-      <a
-        class="flex rounded-lg border border-blue-600 px-4 py-4 text-blue-600 shadow-lg hover:bg-blue-600 hover:text-white"
-        href="/blog/{blogData.dateId}/{blogData.slug}"
-      >
-        <p>{blogData.dateId} {slugToTitle(blogData.slug)}</p>
-      </a>
+<Breadcrumbs />
+<div in:fade class="container mx-2 my-2 max-w-3xl rounded-lg">
+  <Header text="Blog" id="blog" />
+  <div class="menu bg-base-200 rounded-box">
+    {#each blogPostList as blogPost}
+      <li>
+        <a href="/blog/{blogPost.slug_url}">
+          <p>{blogPost.date_created} {blogPost.title}</p>
+        </a>
+      </li>
     {/each}
   </div>
 </div>

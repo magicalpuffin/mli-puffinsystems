@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "46042f91b1f14f09",
+    "type": "split",
+    "children": [
+      {
+        "id": "2a3a9d6f1bf6b37e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0db37dfe5849d475",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "card/manufacturing-kanban.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f5713523c80345d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8321c2367888d5a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4c003f11647dfcc6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "50531c18db80a586",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "15f06bb2b1ac6ef7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "35e2e85fbaab211d",
+    "type": "split",
+    "children": [
+      {
+        "id": "4a458e52799b4e07",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "53ecb5b40a96d56f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "card/manufacturing-kanban.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "465f274bbea5295f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "card/manufacturing-kanban.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f2be8faff9fc5439",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "9d9daa0465541f86",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "card/manufacturing-kanban.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "0db37dfe5849d475",
+  "lastOpenFiles": [
+    "card/markdown-notebook.md",
+    "card/manufacturing-kanban.md",
+    "card/tiny-wars-ranked-statistics.md",
+    "card/linear-programming-tube-cutting.md",
+    "card/INVH-housing-data-analysis.md",
+    "data/cardContentList.json",
+    "blog/2023-07-15_demo-manufacturing-kanban.md",
+    "blog/2023-08-01_confluence-to-obsidian.md",
+    "data/blogPostList.json",
+    "data",
+    "blog/2023-07-12_demo-markdown-notebook.md",
+    "blog/2023-07-08_first-blog-post.md",
+    "card",
+    "images/self_portrait.JPG",
+    "images/blog/20230801_confluence_to_obsidian.png",
+    "images/blog/20230715_mfg_kanban.png",
+    "images/blog/20230712_markdown_notebook.png",
+    "images/blog/20220827_cat.jpg",
+    "testScreenshot.png",
+    "favicon.png",
+    "dice-six.svg"
+  ]
+}

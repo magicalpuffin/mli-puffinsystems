@@ -1,29 +1,29 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import type { PageData } from "./$types";
+  import type { CardContent } from "$lib/types/card";
   import { fade } from "svelte/transition";
 
-  import AboutMe from "$lib/components/AboutMe.svelte";
+  import AboutMe from "$lib/components/cards/AboutMe.svelte";
+  import CardCarousel from "$lib/components/cardCarousel/cardCarousel.svelte";
+  import Header from "$lib/components/Header.svelte";
 
-  import DemosSection from "$lib/components/sections/DemosSection.svelte";
-  import NotebooksSection from "$lib/components/sections/NotebooksSection.svelte";
+  export let data: PageData;
 
-  // let mountComplete = false;
-  // onMount(() => {
-  //   mountComplete = true;
-  // });
+  let demoCardList: CardContent[] = data.demoCardList;
+  let notebookCardList: CardContent[] = data.notebookCardList;
 </script>
 
-<div in:fade class="container flex max-w-3xl snap-y flex-col gap-4">
-  <div class="">
-    <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="aboutme">
-      About Me
-    </h2>
+<div in:fade class="flex flex-col gap-2">
+  <div>
+    <Header text="About Me" id="aboutme" />
     <AboutMe />
   </div>
-  <div class="">
-    <DemosSection />
+  <div>
+    <Header text="Demos" id="demos" />
+    <CardCarousel cardContentList={demoCardList} carouselName="demo" />
   </div>
-  <div class="">
-    <NotebooksSection />
+  <div>
+    <Header text="Notebooks" id="notebooks" />
+    <CardCarousel cardContentList={notebookCardList} carouselName="notebook" />
   </div>
 </div>
