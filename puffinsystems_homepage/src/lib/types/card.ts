@@ -20,4 +20,5 @@ export type CardContent = {
   detail_url: string;
   github_url: string;
   img_src: string;
+  category: string;
 };

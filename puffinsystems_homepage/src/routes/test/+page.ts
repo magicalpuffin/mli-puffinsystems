@@ -7,5 +7,12 @@ export const load = (async ({ fetch }) => {
     await fetch(URL_cardContentList)
   ).json();
 
-  return { cardContentList };
+  let demoCardList: CardContent[] = cardContentList.filter((card) => {
+    return card.category === "demo";
+  });
+  let notebookCardList: CardContent[] = cardContentList.filter((card) => {
+    return card.category === "notebook";
+  });
+
+  return { demoCardList, notebookCardList };
 }) satisfies PageLoad;

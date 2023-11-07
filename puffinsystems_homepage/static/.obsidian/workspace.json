@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "card/tiny-wars-ranked-statistics.md",
+                "file": "card/INVH-housing-data-analysis.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "card/tiny-wars-ranked-statistics.md",
+                "file": "card/INVH-housing-data-analysis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "card/tiny-wars-ranked-statistics.md",
+                "file": "card/INVH-housing-data-analysis.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "card/tiny-wars-ranked-statistics.md"
+                "file": "card/INVH-housing-data-analysis.md"
               }
             }
           }
@@ -148,12 +148,12 @@
   },
   "active": "0db37dfe5849d475",
   "lastOpenFiles": [
-    "data/cardContentList.json",
     "card/linear-programming-tube-cutting.md",
-    "card/INVH-housing-data-analysis.md",
-    "card/demo-markdown-notebook.md",
-    "card/demo-manufacturing-kanban.md",
     "card/tiny-wars-ranked-statistics.md",
+    "card/markdown-notebook.md",
+    "card/manufacturing-kanban.md",
+    "data/cardContentList.json",
+    "card/INVH-housing-data-analysis.md",
     "blog/2023-07-15_demo-manufacturing-kanban.md",
     "blog/2023-08-01_confluence-to-obsidian.md",
     "data/blogPostList.json",

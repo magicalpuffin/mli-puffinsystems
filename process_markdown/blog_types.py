@@ -15,3 +15,4 @@ class CardContent(typing.TypedDict):
     img_src: str
     github_url: str
     detail_url: str
+    category: str

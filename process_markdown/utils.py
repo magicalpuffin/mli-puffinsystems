@@ -51,6 +51,7 @@ def getCardContent(filepath: str) -> CardContent:
         postImgSrc = post.metadata["img_src"]
         postGithubUrl = post.metadata["github_url"]
         postDetailUrl = post.metadata["detail_url"]
+        postCategory = post.metadata["category"]
 
     title = getTitle(filename)
 
@@ -60,6 +61,7 @@ def getCardContent(filepath: str) -> CardContent:
         "img_src": postImgSrc,
         "github_url": postGithubUrl,
         "detail_url": postDetailUrl,
+        "category": postCategory,
     }
 
     return cardContent
