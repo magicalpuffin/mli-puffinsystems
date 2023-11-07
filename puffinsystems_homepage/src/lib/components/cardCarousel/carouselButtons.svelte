@@ -12,7 +12,7 @@
     <a
       href="#{carouselName}-{i + 1}"
       class="btn btn-sm {xLeft >= xWidth * i && xLeft < xWidth * (i + 1)
-        ? 'btn-primary'
+        ? 'btn-secondary'
         : ''}">{i + 1}</a
     >
   {/each}

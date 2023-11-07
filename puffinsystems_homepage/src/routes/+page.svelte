@@ -1,11 +1,16 @@
 <script lang="ts">
+  import type { PageData } from "./$types";
+  import type { CardContent } from "$lib/types/card";
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
 
   import AboutMe from "$lib/components/cards/AboutMe.svelte";
+  import CardCarousel from "$lib/components/cardCarousel/cardCarousel.svelte";
 
-  import DemosSection from "$lib/components/sections/DemosSection.svelte";
-  import NotebooksSection from "$lib/components/sections/NotebooksSection.svelte";
+  export let data: PageData;
+
+  let demoCardList: CardContent[] = data.demoCardList;
+  let notebookCardList: CardContent[] = data.notebookCardList;
 
   // let mountComplete = false;
   // onMount(() => {
@@ -13,17 +18,11 @@
   // });
 </script>
 
-<div in:fade class="flex snap-y flex-col gap-4">
-  <div class="">
-    <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="aboutme">
-      About Me
-    </h2>
-    <!-- <AboutMe /> -->
-  </div>
-  <div class="">
-    <!-- <DemosSection /> -->
-  </div>
-  <div class="">
-    <!-- <NotebooksSection /> -->
-  </div>
+<div in:fade class="flex flex-col gap-4">
+  <h2 class="mx-2 my-2 text-3xl font-bold tracking-widest" id="aboutme">
+    About Me
+  </h2>
+  <AboutMe />
+  <CardCarousel cardContentList={demoCardList} carouselName="demo" />
+  <CardCarousel cardContentList={notebookCardList} carouselName="notebook" />
 </div>
