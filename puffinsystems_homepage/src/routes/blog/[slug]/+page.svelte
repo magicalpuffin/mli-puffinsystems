@@ -3,6 +3,7 @@
   import type { BlogPost } from "$lib/types/blog";
   import { fade } from "svelte/transition";
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
+  import Header from "$lib/components/Header.svelte";
 
   export let data: PageData;
 
@@ -12,9 +13,7 @@
 
 <Breadcrumbs />
 <div in:fade>
-  <h1 class="text-4xl font-medium">
-    {blogPost.title}
-  </h1>
+  <Header text={blogPost.title} id="blogtitle" />
   <div class="flex">
     <p class="text-md font-light">Created {blogPost.date_created}</p>
     <div class="divider divider-horizontal" />

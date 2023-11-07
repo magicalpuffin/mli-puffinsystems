@@ -3,6 +3,7 @@
   import type { BlogPost } from "$lib/types/blog";
   import { fade } from "svelte/transition";
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
+  import Header from "$lib/components/Header.svelte";
 
   export let data: PageData;
 
@@ -11,13 +12,7 @@
 
 <Breadcrumbs />
 <div in:fade class="container mx-2 my-2 max-w-3xl rounded-lg">
-  <article class="prose">
-    <h1>Blog</h1>
-    <p>
-      This page is still in progress. Here are some of the links to some blog
-      posts.
-    </p>
-  </article>
+  <Header text="Blog" id="blog" />
   <div class="menu bg-base-200 rounded-box">
     {#each blogPostList as blogPost}
       <li>

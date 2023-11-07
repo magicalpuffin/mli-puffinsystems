@@ -5,6 +5,7 @@
 
   import AboutMe from "$lib/components/cards/AboutMe.svelte";
   import CardCarousel from "$lib/components/cardCarousel/cardCarousel.svelte";
+  import Header from "$lib/components/Header.svelte";
 
   export let data: PageData;
 
@@ -14,19 +15,15 @@
 
 <div in:fade class="flex flex-col gap-2">
   <div>
-    <h2 class="my-1 text-3xl font-bold tracking-widest" id="aboutme">
-      About Me
-    </h2>
+    <Header text="About Me" id="aboutme" />
     <AboutMe />
   </div>
   <div>
-    <h2 class="my-1 text-3xl font-bold tracking-widest" id="demos">Demos</h2>
+    <Header text="Demos" id="demos" />
     <CardCarousel cardContentList={demoCardList} carouselName="demo" />
   </div>
   <div>
-    <h2 class="my-1 text-3xl font-bold tracking-widest" id="notebooks">
-      Notebooks
-    </h2>
+    <Header text="Notebooks" id="notebooks" />
     <CardCarousel cardContentList={notebookCardList} carouselName="notebook" />
   </div>
 </div>
