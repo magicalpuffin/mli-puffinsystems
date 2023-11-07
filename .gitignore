@@ -15,3 +15,7 @@ node_modules
 .env*.local
 
 cdk.context.json
+
+# python virtual environment
+.venv
+__pycache__

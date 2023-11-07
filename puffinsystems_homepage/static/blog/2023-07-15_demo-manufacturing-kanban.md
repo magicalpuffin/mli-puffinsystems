@@ -1,3 +1,7 @@
+---
+date_created: 2023-07-15
+date_updated: 2023-11-04
+---
 ![demo mfg kanban screenshot](/images/blog/20230715_mfg_kanban.png)
 
 ## Overview
