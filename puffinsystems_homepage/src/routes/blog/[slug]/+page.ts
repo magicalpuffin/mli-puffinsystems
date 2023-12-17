@@ -4,21 +4,21 @@ import { markdown_to_html } from "$lib/utils/markdown_to_html";
 import { error } from "@sveltejs/kit";
 
 export const load = (async ({ params, fetch }) => {
-  let URL_blogPostList = "/data/blogPostList.json";
-  let blogPostList: BlogPost[] = await (await fetch(URL_blogPostList)).json();
+  const URL_BLOGLIST = "/data/blogPostList.json";
+  const BLOG_ID = params.slug;
+
+  let blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
   let blogPost: BlogPost | undefined = blogPostList.find((blogPost) => {
-    return blogPost.slug_url === params.slug;
+    return blogPost.slug_url === BLOG_ID;
   });
 
-  let blog_html = "";
-
   if (blogPost === undefined) {
-    throw error(404, "Can't find blog post");
+    error(404, "Can't find blog post");
   }
 
-  blog_html = markdown_to_html(
+  let blog_html = markdown_to_html(
     await (await fetch(blogPost.markdown_url)).text()
   );
 
-  return { blogPost, blog_html: blog_html };
+  return { blogPost, blog_html };
 }) satisfies PageLoad;

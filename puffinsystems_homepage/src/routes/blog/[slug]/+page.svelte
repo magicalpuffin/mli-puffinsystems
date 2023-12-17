@@ -9,7 +9,9 @@
 
   let blogPost: BlogPost = data.blogPost;
   let blog_html = data.blog_html;
-</script>
+
+  // console.log(blog_html)
+  </script>
 
 <Breadcrumbs />
 <div in:fade>
