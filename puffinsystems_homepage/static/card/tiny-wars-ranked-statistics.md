@@ -8,7 +8,7 @@ Tiny Wars is a small online game with a ranked ladder. Cleaned the data to creat
 
 jupyter, pandas, plotly
 
-- [Matchup Matrix](http://localhost:5173/notebooks/co_matchup_matrix.html)
-- [CO Statistics](http://localhost:5173/notebooks/co_stats_all.html)
-- [Map Winrates](http://localhost:5173/notebooks/map_winrates.html)
-- [User Elo](http://localhost:5173/notebooks/user_elo.html)
+- [Matchup Matrix](/notebooks/co_matchup_matrix.html)
+- [CO Statistics](/notebooks/co_stats_all.html)
+- [Map Winrates](/notebooks/map_winrates.html)
+- [User Elo](/notebooks/user_elo.html)

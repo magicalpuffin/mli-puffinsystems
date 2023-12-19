@@ -8,4 +8,4 @@ Developed a model using machine learning to predict market_rent given factors su
 
 jupyter, pandas, plotly, sklearn
 
-[Market Rent Prediction Preliminary](http://localhost:5173/notebooks/market_rent_prediciton_preliminary.html)
+[Market Rent Prediction Preliminary](/notebooks/market_rent_prediciton_preliminary.html)
