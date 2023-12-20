@@ -1,5 +1,6 @@
-import frontmatter
 import re
+
+import frontmatter
 
 from .blog_types import BlogPost, CardContent
 
@@ -27,7 +28,7 @@ def getBlogPost(filepath: str) -> BlogPost:
         postDateCreate = str(post.metadata["date_created"])
         postDateUpdate = str(post.metadata["date_updated"])
 
-    contentUrl = "/blog/" + filename
+    contentUrl = "/markdown/blog/" + filename
     slugUrl = getSlug(filename)
     title = getTitle(filename)
 
