@@ -1,17 +1,33 @@
 <script lang="ts">
+  import type { CarouselState } from "$lib/types/carousel";
+
   export let carouselName: string;
   export let buttonIndex: number;
-  export let xLeft: number;
-  export let xWidth: number;
+  export let carouselState: CarouselState;
 
   const href_link = `#${carouselName}-${buttonIndex + 1}`;
 
-  let buttonSelected = false;
-  if (xLeft >= xWidth * buttonIndex && xLeft < xWidth * (buttonIndex + 1)) {
-    buttonSelected = true;
+  function isButtonSelected(carouselState: CarouselState, buttonIndex: number) {
+    if (typeof carouselState == "undefined") {
+      return false;
+    }
+    let xLeft = carouselState.xLeft;
+    let xWidth = carouselState.xWidth;
+
+    let xLeftLower = xWidth * buttonIndex;
+    let xLeftUpper = xWidth * (buttonIndex + 1);
+
+    if (xLeft >= xLeftLower && xLeft < xLeftUpper) {
+      return true;
+    }
+
+    return false;
   }
 </script>
 
-<a href={href_link} class="btn btn-sm {buttonSelected ? 'btn-secondary' : ''}"
-  >{buttonIndex + 1}</a
+<a
+  href={href_link}
+  class="btn btn-sm {isButtonSelected(carouselState, buttonIndex)
+    ? 'btn-secondary'
+    : ''}">{buttonIndex + 1}</a
 >
