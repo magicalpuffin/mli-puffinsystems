@@ -2,9 +2,10 @@ import type { PageLoad } from "./$types";
 import type { CardContent } from "$lib/types/card";
 
 export const load = (async ({ fetch }) => {
-  let URL_cardContentList = "/data/cardContentList.json";
+  const URL_CARDCONTENT = "/data/cardContentList.json";
+
   let cardContentList: CardContent[] = await (
-    await fetch(URL_cardContentList)
+    await fetch(URL_CARDCONTENT)
   ).json();
 
   let demoCardList: CardContent[] = cardContentList.filter((card) => {

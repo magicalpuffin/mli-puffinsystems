@@ -1,5 +1,5 @@
 <script>
-  import AboutMeCard from "$lib/components/cardTemplates/AboutCard.svelte";
+  import AboutMeCard from "$lib/components/cardTemplate/SideSplitCard.svelte";
 </script>
 
 <AboutMeCard

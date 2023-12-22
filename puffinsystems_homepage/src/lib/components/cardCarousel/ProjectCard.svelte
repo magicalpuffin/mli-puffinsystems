@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { CardContent } from "$lib/types/card";
+
   import NewWindowButton from "$lib/components/buttons/NewWindowButton.svelte";
   import GithubButton from "$lib/components/buttons/GithubButton.svelte";
   import { markdown_to_html } from "$lib/utils/markdown_to_html";
