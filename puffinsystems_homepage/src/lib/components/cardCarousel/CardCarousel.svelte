@@ -1,8 +1,6 @@
 <script lang="ts">
   import type { CardContent } from "$lib/types/card";
-  import type { CarouselState } from "$lib/types/carousel";
 
-  import { onMount } from "svelte";
   import ProjectCard from "$lib/components/cardCarousel/ProjectCard.svelte";
   import CarouselMenu from "$lib/components/cardCarousel/CarouselMenu.svelte";
 
@@ -11,31 +9,24 @@
 
   let carousel: HTMLElement;
 
-  let carouselState: CarouselState;
+  let activeIndex: number = 0;
 
-  function parseScroll(carousel: HTMLElement) {
-    let newCarouselState: CarouselState;
+  function parseScroll() {
+    const xLeft = carousel.scrollLeft;
+    const xWidth = carousel.clientWidth;
 
-    newCarouselState = {
-      xLeft: carousel.scrollLeft,
-      xWidth: carousel.clientWidth,
-      xScroll: carousel.scrollWidth,
-    };
+    const activeIndex = Math.round(xLeft / xWidth);
 
-    return newCarouselState;
+    return activeIndex;
   }
-
-  onMount(() => {
-    carouselState = parseScroll(carousel);
-  });
 </script>
 
-<CarouselMenu {cardContentList} {carouselName} {carouselState} />
+<CarouselMenu {cardContentList} {carouselName} {activeIndex} />
 <div
   class="carousel w-full"
   bind:this={carousel}
   on:scroll={() => {
-    carouselState = parseScroll(carousel);
+    activeIndex = parseScroll();
   }}
 >
   {#each cardContentList as cardContent, i}
