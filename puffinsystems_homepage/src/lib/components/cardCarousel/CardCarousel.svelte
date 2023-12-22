@@ -11,7 +11,7 @@
 
   let activeIndex: number = 0;
 
-  function parseScroll() {
+  function updateActiveIndex() {
     const xLeft = carousel.scrollLeft;
     const xWidth = carousel.clientWidth;
 
@@ -26,7 +26,7 @@
   class="carousel w-full"
   bind:this={carousel}
   on:scroll={() => {
-    activeIndex = parseScroll();
+    activeIndex = updateActiveIndex();
   }}
 >
   {#each cardContentList as cardContent, i}
