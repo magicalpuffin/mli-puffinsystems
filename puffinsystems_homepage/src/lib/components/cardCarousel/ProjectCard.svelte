@@ -1,4 +1,6 @@
 <script lang="ts">
+  /* eslint-disable svelte/no-at-html-tags */
+
   import type { CardContent } from "$lib/types/card";
 
   import NewWindowButton from "$lib/components/buttons/NewWindowButton.svelte";

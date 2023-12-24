@@ -1,4 +1,4 @@
-<script>
+<script type="ts">
   import AboutMeCard from "$lib/components/cardTemplate/SideSplitCard.svelte";
 </script>
 

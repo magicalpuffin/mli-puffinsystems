@@ -4,14 +4,14 @@ import type { CardContent } from "$lib/types/card";
 export const load = (async ({ fetch }) => {
   const URL_CARDCONTENT = "/data/cardContentList.json";
 
-  let cardContentList: CardContent[] = await (
+  const cardContentList: CardContent[] = await (
     await fetch(URL_CARDCONTENT)
   ).json();
 
-  let demoCardList: CardContent[] = cardContentList.filter((card) => {
+  const demoCardList: CardContent[] = cardContentList.filter((card) => {
     return card.category === "demo";
   });
-  let notebookCardList: CardContent[] = cardContentList.filter((card) => {
+  const notebookCardList: CardContent[] = cardContentList.filter((card) => {
     return card.category === "notebook";
   });
 

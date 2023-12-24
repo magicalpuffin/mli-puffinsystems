@@ -7,8 +7,8 @@ export const load = (async ({ params, fetch }) => {
   const URL_BLOGLIST = "/data/blogPostList.json";
   const BLOG_ID = params.slug;
 
-  let blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
-  let blogPost: BlogPost | undefined = blogPostList.find((blogPost) => {
+  const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
+  const blogPost: BlogPost | undefined = blogPostList.find((blogPost) => {
     return blogPost.slug_url === BLOG_ID;
   });
 
@@ -16,7 +16,7 @@ export const load = (async ({ params, fetch }) => {
     error(404, "Can't find blog post");
   }
 
-  let blog_html = markdown_to_html(
+  const blog_html = markdown_to_html(
     await (await fetch(blogPost.markdown_url)).text()
   );
 
