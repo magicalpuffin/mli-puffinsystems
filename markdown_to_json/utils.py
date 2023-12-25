@@ -2,10 +2,19 @@ import re
 
 import frontmatter
 
-from .blog_types import BlogPost, CardContent
+from .markdown_types import BlogPost, CardContent
 
 
-def getTitle(filename: str) -> str:
+def get_title(filename: str) -> str:
+    """
+    Generates a title based file name
+
+    Args:
+        filename (str): Name of file
+
+    Returns:
+        str: Title name
+    """
     nameWithExtension = re.split("_", filename)[-1]
     name = re.split(r"\.", nameWithExtension)[0]
     titleList = re.split("-", name)
@@ -14,36 +23,45 @@ def getTitle(filename: str) -> str:
     return title
 
 
-def getSlug(filename: str) -> str:
+def get_slug(filename: str) -> str:
+    """
+    Cleans up URL path to generate slug from filename
+
+    Args:
+        filename (str): Name of file
+
+    Returns:
+        str: Slug name
+    """
+    # Removes file extention
     slugUrl = re.split(r"\.", filename)[0]
 
     return slugUrl
 
 
-def getBlogPost(filepath: str) -> BlogPost:
-    filename = re.split("/", filepath)[-1]
-
+def get_markdown_content(filepath: str) -> dict:
     with open(filepath) as f:
         post = frontmatter.load(f)
-        postBody = post.content
-        postDateCreate = str(post.metadata["date_created"])
-        postDateUpdate = str(post.metadata["date_updated"])
 
-    slugUrl = getSlug(filename)
-    title = getTitle(filename)
-
-    blogPost: BlogPost = {
-        "title": title,
-        "body": postBody,
-        "slug_url": slugUrl,
-        "date_created": postDateCreate,
-        "date_updated": postDateUpdate,
+    return {
+        **post.to_dict(),
+        "content": post.content,
     }
+
+
+def get_blog_post(filepath: str) -> BlogPost:
+    filename = re.split("/", filepath)[-1]
+
+    blogPost = BlogPost(
+        title=get_title(filename),
+        slug_url=get_slug(filename),
+        **get_markdown_content(filepath),
+    )
 
     return blogPost
 
 
-def getCardContent(filepath: str) -> CardContent:
+def get_card_content(filepath: str) -> CardContent:
     filename = re.split("/", filepath)[-1]
 
     with open(filepath) as f:
@@ -54,7 +72,7 @@ def getCardContent(filepath: str) -> CardContent:
         postDetailUrl = post.metadata["detail_url"]
         postCategory = post.metadata["category"]
 
-    title = getTitle(filename)
+    title = get_title(filename)
 
     cardContent: CardContent = {
         "title": title,
