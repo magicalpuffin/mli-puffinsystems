@@ -4,19 +4,14 @@
 
   import { fade } from "svelte/transition";
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
-  import BlogHeader from "$lib/components/blog/BlogHeader.svelte";
+  import BlogContent from "$lib/components/blog/BlogContent.svelte";
 
   export let data: PageData;
 
   let blogPost: BlogPost = data.blogPost;
-  let blog_html = data.blog_html;
 </script>
 
 <Breadcrumbs />
 <div in:fade>
-  <BlogHeader {blogPost} />
-  <div class="divider" />
-  <article class="prose">
-    {@html blog_html}
-  </article>
+  <BlogContent {blogPost} />
 </div>

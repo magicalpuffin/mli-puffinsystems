@@ -25,17 +25,17 @@ def getBlogPost(filepath: str) -> BlogPost:
 
     with open(filepath) as f:
         post = frontmatter.load(f)
+        postBody = post.content
         postDateCreate = str(post.metadata["date_created"])
         postDateUpdate = str(post.metadata["date_updated"])
 
-    contentUrl = "/markdown/blog/" + filename
     slugUrl = getSlug(filename)
     title = getTitle(filename)
 
     blogPost: BlogPost = {
         "title": title,
+        "body": postBody,
         "slug_url": slugUrl,
-        "markdown_url": contentUrl,
         "date_created": postDateCreate,
         "date_updated": postDateUpdate,
     }
