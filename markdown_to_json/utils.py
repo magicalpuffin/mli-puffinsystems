@@ -15,10 +15,10 @@ def get_title(filename: str) -> str:
     Returns:
         str: Title name
     """
-    nameWithExtension = re.split("_", filename)[-1]
-    name = re.split(r"\.", nameWithExtension)[0]
-    titleList = re.split("-", name)
-    title = " ".join(titleList).title()
+    name_with_extension = re.split("_", filename)[-1]
+    name = re.split(r"\.", name_with_extension)[0]
+    title_list = re.split("-", name)
+    title = " ".join(title_list).title()
 
     return title
 
@@ -34,9 +34,9 @@ def get_slug(filename: str) -> str:
         str: Slug name
     """
     # Removes file extention
-    slugUrl = re.split(r"\.", filename)[0]
+    slug_url = re.split(r"\.", filename)[0]
 
-    return slugUrl
+    return slug_url
 
 
 def get_markdown_content(filepath: str) -> dict:
@@ -52,13 +52,13 @@ def get_markdown_content(filepath: str) -> dict:
 def get_blog_post(filepath: str) -> BlogPost:
     filename = re.split("/", filepath)[-1]
 
-    blogPost = BlogPost(
+    blog_post = BlogPost(
         title=get_title(filename),
         slug_url=get_slug(filename),
         **get_markdown_content(filepath),
     )
 
-    return blogPost
+    return blog_post
 
 
 def get_card_content(filepath: str) -> CardContent:
@@ -66,21 +66,21 @@ def get_card_content(filepath: str) -> CardContent:
 
     with open(filepath) as f:
         post = frontmatter.load(f)
-        postContent = post.content
-        postImgSrc = post.metadata["img_src"]
-        postGithubUrl = post.metadata["github_url"]
-        postDetailUrl = post.metadata["detail_url"]
-        postCategory = post.metadata["category"]
+        post_content = post.content
+        post_img_src = post.metadata["img_src"]
+        post_github_url = post.metadata["github_url"]
+        post_detail_url = post.metadata["detail_url"]
+        post_category = post.metadata["category"]
 
     title = get_title(filename)
 
-    cardContent: CardContent = {
+    card_content: CardContent = {
         "title": title,
-        "body": postContent,
-        "img_src": postImgSrc,
-        "github_url": postGithubUrl,
-        "detail_url": postDetailUrl,
-        "category": postCategory,
+        "body": post_content,
+        "img_src": post_img_src,
+        "github_url": post_github_url,
+        "detail_url": post_detail_url,
+        "category": post_category,
     }
 
-    return cardContent
+    return card_content
