@@ -13,8 +13,8 @@ class BlogPost(BaseModel):
 
 class CardContent(BaseModel):
     title: str
-    body: str
-    img_src: str
-    github_url: str
-    detail_url: str
+    content: str
+    img_src: str | None
+    github_url: str | None
+    detail_url: str | None
     category: str

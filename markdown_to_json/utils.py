@@ -40,6 +40,15 @@ def get_slug(filename: str) -> str:
 
 
 def get_markdown_content(filepath: str) -> dict:
+    """
+    Returns frontmatter and markdown content
+
+    Args:
+        filepath (str): Name of file
+
+    Returns:
+        dict: Frontmatter data and markdown content
+    """
     with open(filepath) as f:
         post = frontmatter.load(f)
 
@@ -64,23 +73,9 @@ def get_blog_post(filepath: str) -> BlogPost:
 def get_card_content(filepath: str) -> CardContent:
     filename = re.split("/", filepath)[-1]
 
-    with open(filepath) as f:
-        post = frontmatter.load(f)
-        post_content = post.content
-        post_img_src = post.metadata["img_src"]
-        post_github_url = post.metadata["github_url"]
-        post_detail_url = post.metadata["detail_url"]
-        post_category = post.metadata["category"]
-
-    title = get_title(filename)
-
-    card_content: CardContent = {
-        "title": title,
-        "body": post_content,
-        "img_src": post_img_src,
-        "github_url": post_github_url,
-        "detail_url": post_detail_url,
-        "category": post_category,
-    }
+    card_content = CardContent(
+        title=get_title(filename),
+        **get_markdown_content(filepath),
+    )
 
     return card_content
