@@ -10,5 +10,5 @@
 <BlogHeader {blogPost} />
 <div class="divider" />
 <article class="prose">
-  {@html markdown_to_html(blogPost.body)}
+  {@html markdown_to_html(blogPost.content)}
 </article>

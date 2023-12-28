@@ -32,7 +32,7 @@
         alt="project screenshot"
       />
       <article class="prose mx-2 my-2">
-        {@html markdown_to_html(cardContent.body)}
+        {@html markdown_to_html(cardContent.content)}
       </article>
     </div>
   </div>

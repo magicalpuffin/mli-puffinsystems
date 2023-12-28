@@ -2,7 +2,7 @@ import type { PageLoad } from "./$types";
 import type { BlogPost } from "$lib/types/blog";
 
 export const load = (async ({ fetch }) => {
-  const URL_blogPostList = "/data/blogPostList.json";
+  const URL_blogPostList = "/static/content/data/blogPostList.json";
   let blogPostList: BlogPost[] = await (await fetch(URL_blogPostList)).json();
 
   blogPostList = blogPostList.sort((a, b) => {

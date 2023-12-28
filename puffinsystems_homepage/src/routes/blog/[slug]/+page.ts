@@ -3,7 +3,7 @@ import type { BlogPost } from "$lib/types/blog";
 import { error } from "@sveltejs/kit";
 
 export const load = (async ({ params, fetch }) => {
-  const URL_BLOGLIST = "/data/blogPostList.json";
+  const URL_BLOGLIST = "/static/content/data/blogPostList.json";
   const BLOG_ID = params.slug;
 
   const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();

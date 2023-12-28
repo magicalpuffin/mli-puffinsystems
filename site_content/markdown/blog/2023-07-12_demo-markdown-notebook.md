@@ -2,7 +2,7 @@
 date_created: 2023-07-12
 date_updated: 2023-12-18
 ---
-![demo markdown notebook screenshot](/images/blog/20230712_markdown_notebook.png)
+![demo markdown notebook screenshot](/static/content/images/blog/20230712_markdown_notebook.png)
 
 ## Overview
 

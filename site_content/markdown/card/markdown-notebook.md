@@ -1,5 +1,5 @@
 ---
-img_src: /images/card_image/demo_md_notebook.png
+img_src: /static/content/images/card/demo_md_notebook.png
 github_url: https://github.com/magicalpuffin/Demo-Markdown-Notebook
 detail_url: https://demo.markdown.puffinsystems.com/
 category: demo

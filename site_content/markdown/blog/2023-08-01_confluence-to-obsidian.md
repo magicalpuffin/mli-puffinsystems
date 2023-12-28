@@ -2,7 +2,7 @@
 date_created: 2023-08-01
 date_updated: 2023-11-04
 ---
-![Confluence to Obsidian logos](/images/blog/20230801_confluence_to_obsidian.png)
+![Confluence to Obsidian logos](/static/content/images/blog/20230801_confluence_to_obsidian.png)
 
 # Overview
 

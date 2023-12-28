@@ -1,6 +1,6 @@
 import datetime
 
-from markdown_to_json.config import TEST_PATH
+from markdown_to_json.config import TEST_DATA_BLOG, TEST_DATA_CARD
 from markdown_to_json.markdown_types import BlogPost, CardContent
 from markdown_to_json.utils import get_blog_post, get_card_content, get_slug, get_title
 
@@ -29,7 +29,7 @@ class TestGetBlogPost:
             date_created=datetime.date(2023, 1, 1),
             date_updated=datetime.date(2023, 1, 2),
         )
-        assert get_blog_post(TEST_PATH + filename) == target
+        assert get_blog_post(TEST_DATA_BLOG + filename) == target
 
 
 class TestGetCardContent:
@@ -43,7 +43,7 @@ class TestGetCardContent:
             detail_url="https://markdown.puffinsystems.com/",
             category="test_category",
         )
-        assert get_card_content(TEST_PATH + filename) == target
+        assert get_card_content(TEST_DATA_CARD + filename) == target
 
     def test_missing(self):
         filename = "test-card-2.md"
@@ -55,4 +55,4 @@ class TestGetCardContent:
             detail_url=None,
             category="test_category",
         )
-        assert get_card_content(TEST_PATH + filename) == target
+        assert get_card_content(TEST_DATA_CARD + filename) == target

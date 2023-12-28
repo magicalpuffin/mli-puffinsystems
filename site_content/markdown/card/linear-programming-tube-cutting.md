@@ -1,5 +1,5 @@
 ---
-img_src: /images/card_image/lp_tube_cutting.png
+img_src: /static/content/images/card/lp_tube_cutting.png
 github_url: https://github.com/magicalpuffin/Py-Notebooks/tree/main/lp_tube_cutting
 detail_url: 
 category: notebook

@@ -1,5 +1,5 @@
 ---
-img_src: /images/card_image/demo_mfg_kanban.png
+img_src: /static/content/images/card/demo_mfg_kanban.png
 github_url: https://github.com/magicalpuffin/Demo-Manufacturing-Kanban
 detail_url: 
 category: demo

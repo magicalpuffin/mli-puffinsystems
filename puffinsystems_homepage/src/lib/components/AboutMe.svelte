@@ -5,7 +5,7 @@
 <AboutMeCard
   title="Michael Li"
   subtitle="Manufacturing Engineer, Software Enjoyer"
-  imgsrc="/images/self_portrait.JPG"
+  imgsrc="/static/content/images/self_portrait.JPG"
   imgalt="self portrait"
 >
   <p>
