@@ -1,6 +1,10 @@
+import os
 import re
+from typing import Callable
 
 import frontmatter
+from pydantic import RootModel
+from pydantic._internal._model_construction import ModelMetaclass
 
 from .markdown_types import BlogPost, CardContent
 
@@ -44,7 +48,7 @@ def get_markdown_content(filepath: str) -> dict:
     Returns frontmatter and markdown content
 
     Args:
-        filepath (str): Name of file
+        filepath (str): Path to file
 
     Returns:
         dict: Frontmatter data and markdown content
@@ -59,6 +63,15 @@ def get_markdown_content(filepath: str) -> dict:
 
 
 def get_blog_post(filepath: str) -> BlogPost:
+    """
+    Gets blog post from a single markdown file
+
+    Args:
+        filepath (str): Path to file
+
+    Returns:
+        BlogPost: Object from markdown file
+    """
     filename = re.split("/", filepath)[-1]
 
     blog_post = BlogPost(
@@ -71,6 +84,15 @@ def get_blog_post(filepath: str) -> BlogPost:
 
 
 def get_card_content(filepath: str) -> CardContent:
+    """
+    Gets card content from a single markdown file
+
+    Args:
+        filepath (str): Path to file
+
+    Returns:
+        CardContent: Object from markdown file
+    """
     filename = re.split("/", filepath)[-1]
 
     card_content = CardContent(
@@ -79,3 +101,44 @@ def get_card_content(filepath: str) -> CardContent:
     )
 
     return card_content
+
+
+def read_markdown_files(
+    directory: str, model: ModelMetaclass, markdown_serializer: Callable
+) -> RootModel:
+    """
+    Reads all markdown files from directory
+
+    Args:
+        directory (str): Directory with markdown files
+        model (ModelMetaclass): Pydantic model for RootModel
+        markdown_serializer (Callable): Function for serialzing each markdown file
+
+    Returns:
+        RootModel: RootModel list of Pydantic model passed in
+    """
+
+    class RootListModel(RootModel[list[model]]):
+        pass
+
+    # root_list_model = RootModel[list[model]]
+    model_list = []
+
+    for file in os.listdir(directory):
+        model_list.append(markdown_serializer(directory + file))
+
+    return RootListModel(model_list)
+
+
+def root_model_to_json(root_model: RootModel, filepath: str):
+    """
+    Writes root model json, creating directory if needed
+
+    Args:
+        root_model (RootModel): Pydantic RootModel
+        filepath (str): Filepath to write to
+    """
+    # BUG when no directory is needed
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w") as outfile:
+        outfile.write(root_model.model_dump_json())
