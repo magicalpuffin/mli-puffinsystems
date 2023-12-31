@@ -1,5 +1,6 @@
 import datetime
 import json
+import operator
 
 from pydantic import RootModel
 
@@ -92,4 +93,6 @@ class TestReadMarkdownFiles:
             TEST_DATA_CARD, CardContent, get_card_content
         )
 
-        assert test_card_root.model_dump() == target.model_dump()
+        assert sorted(
+            test_card_root.model_dump(), key=operator.itemgetter("title")
+        ) == sorted(target.model_dump(), key=operator.itemgetter("title"))
