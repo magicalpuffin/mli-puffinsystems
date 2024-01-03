@@ -2,16 +2,17 @@
 date_created: 2024-01-02
 date_updated: 2024-01-02
 ---
-![[20231018_piantor_complete.png]]
+![[static/content/images/blog/20231018/20231018_piantor_complete.png]]
 
 ## Overview
 
-The [Piantor](https://github.com/beekeeb/piantor) is a 36-42 key mechanical keyboard using the RP2040 microcontroller. I built this keyboard in replacement of my [ZSA Moonlander](https://www.zsa.io/moonlander/) for the following reasons.
+The [Piantor](https://github.com/beekeeb/piantor) is a 36 or 42 key mechanical keyboard using the RP2040 microcontroller based on the [Cantor](https://github.com/diepala/cantor). I built this keyboard in replacement of my [ZSA Moonlander](https://www.zsa.io/moonlander/) for the following reasons.
 
 - **36 keys.** I was only using 36 keys on the Moonlander anyways.
 - **Pinky stagger.** The Piantor has a more drastic column stagger compared to other keyboards. 
 - **Low profile.** I was planning on carrying this keyboard for work or when traveling.
 - **Hot swappable switches.** I was expecting to mess up and this would allow reusing the switches.
+- **Easy build.** Diodeless, hotswappable sockets, and the option to directly solder the microcontroller to the PCB makes it much easier to build.
 
 I highly recommend the Piantor keyboard, although, I don't recommend the process I went through for building mine.
 ## Sourcing
@@ -86,10 +87,10 @@ The case provided on the Piantor github is fine. There is also a 36 key version 
 
 Soldering was completed with a Pinecil on a USB C laptop charger. I used lead free solder which might have been a mistake due to the higher melting temperature. All connections to ground were difficult to melt even when using the max temperature on the Pinecil.
 
-![[20231018_piantor_solder.png]]
+![[static/content/images/blog/20231018/20231018_piantor_solder.png]]
 
 ## Firmware
 
 The default firmware provided by Beekeeb for the Piantor was Vial, a QMK fork which allows you to update the firmware live. Real time firmware changes is such an amazing feature that it makes Vial better than Oryx. I recreated my Moonlander layout and everything works as expected.
 
-![[20231018_piantor_vial.png]]
+![[static/content/images/blog/20231018/20231018_piantor_vial.png]]
