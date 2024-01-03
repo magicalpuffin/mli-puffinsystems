@@ -20,58 +20,37 @@ Within 3 days of receiving my Moonlander, the right board stopped responding whe
 
 This was caused by unplugging the TRRS cable while boards were still powered. This is actually a [common issue ](https://www.reddit.com/r/ErgoMechKeyboards/comments/rt083u/) for split keyboards without additional protections built in. This use case and functionality is also advertised by ZSA. 
 
-Fortunately, I was able to contact ZSA and receive a replacement unit. The long lead time also applied to the replacement unit which took about a week to recieve.
+Fortunately, I was able to contact ZSA and receive a replacement unit. The long lead time also applied to the replacement unit which took about a week to receive.
 
 ## Ergonomic Issues
 
-One of the greatest disappointments with the Moonlander was the lackluster ergonomics given its price point.
+One of the greatest disappointments with the Moonlander was the lackluster ergonomics given its price point and marketing.
 
 ![[static/content/images/blog/20230706/20230706_moonlander_ferris.png]]
 
-The worst offender is thumb cluster. It is simply too far away to be used reliably, only the closest key can be used reliably without thumb pain. In the image, compare the Ferris Sweep thumb keys with the Moonlander. The larger thumb key is basically unusuable.
+The worst offender is thumb cluster. Out of the 4 keys, only one is usable; all of the other keys are too far away to be used without thumb pain. Almost no other keyboard has such a far away thumb cluster, see comparison with the Ferris Sweep (image from [Split Keyboard Compare](https://compare.splitkb.com/)).
 
-[Split Keyboard Compare](https://compare.splitkb.com/)
+Tenting is also dependent on the thumb cluster; therefore, when you fully tent the Moonlander, the thumb cluster is moved even further away and at a downward angle. To address this, you would either have to give ZSA another $112 for the [Platform](https://www.zsa.io/moonlander/platform/), or 3d print work arounds such as a [thumb cluster leg](https://www.thingiverse.com/thing:4688862). 
 
-Tenting is dependent on the thumb cluster, therefore, if you fully tent the moonlander, the thumb cluster becomes even further away. The work around was to 3d print another leg but this isn't an ideal solution
+The pinky columns are not staggered far enough, however, this is a common issue on many keyboards. Trying to reliably press "q" and "p" was difficult and required shifting my entire hand.
 
-The pinky columns are not offset far enough. This made pressing "q" and "p" difficult. This would require moving my entire hand in order to access them
+I'm surprised these issues were missed when the layout was designed. Looking back at the reviews, I should have also paid more attention to these issues as well.
 
-Wrist rests weren't that useful. They positioned your wrist too low which ended up being not ergonomic. In order to press all of the buttons, I had to constantly move around my hand anyways so it was better to just hover my hands over the keyboard instead, making the wrist rests redundant
-
-
-## Learning a Ortholinear Keyboard
-
-The biggest hurdle to most split ortholinear keyboards will likely be breaking all of the bad habits from. It took me around a month to get back to normal typing speed
-
-Also, don't switch away from QWERTY to an alternate layout such as DVORAK while learning an split ortholinear layout. This 
-
-I planed on continuing to use the standard QWERTY layout despite its flaws primarily because it would be easier to learn. There were also other reasons such as:
-
-- Preserving the ability to use other keyboards such as ones on laptops
-- Keeping the default key bindings and righthand home row when using Vim
-- Using the bumps on the "f" and "j" keys for find the home row
-
-Despite still using the layout I was used to, the ortholinear design was enough to throw off my typing. This was almost entirely due to the bad typing habits I had; this gets punished far more severely when using a split ortholiniear design. Some bad habits include:
-
-- Trying to pressing the "b" key with the right hand
-- Pressing "b" instead of "v"
-- Using the middle finger for "u" instead of the index
-- Pressing "x" with the middle finger instead of the ring
-- Pressing "c" with the index finger instead of the middle
-
-| Date  | WPM |
-| ----- | --- |
-| 07/06 | <30 |
-| 07/07 | 37  |
-| 07/08 | 48  |
-| 07/09 | 57  |
-| 07/20 | 59  |
-| 08/03 | 69  |
-| 08/13 | 74  |
-
-## The Good
+## How I Used the Moonlander
 
 I purchased the Moonlander for multiple reasons. First reason was ergonomics; I had issues with wrist pain on other keyboards and saw positive online reviews for the Moonlander ([Ben Vallack](https://www.youtube.com/watch?v=eSiF7IwOyFw), [Semag Games](https://www.youtube.com/watch?v=Big80AStHSU)). Second reason was convenience; many of the other keyboards discussed online were custom made and had fewer keys.
+
+Over the period of 2 months, I iterated on various keyboard layouts, eventually creating a 36 key layout.
+
+Learning ortholinear layout took the longest. Took around 2 months to get used to the keyboard
+
+Some things I learned
+- RGB doesn't matter. I used it to differentiate between layers but now I just disabled it completely.
+- The wrist rests caused more problems. It is better to just hover your hands over the keyboard. Even with a 36 key layout, I need to constantly move my hands around to reach all of the keys.
+- Don't use the thumb cluster. A 36 key layout is able to fully fit on the main board, allowing you to use normal keys for thumb keys.
+- Key caps should just be blank. Having printed letters just became annoying whenever you rebinded the buttons
+
+Wrist rests weren't that useful. They positioned your wrist too low which ended up being not ergonomic. In order to press all of the buttons, I had to constantly move around my hand anyways so it was better to just hover my hands over the keyboard instead, making the wrist rests redundant
 
 
 ![[static/content/images/blog/20230706/20230706_36key_moonlander.png]]
