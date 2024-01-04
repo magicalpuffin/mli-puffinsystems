@@ -8,9 +8,9 @@ date_updated: 2024-01-02
 
 The [Moonlander MK I](https://www.zsa.io/moonlander/) is a $400 dollar ortholinear split keyboard from ZSA, and was my first introduction to the mechanical keyboard world. Despite the impressive marketing, the Moonlander is mediocre at best; the greatest value it provides is for beginners to get into split mechanical keyboards.
 
-UPDATE: The newly released [ZSA Voyager](https://www.zsa.io/voyager) outclasses the Moonlander and addresses many of its issues.
+UPDATE: The newly released [ZSA Voyager](https://www.zsa.io/voyager) outclasses the Moonlander and addresses many of my issues.
 
-If your top priority is ergonomics, I would recommend a 36 or 42 key keyboard ([Piantor](https://github.com/beekeeb/piantor), [Corne](https://github.com/foostan/crkbd), [Ferris Sweep](https://github.com/davidphilipbarr/Sweep)). These keyboard can be purchased pre-soldered and will likely similar in quality to the Moonlander. Many of these keyboards support [Vial](https://get.vial.today/), which enables real time layout configuration.
+If your top priority is ergonomics, I would recommend a 36 or 42 key keyboard ([Piantor](https://github.com/beekeeb/piantor), [Corne](https://github.com/foostan/crkbd), [Ferris Sweep](https://github.com/davidphilipbarr/Sweep)). These keyboard can be purchased pre-soldered and will likely be similar in quality to the Moonlander. These keyboards also support [Vial](https://get.vial.today/), which enables real time layout configuration.
 
 ## Reliability Issues
 
@@ -36,21 +36,21 @@ The pinky columns are not staggered far enough, however, this is a common issue 
 
 I'm surprised these issues were missed when the layout was designed. Looking back at the reviews, I should have also paid more attention to these issues as well.
 
-## How I Used the Moonlander
+## How I Use the Moonlander
 
-I purchased the Moonlander for multiple reasons. First reason was ergonomics; I had issues with wrist pain on other keyboards and saw positive online reviews for the Moonlander ([Ben Vallack](https://www.youtube.com/watch?v=eSiF7IwOyFw), [Semag Games](https://www.youtube.com/watch?v=Big80AStHSU)). Second reason was convenience; many of the other keyboards discussed online were custom made and had fewer keys.
+Despite the issues, the Moonlander provided a great platform for learning an ortholinear layout. After around 2 months, I eventually created a 36 key configuration which worked for me. 
 
-Over the period of 2 months, I iterated on various keyboard layouts, eventually creating a 36 key layout.
-
-Learning ortholinear layout took the longest. Took around 2 months to get used to the keyboard
-
-Some things I learned
+Here are some things I learned:
+- Use 36 keys.
+- Ignore the thumb cluster.
+- Disable RGB.
+- 
 - RGB doesn't matter. I used it to differentiate between layers but now I just disabled it completely.
-- The wrist rests caused more problems. It is better to just hover your hands over the keyboard. Even with a 36 key layout, I need to constantly move my hands around to reach all of the keys.
+- The wrist rests caused more problems. It is better to just hover your hands over the keyboard. Even with a 36 key layout, I had to move my hands around to reach all of the keys. Fortunately, you can remove.
 - Don't use the thumb cluster. A 36 key layout is able to fully fit on the main board, allowing you to use normal keys for thumb keys.
 - Key caps should just be blank. Having printed letters just became annoying whenever you rebinded the buttons
 
-Wrist rests weren't that useful. They positioned your wrist too low which ended up being not ergonomic. In order to press all of the buttons, I had to constantly move around my hand anyways so it was better to just hover my hands over the keyboard instead, making the wrist rests redundant
+However, at this point, I might as well just make another keyboard.
 
 
 ![[static/content/images/blog/20230706/20230706_36key_moonlander.png]]
