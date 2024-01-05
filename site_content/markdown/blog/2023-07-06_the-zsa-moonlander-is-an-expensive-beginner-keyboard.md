@@ -10,7 +10,21 @@ The [Moonlander MK I](https://www.zsa.io/moonlander/) is a $400 dollar ortholine
 
 UPDATE: The newly released [ZSA Voyager](https://www.zsa.io/voyager) outclasses the Moonlander and addresses many of my issues.
 
-If your top priority is ergonomics, I would recommend a 36 or 42 key keyboard ([Piantor](https://github.com/beekeeb/piantor), [Corne](https://github.com/foostan/crkbd), [Ferris Sweep](https://github.com/davidphilipbarr/Sweep)). These keyboard can be purchased pre-soldered and will likely be similar in quality to the Moonlander. These keyboards also support [Vial](https://get.vial.today/), which enables real time layout configuration.
+If your top priority is ergonomics, I would recommend a 36 or 42 key keyboard ([Piantor](https://github.com/beekeeb/piantor), [Corne](https://github.com/foostan/crkbd), [Ferris Sweep](https://github.com/davidphilipbarr/Sweep)). These keyboard can be purchased pre-soldered and will likely be similar in quality to the Moonlander. These keyboards also support [Vial](https://get.vial.today/), which enables real time layout configuration, something not supported by Oryx (ZSA's layout editor).
+
+## How I Use the Moonlander
+
+The Moonlander provided a great platform for learning and developing a keyboard layout. After 2 months, I was able to create a 36 key configuration which works for me. Here were some of my considerations:
+
+- **Use 36 keys**. Fewer keys is more difficult to learn but pays off ergonomically.
+- **Ignore the thumb cluster**. A 36 key layout is able to fully fit on the main board, allowing you to use normal keys for thumb keys.
+- **Disable the RGB**. I originally used it to differentiate between layers but it is unnecessary.
+- **Remove the wrist rests**. The built in wrist rests are too low, it was more comfortable to hover my hands over the keyboard.
+- **Printed key caps don't matter**. With custom layouts, you will need to memorize your layout anyways.
+
+With so many keys removed and features ignored, I might as well just get another keyboard. 
+
+![[static/content/images/blog/20230706/20230706_36key_moonlander.png]]
 
 ## Reliability Issues
 
@@ -28,29 +42,11 @@ One of the greatest disappointments with the Moonlander was the lackluster ergon
 
 ![[static/content/images/blog/20230706/20230706_moonlander_ferris.png]]
 
-The worst offender is thumb cluster. Out of the 4 keys, only one is usable; all of the other keys are too far away to be used without thumb pain. Almost no other keyboard has such a far away thumb cluster, see comparison with the Ferris Sweep (image from [Split Keyboard Compare](https://compare.splitkb.com/)).
+The worst offender is thumb cluster. Out of the 4 keys, only one is usable; all of the other keys are too far away to be used without thumb pain. Almost no other keyboard has such a far away thumb cluster. For example, compare the thumb cluster with the ones on the Ferris Sweep (image from [Split Keyboard Compare](https://compare.splitkb.com/)).
 
-Tenting is also dependent on the thumb cluster; therefore, when you fully tent the Moonlander, the thumb cluster is moved even further away and at a downward angle. To address this, you would either have to give ZSA another $112 for the [Platform](https://www.zsa.io/moonlander/platform/), or 3d print work arounds such as a [thumb cluster leg](https://www.thingiverse.com/thing:4688862). 
+Tenting is also dependent on the thumb cluster; therefore, if you were to fully tent the Moonlander, the thumb cluster is moved even further away at a downward angle. To address this, you would either have to give ZSA another $112 for the [Platform](https://www.zsa.io/moonlander/platform/), or 3d print workarounds such as a [thumb cluster leg](https://www.thingiverse.com/thing:4688862). I opted for the latter before giving up and just ignoring the thumb cluster entirely.
 
-The pinky columns are not staggered far enough, however, this is a common issue on many keyboards. Trying to reliably press "q" and "p" was difficult and required shifting my entire hand.
+The pinky columns are not staggered far enough, however, this is a common issue on many other keyboards. Trying to reliably press "q" and "p" was difficult and required shifting my entire hand.
 
-I'm surprised these issues were missed when the layout was designed. Looking back at the reviews, I should have also paid more attention to these issues as well.
+I'm surprised these issues were missed when ZSA designed the layout. Looking back at the reviews, I should have also paid more attention to these issues.
 
-## How I Use the Moonlander
-
-Despite the issues, the Moonlander provided a great platform for learning an ortholinear layout. After around 2 months, I eventually created a 36 key configuration which worked for me. 
-
-Here are some things I learned:
-- Use 36 keys.
-- Ignore the thumb cluster.
-- Disable RGB.
-- 
-- RGB doesn't matter. I used it to differentiate between layers but now I just disabled it completely.
-- The wrist rests caused more problems. It is better to just hover your hands over the keyboard. Even with a 36 key layout, I had to move my hands around to reach all of the keys. Fortunately, you can remove.
-- Don't use the thumb cluster. A 36 key layout is able to fully fit on the main board, allowing you to use normal keys for thumb keys.
-- Key caps should just be blank. Having printed letters just became annoying whenever you rebinded the buttons
-
-However, at this point, I might as well just make another keyboard.
-
-
-![[static/content/images/blog/20230706/20230706_36key_moonlander.png]]
