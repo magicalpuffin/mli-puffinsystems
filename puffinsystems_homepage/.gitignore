@@ -1,4 +1,7 @@
-.obsidian
+# Ignore custom site content
+/static/static/content
+
+# Default Svelte .gitignore
 .DS_Store
 node_modules
 /build

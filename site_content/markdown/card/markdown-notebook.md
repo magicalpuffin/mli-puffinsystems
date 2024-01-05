@@ -1,0 +1,9 @@
+---
+img_src: /static/content/images/card/demo_md_notebook.png
+github_url: https://github.com/magicalpuffin/Demo-Markdown-Notebook
+detail_url: https://demo.markdown.puffinsystems.com/
+category: demo
+---
+Create, edit and save markdown notebooks. This project was created when I was first learning Svelte.
+
+[Read More](/blog/2023-07-12_demo-markdown-notebook/)

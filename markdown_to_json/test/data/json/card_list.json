@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Test Card 1",
+        "content": "Test card content",
+        "img_src": "/static/images/testimage.png",
+        "github_url": "https://github.com/magicalpuffin/",
+        "detail_url": "https://markdown.puffinsystems.com/",
+        "category": "test_category"
+    },
+    {
+        "title": "Test Card 2",
+        "content": "Card content missing values",
+        "img_src": null,
+        "github_url": null,
+        "detail_url": null,
+        "category": "test_category"
+    }
+]

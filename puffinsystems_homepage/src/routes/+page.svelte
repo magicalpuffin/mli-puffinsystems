@@ -3,8 +3,8 @@
   import type { CardContent } from "$lib/types/card";
   import { fade } from "svelte/transition";
 
-  import AboutMe from "$lib/components/cards/AboutMe.svelte";
-  import CardCarousel from "$lib/components/cardCarousel/cardCarousel.svelte";
+  import AboutMe from "$lib/components/AboutMe.svelte";
+  import CardCarousel from "$lib/components/cardCarousel/CardCarousel.svelte";
   import Header from "$lib/components/Header.svelte";
 
   export let data: PageData;
