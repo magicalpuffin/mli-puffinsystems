@@ -1,3 +1,5 @@
-This is a portfolio site.
+Hi, this is my personal website.
 
-Deploy with `npx sst deploy --stage prod`
+Static content is generated using `python -m markdown_to_json.process_content`
+
+Deployed using SST using `npx sst deploy --stage prod`
