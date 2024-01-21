@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import "../github-dark.css";
   import Navbar from "$lib/components/navbar/Navbar.svelte";
   import Footer from "$lib/components/Footer.svelte";
 </script>

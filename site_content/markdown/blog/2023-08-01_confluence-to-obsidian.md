@@ -34,7 +34,7 @@ First export a Confluence workspace to HTML. The HTML is then converted to markd
 
 ## PowerShell script
 
-```
+```powershell
 # ConvetHTMLToMarkdown.ps1
 
 # Set the path to the folder containing the HTML files
@@ -67,7 +67,7 @@ foreach ($htmlFile in $htmlFiles) {
 
 ## Pandoc
 
-```
+```powershell
 pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileName'
 ```
 
@@ -77,7 +77,7 @@ pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileNa
 
 ## Lua Filter
 
-```
+```powershell
 -- filter_html.lua
 
 function Span(el)
