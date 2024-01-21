@@ -3,11 +3,17 @@ import {markedHighlight} from "marked-highlight"
 import hljs from "highlight.js"
 import sanitizeHtml from "sanitize-html";
 
-export function markdown_to_html(markdown_text: string): string {
-  let html_text = markdown_text;
+export function markdown_to_html(markdown_text?: string): string {
+  if (markdown_text === undefined) {
+    markdown_text = "*No text to display. Edit to add text.*";
+    
+  }
 
-  if (!html_text) {
-    html_text = "*No text to display. Edit to add text.*";
+  // Modified render to wrap table
+  const renderer = {
+    table(header:string, body:string) {
+      return `<div class="table-container"><table>${header}${body}</table></div>`;
+    }
   }
 
   const marked = new Marked(
@@ -17,19 +23,18 @@ export function markdown_to_html(markdown_text: string): string {
         const language = hljs.getLanguage(lang) ? lang : 'plaintext';
         return hljs.highlight(code, { language }).value;
       }
-    })
+    }), {renderer}
   );
 
-  // https://github.com/markedjs/marked
-  html_text = marked.parse(html_text, {
+  let html_text = marked.parse(markdown_text, {
     mangle: false,
     headerIds: false,
   });
 
-  // https://github.com/apostrophecms/sanitize-html
   html_text = sanitizeHtml(html_text, {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
     allowedClasses: {
+      'div': [ 'table-container' ],
       'code': [ 'hljs', 'language-*', 'lang-*' ],
       'span': [ 'hljs-*' ]
     }
