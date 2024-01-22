@@ -1,4 +1,7 @@
 ---
+post_id: 20230712
+title: Demo Markdown Notebook
+description: Overview about creating a markdown editor using SvelteKit
 date_created: 2023-07-12
 date_updated: 2023-12-18
 ---

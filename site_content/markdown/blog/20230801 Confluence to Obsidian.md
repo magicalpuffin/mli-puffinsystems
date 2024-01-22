@@ -1,4 +1,7 @@
 ---
+post_id: 20230801
+title: Confluence to Obsidian
+description: How to convert Confluence HTML export into markdown for Obsidian.
 date_created: 2023-08-01
 date_updated: 2023-11-04
 ---
@@ -34,7 +37,7 @@ First export a Confluence workspace to HTML. The HTML is then converted to markd
 
 ## PowerShell script
 
-```
+```powershell
 # ConvetHTMLToMarkdown.ps1
 
 # Set the path to the folder containing the HTML files
@@ -67,7 +70,7 @@ foreach ($htmlFile in $htmlFiles) {
 
 ## Pandoc
 
-```
+```powershell
 pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileName'
 ```
 
@@ -77,7 +80,7 @@ pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileNa
 
 ## Lua Filter
 
-```
+```powershell
 -- filter_html.lua
 
 function Span(el)

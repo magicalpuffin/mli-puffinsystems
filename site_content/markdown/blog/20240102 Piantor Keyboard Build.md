@@ -1,4 +1,7 @@
 ---
+post_id: 20240102
+title: Piantor Keyboard Build
+description: My experience with building a Piantor keyboard; including issues I ran into, budget, 3d printing.
 date_created: 2024-01-02
 date_updated: 2024-01-02
 ---

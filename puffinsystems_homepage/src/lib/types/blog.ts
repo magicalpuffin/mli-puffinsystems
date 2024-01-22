@@ -1,7 +1,9 @@
 export type BlogPost = {
-  title: string;
+  filename: string;
   content: string;
-  slug_url: string;
+  post_id: number;
+  title: string;
+  description: string;
   date_created: string;
   date_updated: string;
 };

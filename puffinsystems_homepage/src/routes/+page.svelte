@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import type { CardContent } from "$lib/types/card";
-  import { fade } from "svelte/transition";
 
   import AboutMe from "$lib/components/AboutMe.svelte";
   import CardCarousel from "$lib/components/cardCarousel/CardCarousel.svelte";
@@ -13,7 +12,14 @@
   let notebookCardList: CardContent[] = data.notebookCardList;
 </script>
 
-<div in:fade class="flex flex-col gap-2">
+<svelte:head
+  ><title>Michael Li</title><meta
+    name="description"
+    content="Michael Li. Personal website showcasing project and blog. "
+  /></svelte:head
+>
+
+<div class="flex flex-col gap-2">
   <div>
     <Header text="About Me" id="aboutme" />
     <AboutMe />

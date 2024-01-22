@@ -5,13 +5,21 @@
   import { fade } from "svelte/transition";
   import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
   import BlogContent from "$lib/components/blog/BlogContent.svelte";
+  import "$lib/styles/github-dark.css";
+  import "$lib/styles/blog-styles.css";
 
   export let data: PageData;
 
   let blogPost: BlogPost = data.blogPost;
 </script>
 
-<Breadcrumbs />
+<svelte:head
+  ><title>{blogPost.title}</title><meta
+    name="description"
+    content={blogPost.description}
+  /></svelte:head
+>
+
 <div in:fade>
   <BlogContent {blogPost} />
 </div>
