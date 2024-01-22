@@ -13,7 +13,12 @@
   let blogPost: BlogPost = data.blogPost;
 </script>
 
-<svelte:head><title>{blogPost.title}</title></svelte:head>
+<svelte:head
+  ><title>{blogPost.title}</title><meta
+    name="description"
+    content={blogPost.description}
+  /></svelte:head
+>
 
 <div in:fade>
   <BlogContent {blogPost} />

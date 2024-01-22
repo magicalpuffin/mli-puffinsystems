@@ -4,6 +4,7 @@
     "cssclasses": "multitext",
     "tags": "tags",
     "id": "number",
-    "sequence": "number"
+    "sequence": "number",
+    "post_id": "number"
   }
 }

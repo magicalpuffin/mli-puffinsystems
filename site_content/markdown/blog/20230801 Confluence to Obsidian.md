@@ -1,5 +1,5 @@
 ---
-id: 20230801
+post_id: 20230801
 title: Confluence to Obsidian
 description: How to convert Confluence HTML export into markdown for Obsidian.
 date_created: 2023-08-01

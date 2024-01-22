@@ -4,17 +4,21 @@ from pydantic import BaseModel
 
 
 class BlogPost(BaseModel):
-    title: str
+    filename: str
     content: str
-    slug_url: str
+    post_id: int
+    title: str
+    description: str
     date_created: date
     date_updated: date
 
 
 class CardContent(BaseModel):
-    title: str
+    filename: str
     content: str
+    title: str
+    category: str
+    sequence: int
     img_src: str | None
     github_url: str | None
     detail_url: str | None
-    category: str

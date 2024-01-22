@@ -1,5 +1,5 @@
 ---
-id: <% tp.date.now("YYYYMMDD") %>
+post_id: <% tp.date.now("YYYYMMDD") %>
 title: 
 description: 
 date_created: <% tp.date.now() %>

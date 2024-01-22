@@ -10,4 +10,4 @@ Basic manufacturing kanban board created as a single page app. Create parts, loc
 
 django, sqlite3, sortable, lambda
 
-[Read More](/blog/2023-07-15_demo-manufacturing-kanban/)
+[Read More](/blog/20230715/)

@@ -9,7 +9,7 @@ export const load = (async ({ params, fetch }) => {
   const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
 
   const blogPost: BlogPost | undefined = blogPostList.find((blogPost) => {
-    return blogPost.slug_url === BLOG_ID;
+    return String(blogPost.post_id) === BLOG_ID;
   });
 
   if (blogPost === undefined) {

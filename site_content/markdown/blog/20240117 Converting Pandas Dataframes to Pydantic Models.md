@@ -1,9 +1,9 @@
 ---
-id: 20240117
+post_id: 20240117
 title: Converting Pandas Dataframes to Pydantic Models
+description: Blog post about how I created pandas-to-pydantic, and how it could be used for restructuring data.
 date_created: 2024-01-17
 date_updated: 2024-01-17
-description: Blog post about how I created pandas-to-pydantic, and how it could be used for restructuring data.
 ---
 ## Overview
 

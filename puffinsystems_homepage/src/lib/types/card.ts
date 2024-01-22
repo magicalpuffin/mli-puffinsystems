@@ -1,8 +1,10 @@
 export type CardContent = {
-  title: string;
+  filename: string;
   content: string;
-  detail_url: string;
-  github_url: string;
-  img_src: string;
+  title: string;
   category: string;
+  sequence: number;
+  img_src: string | undefined;
+  detail_url: string | undefined;
+  github_url: string | undefined;
 };

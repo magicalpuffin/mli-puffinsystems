@@ -8,4 +8,4 @@ detail_url: https://demo.markdown.puffinsystems.com/
 ---
 Create, edit and save markdown notebooks. This project was created when I was first learning Svelte.
 
-[Read More](/blog/2023-07-12_demo-markdown-notebook/)
+[Read More](/blog/20230712/)

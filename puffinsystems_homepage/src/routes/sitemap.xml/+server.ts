@@ -1,6 +1,13 @@
+import type { BlogPost } from "$lib/types/blog";
+
 export async function GET() {
-	return new Response(
-		`
+  const website = "https://puffinsystems.com/";
+  const URL_BLOGLIST = website + "static/content/data/blogPostList.json";
+
+  const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
+
+  return new Response(
+    `
 		<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
 			xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -10,12 +17,17 @@ export async function GET() {
 			xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
-			<!-- <url> elements go here -->
+		${blogPostList
+      .map(
+        (blogPost) => `
+		<url><loc>${website}blog/${String(blogPost.post_id)}</loc></url>`
+      )
+      .join("")}
 		</urlset>`.trim(),
-		{
-			headers: {
-				'Content-Type': 'application/xml',
-			},
-		},
-	);
+    {
+      headers: {
+        "Content-Type": "application/xml",
+      },
+    }
+  );
 }

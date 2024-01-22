@@ -1,5 +1,5 @@
 ---
-id: 20230715
+post_id: 20230715
 title: Demo Manufacturing Kanban
 description: Blog post about creating a manufacturing kanban using Django, HTMX, and Bootstrap.
 date_created: 2023-07-15
