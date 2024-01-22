@@ -9,7 +9,12 @@
   let blogPostList: BlogPost[] = data.blogPostList;
 </script>
 
-<svelte:head><title>My Blog Posts</title></svelte:head>
+<svelte:head
+  ><title>My Blog Posts</title><meta
+    name="description"
+    content="List of my blog posts"
+  /></svelte:head
+>
 
 <Header text="My Blog Posts" id="blog" />
 <div class="menu bg-base-200 rounded-box mt-2">

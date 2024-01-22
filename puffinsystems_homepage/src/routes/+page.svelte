@@ -12,7 +12,12 @@
   let notebookCardList: CardContent[] = data.notebookCardList;
 </script>
 
-<svelte:head><title>Michael Li</title></svelte:head>
+<svelte:head
+  ><title>Michael Li</title><meta
+    name="description"
+    content="Michael Li. Personal website showcasing project and blog. "
+  /></svelte:head
+>
 
 <div class="flex flex-col gap-2">
   <div>
