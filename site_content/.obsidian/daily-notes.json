@@ -1,0 +1,5 @@
+{
+  "format": "YYYYMMDD",
+  "folder": "markdown/blog",
+  "template": "templates/blogTemplate"
+}
