@@ -1,8 +1,9 @@
 import type { BlogPost } from "$lib/types/blog";
+import { Config } from "sst/node/config";
 
 export async function GET() {
-  const website = "https://puffinsystems.com/";
-  const URL_BLOGLIST = website + "static/content/data/blogPostList.json";
+  const website = "https://" + Config.DOMAIN_NAME;
+  const URL_BLOGLIST = website + "/static/content/data/blogPostList.json";
 
   const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
 
@@ -20,7 +21,7 @@ export async function GET() {
 		${blogPostList
       .map(
         (blogPost) => `
-		<url><loc>${website}blog/${String(blogPost.post_id)}</loc></url>`
+		<url><loc>${website}/blog/${String(blogPost.post_id)}</loc></url>`
       )
       .join("")}
 		</urlset>`.trim(),

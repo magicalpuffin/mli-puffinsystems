@@ -1,18 +1,14 @@
-import { SvelteKitSite } from "sst/constructs";
-import { StackContext, Api, EventBus } from "sst/constructs";
-import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
+import { Config, StackContext, SvelteKitSite } from "sst/constructs";
 
 export function SITE({ stack }: StackContext) {
-  let CERTIFICATE_ARN = "";
-
-  if (process.env.CERTIFICATE_ARN) {
-    CERTIFICATE_ARN = process.env.CERTIFICATE_ARN;
-  }
-
+  const DOMAIN_NAME = new Config.Parameter(stack, "DOMAIN_NAME", {
+    value: "puffinsystems.com",
+  });
   const site = new SvelteKitSite(stack, "Site", {
     path: "puffinsystems_homepage",
+    bind: [DOMAIN_NAME],
     customDomain: {
-      domainName: "puffinsystems.com",
+      domainName: DOMAIN_NAME.value,
     },
   });
 
