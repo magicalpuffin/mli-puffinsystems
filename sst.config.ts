@@ -4,7 +4,7 @@ import { SITE } from "./stacks/MyStack.js";
 export default {
   config(_input) {
     return {
-      name: "PuffinSystems-Homepage",
+      name: "mli-puffinsystems",
       region: "us-west-1",
     };
   },
