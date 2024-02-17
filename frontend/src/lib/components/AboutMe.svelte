@@ -1,8 +1,8 @@
 <script type="ts">
-  import AboutMeCard from "$lib/components/cardTemplate/SideSplitCard.svelte";
+  import SideSplitCard from "$lib/components/cardTemplate/SideSplitCard.svelte";
 </script>
 
-<AboutMeCard
+<SideSplitCard
   title="Michael Li"
   subtitle="Manufacturing Engineer, Software Enjoyer"
   imgsrc="/static/content/images/self_portrait.JPG"
@@ -30,4 +30,4 @@
       >
     </li>
   </ul>
-</AboutMeCard>
+</SideSplitCard>
