@@ -1,19 +1,21 @@
 import type { PageLoad } from "./$types.js";
-import type { BlogPost } from "$lib/types/blog";
+import type { BlogPostJSON, BlogPost } from "$lib/types/blog";
 
 export const load = (async ({ fetch }) => {
-  const URL_blogPostList = "/static/content/data/blogPostList.json";
-  let blogPostList: BlogPost[] = await (await fetch(URL_blogPostList)).json();
+  const URL_BLOGLIST = "/static/content/data/blogPostList.json";
+  const blogPostListJSON: BlogPostJSON[] = await (
+    await fetch(URL_BLOGLIST)
+  ).json();
 
-  blogPostList = blogPostList.sort((a, b) => {
-    if (a.date_created < b.date_created) {
-      return 1;
-    }
-    if (a.date_created > b.date_created) {
-      return -1;
-    }
-    return 0;
-  });
+  let blogPostList: BlogPost[] = blogPostListJSON.map((blogPost) => ({
+    ...blogPost,
+    date_created: new Date(blogPost.date_created),
+    date_updated: new Date(blogPost.date_updated),
+  }));
+
+  blogPostList = blogPostList.sort(
+    (a, b) => a.date_created.getDate() - b.date_created.getDate()
+  );
 
   return { blogPostList };
 }) satisfies PageLoad;

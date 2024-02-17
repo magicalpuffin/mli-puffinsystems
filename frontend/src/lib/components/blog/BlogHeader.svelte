@@ -7,7 +7,11 @@
 
 <Header text={blogPost.title} id="blogTitle" />
 <div class="flex">
-  <p class="text-md font-light">Created {blogPost.date_created}</p>
+  <p class="text-md font-light">
+    Created {blogPost.date_created.toLocaleDateString()}
+  </p>
   <div class="divider divider-horizontal" />
-  <p class="text-md font-light">Updated {blogPost.date_updated}</p>
+  <p class="text-md font-light">
+    Updated {blogPost.date_updated.toLocaleDateString()}
+  </p>
 </div>
