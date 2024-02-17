@@ -8,8 +8,9 @@
   export let carouselName: string;
 
   let carousel: HTMLElement;
-
   let activeIndex: number = 0;
+
+  cardContentList = cardContentList.sort((a, b) => a.sequence - b.sequence);
 
   function updateActiveIndex() {
     const xLeft = carousel.scrollLeft;

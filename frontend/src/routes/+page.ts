@@ -1,4 +1,4 @@
-import type { PageLoad } from "./$types";
+import type { PageLoad } from "./$types.js";
 import type { CardContent } from "$lib/types/card";
 
 export const load = (async ({ fetch }) => {
