@@ -5,7 +5,7 @@ export function SITE({ stack }: StackContext) {
     value: "mli.puffinsystems.com",
   });
   const site = new SvelteKitSite(stack, "Site", {
-    path: "puffinsystems_homepage",
+    path: "frontend/",
     bind: [DOMAIN_NAME],
     customDomain: {
       domainName: "mli.puffinsystems.com",

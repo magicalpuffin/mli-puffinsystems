@@ -1,5 +1,5 @@
 import { SSTConfig } from "sst";
-import { SITE } from "./stacks/MyStack.js";
+import { SITE } from "./stacks/FrontendStack.js";
 
 export default {
   config(_input) {

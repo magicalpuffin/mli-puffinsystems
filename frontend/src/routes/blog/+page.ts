@@ -1,4 +1,4 @@
-import type { PageLoad } from "./$types";
+import type { PageLoad } from "./$types.js";
 import type { BlogPost } from "$lib/types/blog";
 
 export const load = (async ({ fetch }) => {
