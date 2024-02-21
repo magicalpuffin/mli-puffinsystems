@@ -7,6 +7,7 @@ export const load = (async ({ fetch }) => {
     await fetch(URL_BLOGLIST)
   ).json();
 
+  // TODO Consider moving functionality to utils
   let blogPostList: BlogPost[] = blogPostListJSON.map((blogPost) => ({
     ...blogPost,
     date_created: new Date(blogPost.date_created),
