@@ -7,18 +7,18 @@ from markdown_to_json.config import (
 )
 from markdown_to_json.markdown_types import BlogPost, CardContent
 from markdown_to_json.utils import (
-    read_markdown_files,
+    read_markdown_dir,
     root_model_to_json,
 )
 
 # pythom -m markdown_to_json.process_content
 
-blog_post_root = read_markdown_files(SITE_CONTENT_PATH + "markdown/blog/", BlogPost)
+blog_post_root = read_markdown_dir(SITE_CONTENT_PATH + "markdown/blog/", BlogPost)
 root_model_to_json(
     blog_post_root, SVELTE_SITE_STATIC_CONTENT_PATH + "data/blogPostList.json"
 )
 
-card_root = read_markdown_files(SITE_CONTENT_PATH + "markdown/card/", CardContent)
+card_root = read_markdown_dir(SITE_CONTENT_PATH + "markdown/card/", CardContent)
 root_model_to_json(
     card_root, SVELTE_SITE_STATIC_CONTENT_PATH + "data/cardContentList.json"
 )
