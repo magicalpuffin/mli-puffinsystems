@@ -3,7 +3,7 @@ import json
 import operator
 
 from markdown_to_json.config import TEST_DATA_BLOG, TEST_DATA_CARD, TEST_DATA_JSON
-from markdown_to_json.markdown_types import CardContent
+from markdown_to_json.markdown_types import BlogPost, CardContent
 from markdown_to_json.utils import (
     read_markdown_dir,
     read_markdown_file,
@@ -21,7 +21,9 @@ class TestGetMarkdownContent:
             "date_created": datetime.date(2023, 1, 1),
             "date_updated": datetime.date(2023, 1, 2),
         }
-        assert read_markdown_file(TEST_DATA_BLOG + "20240101 Test Blog 1.md") == target
+        assert read_markdown_file(
+            TEST_DATA_BLOG + "20240101 Test Blog 1.md", BlogPost
+        ) == BlogPost(**target)
 
     def test_basic_card(self):
         target = {
@@ -34,7 +36,9 @@ class TestGetMarkdownContent:
             "github_url": "https://github.com/magicalpuffin/",
             "detail_url": "https://puffinsystems.com/",
         }
-        assert read_markdown_file(TEST_DATA_CARD + "Test Card 1.md") == target
+        assert read_markdown_file(
+            TEST_DATA_CARD + "Test Card 1.md", CardContent
+        ) == CardContent(**target)
 
 
 class TestReadMarkdownFiles:

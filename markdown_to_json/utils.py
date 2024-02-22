@@ -5,7 +5,7 @@ from pydantic import RootModel
 from pydantic._internal._model_construction import ModelMetaclass
 
 
-def read_markdown_file(filepath: str) -> dict:
+def read_markdown_file(filepath: str, model: ModelMetaclass) -> ModelMetaclass:
     basename = os.path.basename(filepath)
     filename, extension = os.path.splitext(basename)
 
@@ -15,11 +15,13 @@ def read_markdown_file(filepath: str) -> dict:
     with open(filepath) as f:
         post = frontmatter.load(f)
 
-    return {
+    markdown_dict = {
         "filename": filename,
         "content": post.content,
         **post.to_dict(),
     }
+
+    return model(**markdown_dict)
 
 
 def read_markdown_dir(directory: str, model: ModelMetaclass) -> RootModel:
@@ -32,7 +34,8 @@ def read_markdown_dir(directory: str, model: ModelMetaclass) -> RootModel:
     for file in os.listdir(directory):
         filename, extension = os.path.splitext(file)
         if extension == ".md":
-            model_list.append(read_markdown_file(os.path.join(directory, file)))
+            filepath = os.path.join(directory, file)
+            model_list.append(read_markdown_file(filepath, model))
 
     return RootListModel(model_list)
 
