@@ -1,15 +1,16 @@
 import os
-import re
 
 import frontmatter
 from pydantic import RootModel
 from pydantic._internal._model_construction import ModelMetaclass
 
 
-def get_markdown_content(filepath: str) -> dict:
-    filename = re.split("/", filepath)[-1]
-    # Removes extension
-    # filename = re.split(r"\.", filename)[0]
+def read_markdown_file(filepath: str) -> dict:
+    basename = os.path.basename(filepath)
+    filename, extension = os.path.splitext(basename)
+
+    if extension != ".md":
+        ValueError("Not a markdown file")
 
     with open(filepath) as f:
         post = frontmatter.load(f)
@@ -21,7 +22,7 @@ def get_markdown_content(filepath: str) -> dict:
     }
 
 
-def read_markdown_files(directory: str, model: ModelMetaclass) -> RootModel:
+def read_markdown_dir(directory: str, model: ModelMetaclass) -> RootModel:
     class RootListModel(RootModel[list[model]]):
         pass
 
@@ -29,7 +30,9 @@ def read_markdown_files(directory: str, model: ModelMetaclass) -> RootModel:
     model_list = []
 
     for file in os.listdir(directory):
-        model_list.append(get_markdown_content(directory + file))
+        filename, extension = os.path.splitext(file)
+        if extension == ".md":
+            model_list.append(read_markdown_file(os.path.join(directory, file)))
 
     return RootListModel(model_list)
 

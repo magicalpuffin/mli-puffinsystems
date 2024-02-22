@@ -3,9 +3,12 @@ from datetime import date
 from pydantic import BaseModel
 
 
-class BlogPost(BaseModel):
+class BaseMarkdownFile(BaseModel):
     filename: str
     content: str
+
+
+class BlogPost(BaseMarkdownFile):
     post_id: int
     title: str
     description: str
@@ -13,9 +16,7 @@ class BlogPost(BaseModel):
     date_updated: date
 
 
-class CardContent(BaseModel):
-    filename: str
-    content: str
+class CardContent(BaseMarkdownFile):
     title: str
     category: str
     sequence: int

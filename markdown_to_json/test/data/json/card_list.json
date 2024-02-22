@@ -1,6 +1,6 @@
 [
     {
-        "filename": "Test Card 2.md",
+        "filename": "Test Card 2",
         "content": "Card content missing values",
         "title": "Test Card 2",
         "category": "test_category",
@@ -10,7 +10,7 @@
         "detail_url": null
     },
     {
-        "filename": "Test Card 1.md",
+        "filename": "Test Card 1",
         "content": "Test card content",
         "title": "Test Card 1",
         "category": "test_category",
