@@ -1,5 +1,5 @@
 <script lang="ts">
-  import GithubIcon from "$lib/icons/GithubIcon.svelte";
+  import { GithubIcon } from "$lib/icons";
   export let link: string;
 </script>
 

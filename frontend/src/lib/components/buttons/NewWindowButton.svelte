@@ -1,5 +1,5 @@
 <script lang="ts">
-  import OpenInWindowIcon from "$lib/icons/OpenInWindowIcon.svelte";
+  import { OpenInWindowIcon } from "$lib/icons";
   export let link: string;
 </script>
 
