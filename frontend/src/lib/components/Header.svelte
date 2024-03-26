@@ -3,6 +3,6 @@
   export let text: string;
 </script>
 
-<h1 class="my-1 text-4xl font-medium" {id}>
+<h1 class="my-4 text-4xl font-medium tracking-wide" {id}>
   {text}
 </h1>

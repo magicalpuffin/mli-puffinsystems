@@ -1,17 +1,27 @@
 <script lang="ts">
   import Header from "$lib/components/Header.svelte";
-  import type { BlogPost } from "$lib/types/blog";
+  import CalendarIcon from "$lib/icons/Calendar.svelte";
 
-  export let blogPost: BlogPost;
+  export let title: string;
+  export let dateCreated: Date;
+  export let dateUpdated: Date;
 </script>
 
-<Header text={blogPost.title} id="blogTitle" />
-<div class="flex">
+<Header text={title} id="blogTitle" />
+<div
+  class="tooltip tooltip-bottom flex w-fit gap-2"
+  data-tip="Last Updated: {dateUpdated.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })}"
+>
+  <CalendarIcon />
   <p class="text-md font-light">
-    Created {blogPost.date_created.toLocaleDateString()}
-  </p>
-  <div class="divider divider-horizontal" />
-  <p class="text-md font-light">
-    Updated {blogPost.date_updated.toLocaleDateString()}
+    {dateCreated.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })}
   </p>
 </div>

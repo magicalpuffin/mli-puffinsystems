@@ -2,11 +2,7 @@
   import type { PageData } from "./$types";
   import type { BlogPost } from "$lib/types/blog";
 
-  import { fade } from "svelte/transition";
-  import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
-  import BlogContent from "$lib/components/blog/BlogContent.svelte";
-  import "$lib/styles/github-dark.css";
-  import "$lib/styles/blog-styles.css";
+  import { Blog } from "$lib/components/blog";
 
   export let data: PageData;
 
@@ -20,6 +16,4 @@
   /></svelte:head
 >
 
-<div in:fade>
-  <BlogContent {blogPost} />
-</div>
+<Blog {blogPost} />

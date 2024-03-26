@@ -1,14 +1,13 @@
 <script lang="ts">
   /* eslint-disable svelte/no-at-html-tags */
-  import type { BlogPost } from "$lib/types/blog";
-  import { markdown_to_html } from "$lib/utils/markdown_to_html";
-  import BlogHeader from "./BlogHeader.svelte";
+  import { markdownToHtml } from "$lib/utils/markdownToHtml";
 
-  export let blogPost: BlogPost;
+  import "$lib/styles/github-dark.css";
+  import "$lib/styles/blog-styles.css";
+
+  export let content: string;
 </script>
 
-<BlogHeader {blogPost} />
-<div class="divider" />
 <article class="prose">
-  {@html markdown_to_html(blogPost.content)}
+  {@html markdownToHtml(content)}
 </article>
