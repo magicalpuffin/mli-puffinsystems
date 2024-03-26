@@ -5,7 +5,7 @@
 
   import NewWindowButton from "$lib/components/buttons/NewWindowButton.svelte";
   import GithubButton from "$lib/components/buttons/GithubButton.svelte";
-  import { markdown_to_html } from "$lib/utils/markdown_to_html";
+  import { markdownToHtml } from "$lib/utils/markdownToHtml";
 
   export let cardContent: CardContent;
 </script>
@@ -32,7 +32,7 @@
         alt="project screenshot"
       />
       <article class="prose mx-2 my-2">
-        {@html markdown_to_html(cardContent.content)}
+        {@html markdownToHtml(cardContent.content)}
       </article>
     </div>
   </div>
