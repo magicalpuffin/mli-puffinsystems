@@ -5,7 +5,6 @@
   export let title: string;
   export let dateCreated: Date;
   export let dateUpdated: Date | undefined;
-  console.log(dateCreated);
 </script>
 
 <Header text={title} id="blogTitle" />
