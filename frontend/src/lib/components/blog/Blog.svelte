@@ -10,7 +10,10 @@
 <BlogHeader
   title={blogPost.title}
   dateCreated={blogPost.date_created}
-  dateUpdated={blogPost.date_updated}
+  dateUpdated={blogPost.date_created.getDate() ==
+  blogPost.date_updated.getDate()
+    ? undefined
+    : blogPost.date_updated}
 />
 <div class="divider my-1" />
 <BlogContent content={blogPost.content} />
