@@ -1,25 +1,28 @@
 <script lang="ts">
   import Header from "$lib/components/Header.svelte";
-  import { CalendarIcon, CalendarPlusIcon } from "$lib/icons";
+  import { CalendarIcon, InfoIcon } from "$lib/icons";
 
   export let title: string;
   export let dateCreated: Date;
   export let dateUpdated: Date | undefined;
+
+  const tooltipText = `Updated: ${dateUpdated?.toLocaleDateString("en-US", {
+    weekday: undefined,
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })}`;
 </script>
 
 <Header text={title} id="blogTitle" />
 <div
   class="tooltip-bottom flex w-fit gap-2"
   class:tooltip={dateUpdated}
-  data-tip="Last Updated: {dateUpdated?.toLocaleDateString('en-US', {
-    weekday: undefined,
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })}"
+  data-tip={tooltipText}
 >
   {#if dateUpdated}
-    <CalendarPlusIcon />
+    <CalendarIcon />
+    <InfoIcon />
   {:else}
     <CalendarIcon />
   {/if}
