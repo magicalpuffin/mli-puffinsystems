@@ -24,7 +24,6 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: "100ch",
-            img: { marginTop: "0", marginBottom: "0" },
           },
         },
       },

@@ -19,3 +19,271 @@ img+strong {
   display: block;
   max-width: fit-content;
 }
+
+/* replicating tailwind typography style */
+
+
+.base {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.base p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.base [class~="lead"] {
+  font-size: 1.25em;
+  line-height: 1.6;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.base blockquote {
+  font-weight: 500;
+  font-style: italic;
+  border-left-width: 0.25rem;
+  border-left-color: lightgray;
+  quotes: '\00AB' '\00BB' '\201E' '\201C';
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+}
+
+.base h1 {
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 1.333em;
+  line-height: 1.111;
+}
+
+.base h2 {
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.333;
+}
+
+.base h3 {
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.base h4 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+.base a {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.base img,
+.base picture {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.base picture>img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.base video {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.base kbd {
+  font-size: 0.875em;
+  border-radius: 0.3125rem;
+  padding-top: 0.1875em;
+  padding-right: 0.375em;
+  padding-bottom: 0.1875em;
+  padding-left: 0.375em;
+}
+
+.base code {
+  font-size: 0.875em;
+}
+
+.base h2 code {
+  font-size: 0.875em;
+}
+
+.base h3 code {
+  font-size: 0.9em;
+}
+
+.base pre {
+  color: #BDBCBE;
+  overflow-x: auto;
+  font-weight: 400;
+  font-size: 0.875em;
+  background-color: #2b3440;
+  line-height: 1.714;
+  margin-top: 1.714em;
+  margin-bottom: 1.714em;
+  border-radius: 0.375rem;
+  padding-top: 0.857em;
+  padding-right: 1.143em;
+  padding-bottom: 0.857em;
+  padding-left: 1.143em;
+}
+
+.base ol {
+  list-style-type: decimal;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+
+.base ul {
+  list-style-type: disc;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+
+.base li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.base ol>li,
+.base ul>li {
+  padding-left: 0.375em;
+}
+
+.base>ul>li p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.base>ul>li>*:first-child {
+  margin-top: 1.25em;
+}
+
+.base>ul>li>*:last-child {
+  margin-bottom: 1.25em;
+}
+
+.base>ol>li>*:first-child {
+  margin-top: 1.25em;
+}
+
+.base>ol>li>*:last-child {
+  margin-bottom: 1.25em;
+}
+
+.base ul ul,
+.base ul ol,
+.base ol ul,
+.base ol ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.base dl {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.base dt {
+  margin-top: 1.25em;
+}
+
+.base dd {
+  margin-top: 0.5em;
+  padding-left: 1.625em;
+}
+
+.base hr {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.base hr+* {
+  margin-top: 0;
+}
+
+.base h2+*,
+.base h3+*,
+.base h4+* {
+  margin-top: 0;
+}
+
+.base table {
+  width: 100;
+  table-layout: auto;
+  text-align: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  line-height: 1.714;
+}
+
+.base thead th {
+  padding-right: 0.571em;
+  padding-bottom: 0.571em;
+  padding-left: 0.571em;
+}
+
+.base thead th:first-child {
+  padding-left: 0;
+}
+
+.base thead th:last-child {
+  padding-right: 0;
+}
+
+.base tbody td,
+.base tfoot td {
+  padding-top: 0.571em;
+  padding-right: 0.571em;
+  padding-bottom: 0.571em;
+  padding-left: 0.571em;
+}
+
+.base tbody td:first-child,
+.base tfoot td:first-child {
+  padding-left: 0;
+}
+
+.base tbody td:last-child,
+.base tfoot td:last-child {
+  padding-right: 0;
+}
+
+.base figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.base figure>* {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.base figcaption {
+  font-size: 0.875em;
+  line-height: 1.429;
+  margin-top: 0.857em;
+}
+
+.base> :first-child {
+  margin-top: 0;
+}
+
+.base> :last-child {
+  margin-bottom: 0;
+}
