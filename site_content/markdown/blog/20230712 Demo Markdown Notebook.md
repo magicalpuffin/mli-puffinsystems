@@ -10,15 +10,17 @@ date_updated: 2023-12-18
 
 ## Overview
 
-This basic note taking app was my first project after completing the [Mozilla Svelte Tutorial](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_getting_started) and was used to explore how Svelte connects to other libraries. Over the course of about 2 weeks, I successfully mashed a bunch of things together. This is some of my experiences.
+This basic note taking app was my first SvelteKit project after completing the [Mozilla Svelte Tutorial](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_getting_started). Over the course of about 2 weeks, I successfully mashed enough libraries together to create something half functional. 
 
-### Update 2023-12-18
+**2023-12-18 UPDATE:** This blog was updated to be a more sensible. The project is now deployed on AWS using SST.
 
-This blog post was updated to be more sensible. I also deployed everything on AWS using SST instead of syncing to an S3 bucket like a neanderthal.
+### Links
+- https://demo.markdown.puffinsystems.com/
+- https://github.com/magicalpuffin/Demo-Markdown-Notebook
 
-## Svelte
+## SvelteKit
 
-Svelte was extremely easy to pick up. Components can be dynamic component and styled all from a single file. Considering my experience so far at this point was with Django and HTMX, this probably isn't surprising.
+Svelte and SvelteKit were extremely easy to pick up. Components can be dynamic and styled all from a single file. This was much better than Django and HTMX.
 
 ## Typescript
 
@@ -26,9 +28,9 @@ I can understand why Typescript would be a requirement for large and complex pro
 
 ### Tailwindcss
 
-I took me a while to understand Tailwind, probably because I didn't understand CSS.  I was also comparing it to Bootstrap which provided complete components with classes, not just styles. Now I think Tailwind is invaluable due to the customization and flexibility. I still don't understand CSS.
+I took me a while to understand TailwindCSS, probably because I didn't understand CSS. Tailwind only provides styles while a library like Bootstrap provides complete components. After some usage, I think Tailwind is different approach and provides a lot of customization and flexibility.
 
-The HTML class names are unwieldy, but using classes allowed for better uniformity between components without  global styles.
+The Tailwind class names are unwieldy, but using classes allowed for better uniformity between components without global styles.
 
 Tailwind also has a great plugin for typography.
 
