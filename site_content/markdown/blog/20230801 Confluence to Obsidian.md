@@ -5,9 +5,8 @@ description: How to convert Confluence HTML export into markdown for Obsidian.
 date_created: 2023-08-01
 date_updated: 2023-11-04
 ---
-![Confluence to Obsidian logos](/static/content/images/blog/20230801_confluence_to_obsidian.png)
-
-# Overview
+![confluence to obsidian](/static/content/images/blog/20230801_confluence_to_obsidian.png)
+## Overview
 
 This describes how I migrated my notes from Confluence to Obsidian. More specifically, the Confluence HTML to markdown scripts I created in https://github.com/magicalpuffin/Confluence-to-Obsidian.
 
@@ -31,11 +30,11 @@ The end result was just a massive folder with each page as a markdown file which
 
 Attachments can just be copied over from the confluence export to the new markdown folder. It should be possible to modify the scripts that I used to get the export you want. The rest of this post will explain how it works.
 
-# How it works
+## How it works
 
 First export a Confluence workspace to HTML. The HTML is then converted to markdown using a Pandoc in a PowerShell script. Due to the the Confluence HTML format, not everything can get easily converted, so Lua filter is used to define how Pandoc should convert different HTML elements.
 
-## PowerShell script
+### PowerShell script
 
 ```powershell
 # ConvetHTMLToMarkdown.ps1
@@ -68,7 +67,7 @@ foreach ($htmlFile in $htmlFiles) {
 - It loops through all of the HTML files and runs the Pandoc command to convert the file to markdown
 - I would recommend converting a few files first to check the results before looping through the entire exported workspace.
 
-## Pandoc
+### Pandoc
 
 ```powershell
 pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileName'
@@ -78,7 +77,7 @@ pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileNa
 - The command converts from HTML to GitHub Flavored Markdown using the Lua filter.
 - GitHub Flavored Markdown converted the most from Confluence HTML. It was the only format I found which could convert the Confluence HTML tables.
 
-## Lua Filter
+### Lua Filter
 
 ```powershell
 -- filter_html.lua

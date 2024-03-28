@@ -5,9 +5,8 @@ description: Blog post about my experience using the Moolander keyboard. Reliabi
 date_created: 2023-07-06
 date_updated: 2024-01-02
 ---
-
 ![my keyboards](/static/content/images/blog/20230706/20230706_moonlander_and_keyboards.png)
-
+*My keyboards*
 ## Overview
 
 The [Moonlander MK I](https://www.zsa.io/moonlander/) is a $400 dollar ortholinear split keyboard from ZSA, and was my first introduction to the mechanical keyboard world. Despite the impressive marketing, the Moonlander is mediocre at best; the greatest value it provides is for beginners to get into split mechanical keyboards.
@@ -29,12 +28,14 @@ The Moonlander provided a great platform for learning and developing a keyboard 
 With so many keys removed and features ignored, I might as well just get another keyboard...
 
 ![my moonlander configuration](/static/content/images/blog/20230706/20230706_36key_moonlander.png)
+*My 36 key Moonlander*
 
 ## Reliability Issues
 
 Within 3 days of receiving my Moonlander, the right board stopped responding when connected. The left board could be used by itself, however, it would stop working the moment the right board was plugged in.
 
 ![screenshot from zsa](/static/content/images/blog/20230706/20230706_zsa_active_left.png)
+*Advertising for disconnecting the right half*
 
 This was caused by unplugging the TRRS cable while boards were still powered. This is actually a [common issue ](https://www.reddit.com/r/ErgoMechKeyboards/comments/rt083u/) for split keyboards without additional protections built in. This use case and functionality is also advertised by ZSA.
 
@@ -45,6 +46,7 @@ Fortunately, I was able to contact ZSA and receive a replacement unit. The long 
 One of the greatest disappointments with the Moonlander was the lackluster ergonomics given its price point and marketing.
 
 ![moonlander vs ferris](/static/content/images/blog/20230706/20230706_moonlander_ferris.png)
+*Comparison between ZSA Moonlander and Ferris Sweep*
 
 The worst offender is thumb cluster. Out of the 4 keys, only one is usable; all of the other keys are too far away to be used without thumb pain. Almost no other keyboard has such a far away thumb cluster. For example, compare the thumb cluster with the ones on the Ferris Sweep (image from [Split Keyboard Compare](https://compare.splitkb.com/)).
 
