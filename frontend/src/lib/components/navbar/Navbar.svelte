@@ -1,5 +1,5 @@
 <script>
-  import MenuIcon from "$lib/icons/MenuIcon.svelte";
+  import { MenuIcon } from "$lib/icons";
   import NameLogo from "./NameLogo.svelte";
   import NavbarLinks from "./NavbarLinks.svelte";
 </script>
