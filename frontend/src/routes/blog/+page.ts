@@ -15,7 +15,7 @@ export const load = (async ({ fetch }) => {
   }));
 
   blogPostList = blogPostList.sort(
-    (a, b) => a.date_created.getDate() - b.date_created.getDate()
+    (a, b) => b.date_created.getTime() - a.date_created.getTime()
   );
 
   return { blogPostList };
