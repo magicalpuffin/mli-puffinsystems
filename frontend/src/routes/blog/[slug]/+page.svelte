@@ -6,7 +6,7 @@
 
   export let data: PageData;
 
-  let blogPost: BlogPost = data.blogPost;
+  $: blogPost = data.blogPost;
 </script>
 
 <svelte:head
