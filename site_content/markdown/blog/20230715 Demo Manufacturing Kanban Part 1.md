@@ -9,51 +9,47 @@ date_updated: 2024-03-27
 *Screenshot of some cards in Demo Manufacturing Kanban*
 ## Overview
 
-This post will describe the original Django version of this project. I plan on remaking this project using Svelte and Django Rest Framework.
+**2024-03-28 UPDATE:** This post describes the original Django version of this project. See [Demo Manufacturing Kanban Part 2](/blog/20240327/) 
 
-The very first draft of this project was created in a few hours as quickly as possible. The idea was to create a custom kanban system similar to what is available with Jira and Smartsheets.
+I tried to create a "kanban" or "andon" board as quickly as possible. The end result was a Django and Htmx deployed to AWS Lambda using Zappa. The database was an sqlite database on AWS S3.
 
-Frontend and backend was created using Django and Htmx. This was deployed to AWS Lambda using Zappa. The database is an sqlite database on AWS S3.
-
-## Objective
-
-This project was created to test out how quickly Django could be used to create a basic web app.
-
-Looking back at my commits, this project was started on 2023-04-19 and completed on 2023-04-22. This project was rushed.
+### Links
+- https://github.com/magicalpuffin/Demo-Manufacturing-Kanban/tree/0.1.1-django
 
 ## Key Libraries and Packages
 
 ### Django
 
-Django is an extremely fast batteries included python web framework. If you are building a CRUD app and want a ORM, Django is probably the fastest option. However, if you plan building anything complicated for the frontend Django will become unmaintainable very quickly.
+Django is an easy to use, batteries included python web framework. For CRUD apps with an ORM, Django is probably the fastest option. However, anything complicated on the frontend will quickly become unmaintainable.
 
-Most other web frameworks (ex. Svelte) use JS and a component based system for the frontend. This allows them to be interactive and flexible. For Django and its Jinja templates to be comparable, janky JS or Htmx is required.
+Django isn't designed for interacting with JavaScript. Instead, it is clunky JavaScript in HTML using Jinja templates and  Htmx.
 
-However, everything on the backend is handled fairly well by Django. Perhaps that's why people care more about Django Rest Framework than Django.
+However, everything on the backend is handled fairly well by Django. This is likely why so many people recommend Django Rest Framework over just Django.
 
 ### Bootstrap
 
-Bootstrap is a CSS component library. Instead of having the user define all of the details and configure their own components such as with Tailwind, Bootstrap, just defines what all the components look like.
+Bootstrap is a CSS component library which defines what all the components look like and how they should behave.
 
-This makes it fast but inflexible. Everything always looks like a Bootstrap component. This is still probably the fastest way to get good looking CSS on a Django app, which was why I used it here.
+This makes it fast for development but inflexible. Everything always looks like a Bootstrap component. This is still probably the fastest way to get good looking CSS on a Django app.
 
 ### Htmx
 
 Htmx basically lets you do JS things such as HTTP requests in html. This is great for Django because you are able to request different endpoints and swap out sections of html using `hx-swap` and `hx-target`.
 
-This allowed me to make it feel like this was a single page app without a lot of JS. Although, every requrest still required the server to do the rendering.
+This allowed me to make it feel like this was a single page app without a lot of JS. Although, every request still required the server to do the rendering.
 
-### Sortable JS
+### SortableJS
 
-Sortable was the JS framework used to allow drag, drop and reordering of cards. I am actually kind of surprised this worked as well as it did.
+SortableJS was the JS framework used to allow drag, drop and reordering of cards. I am actually kind of surprised this worked as well as it did.
 
 Due to how Django works, this required some weird JS on the base template. After placing each card down, it Htmx is used to save the order of items to the database.
 
 ### Zappa
 
-Zappa makes it possible to deploying Django apps serverless on AWS. It does still seem a bit janky with most tutorials being incomplete. The best tutorial I found was:
+Zappa makes it possible to deploying Django apps serverless on AWS. It does still seem a bit clunky with most tutorials being incomplete. 
 
-https://romandc.com/zappa-django-guide/
+The best tutorial I found was:
+- https://romandc.com/zappa-django-guide/
 
 Zappa also does not fit in well within a stack. Other resources (ex. RDS and CloudFront) will need to be configured separately. Ideally you would be able to deploy the Django Lambda using AWS CDK.
 
