@@ -5,37 +5,36 @@ description: How to convert Confluence HTML export into markdown for Obsidian.
 date_created: 2023-08-01
 date_updated: 2023-11-04
 ---
-![Confluence to Obsidian logos](/static/content/images/blog/20230801_confluence_to_obsidian.png)
+![confluence to obsidian](/static/content/images/blog/20230801_confluence_to_obsidian.png)
+## Overview
 
-# Overview
+I migrated my notes from Confluence to Obsidian using a few scripts. More generically, this converts Confluence to markdown. This blog post describes the general process so others who face this problem have a starting point.
 
-This describes how I migrated my notes from Confluence to Obsidian. More specifically, the Confluence HTML to markdown scripts I created in https://github.com/magicalpuffin/Confluence-to-Obsidian.
+Confluence doesn't directly support exporting a workspace to markdown. The result of my attempt was only a partial solution.
 
-There wasn't a lot of information or solutions online for exporting a confluence workspace to markdown. When I was migrating all of my Confluence notes to Obsidian, I decided to give it a try.
-
-This is not a complete solution. I just got far enough that I was fine with the results.
-
-I was only really prioritizing two things during the conversion:
-
+I prioritized the following:
 1. Preserve any text written and convert it to markdown
 2. Avoid excessive HTML. Try to keep everything plain markdown
 
-As a result, the following weren't converted to markdown:
-
+The following weren't converted to markdown:
 1. Folder structure
 2. Images
 3. Attachments
 4. Internal links between notebooks
 
-The end result was just a massive folder with each page as a markdown file which I could copy into and search in Obsidian.
+The result was a massive folder with each page as a markdown file which could be copied and searched.
 
-Attachments can just be copied over from the confluence export to the new markdown folder. It should be possible to modify the scripts that I used to get the export you want. The rest of this post will explain how it works.
+### Links
+- https://github.com/magicalpuffin/Confluence-to-Obsidian.
 
-# How it works
+## How it works
 
-First export a Confluence workspace to HTML. The HTML is then converted to markdown using a Pandoc in a PowerShell script. Due to the the Confluence HTML format, not everything can get easily converted, so Lua filter is used to define how Pandoc should convert different HTML elements.
+1. Export a Confluence workspace to HTML. 
+2. Convert the HTML to markdown using a Pandoc in a PowerShell script. 
 
-## PowerShell script
+Due to the the HTML format, not everything can get easily converted. Use a Lua filter to define how Pandoc should convert different HTML elements.
+
+### PowerShell script
 
 ```powershell
 # ConvetHTMLToMarkdown.ps1
@@ -63,12 +62,12 @@ foreach ($htmlFile in $htmlFiles) {
 }
 ```
 
-- There wasn't any particular reason why PowerShell was used. This could be created in bash.
+- This is in PowerShell but should be similar in bash.
 - The script sets all of the parameters and file paths
 - It loops through all of the HTML files and runs the Pandoc command to convert the file to markdown
-- I would recommend converting a few files first to check the results before looping through the entire exported workspace.
+- Convert a few files first to check the results before converting the entire workspace.
 
-## Pandoc
+### Pandoc
 
 ```powershell
 pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileName'
@@ -78,7 +77,7 @@ pandoc '$htmlFilePath' -f html -t gfm -L '$luaFilterPath' -s -o '$markdownFileNa
 - The command converts from HTML to GitHub Flavored Markdown using the Lua filter.
 - GitHub Flavored Markdown converted the most from Confluence HTML. It was the only format I found which could convert the Confluence HTML tables.
 
-## Lua Filter
+### Lua Filter
 
 ```powershell
 -- filter_html.lua
