@@ -1,31 +1,37 @@
 ---
 post_id: 20240327
 title: Demo Manufacturing Kanban Part 2
-description: Remaking my manufacturing kanban using SvelteKit, Drizzle, and SST
+description: How I created a manufacturing kanban site. This time using SvelteKit, DrizzleORM, and SST.
 date_created: 2024-03-27
-date_updated: 2024-03-27
+date_updated: 2024-03-30
 ---
-![screenshot of manufacturing kanban](/static/content/images/blog/20240327_mfg_kanban.png)
+![screenshot of manufacturing kanban](/static/content/images/blog/20240327/20240327_mfg_kanban.png)
 *Screenshot of some cards in SvelteKit Demo Manufacturing Kanban*
 
 ## Overview
 
-I recreated my Demo Manufacturing Kanban project using all the knowledge I have gained since my original attempt in [Demo Manufacturing Kanban Part 1](/blog/20230715/). It is still a basic "kanban" or "andon" board, however, the entire stack has been improved. 
+Previously, I created a basic kanban board using Django and Htmx in [Demo Manufacturing Kanban Part 1](/blog/20230715/). Since then, I have learned a lot about web development and cloud infrastructure, so I decided to recreate everything using a better stack.
 
-The site is now a SvelteKit frontend styled with DaisyUI, a tRPC backend querying the database with DrizzleORM and deployed on AWS using SST. Within this post, I'll describe my experience with the different libraries and packages used.
+- [**SvelteKit:**](https://kit.svelte.dev/) JavaScript web framework for rendering Svelte components. Used as frontend.
+- [**DaisyUI:**](https://daisyui.com/) Component framework based on TailwindCSS. Used to style components.
+- [**SortableJS**:](https://github.com/SortableJS/Sortable) JavaScript library for creating the drag and drop effect for cards.
+- [**tRPC**:](https://trpc.io/) TypeScript implementation of RPC. Allows making backend requests through type safe functions.
+- [**DrizzleORM:**](https://orm.drizzle.team/) TypeScript ORM used for creating queries, schema, and running database migrations. 
+- [**SST:** ](https://sst.dev/)Framework for deploying and developing serverless infrastructure using AWS CDK.
+- **AWS:** Cloud infrastructure provider. Website is deployed to AWS.
 
-Overall, I recommend the stack I used for this project.
+Overall, I recommend the stack I used for this project. The rest of this post will describe my experience with each library or technology I used in more detail.
 
 ### Links
-- https://demo.kanban.puffinsystems.com/
-	- Due to AWS Aurora Serverless v1 auto pause, it will take a few minutes and multiple refreshes before the site loads. It would be a waste of money to keep this database always active. 
-- https://github.com/magicalpuffin/Demo-Manufacturing-Kanban
+- **Deployed Site:** https://demo.kanban.puffinsystems.com/
+	- Due to AWS Aurora Serverless v1 auto pause, it will take a few minutes and multiple refreshes before the site loads. I'm not going to pay to keep the database always active.
+- **GitHub Repository:** https://github.com/magicalpuffin/Demo-Manufacturing-Kanban
 
 ## SvelteKit
 
-SvelteKit continues to be a great experience, everything just worked. I was most impressed by the `svelte/store` module. Using custom stores, it is possible to include business logic in the store. This allows you to share state and methods across components.
+SvelteKit continues to be a great experience, everything just worked. During development, I was most impressed by the `svelte/store` module. This module allows you to manage client side state across different components. By creating custom stores, you can also include client side methods for business logic such as API requests.
 
-Here is a snippet of the `locationStore`:
+As an example, here is a snippet of the `locationStore` I created:
 ```ts
 // packages/frontend/src/lib/stores/locationStore.ts
 // ...
@@ -64,70 +70,73 @@ function createLocationStore() {
 
 ```
 
-In this example, I extended the standard `writeable` store to include a method called `addLocation`. This method creates the object in the database, adds the object to the store, and creates a toast notification. Instead of managing methods across different components and syncing database updates with state changes, it can all happen through a store.
+I extended the standard `writeable` store to include a method called `addLocation`. When this method is called, it creates a new location object in the database, updates the state in all components, and creates a toast popup. This provided a single reusable method that is directly part of the state, instead of having methods and state spread across components.
 
-- https://kit.svelte.dev/docs/introduction
 - https://svelte.dev/docs/svelte-store
 
 ## DaisyUI
 
-DaisyUI is a component framework based on TailwindCSS classes and was much faster than styling components from scratch. I wasn't trying to create anything stylistically unique or innovative so the existing components from DaisyUI were more than enough. Not to mention that most custom components I created looked worse than components from DaisyUI. DaisyUI is based on TailwindCSS, which is just CSS, keeping things simple.
-
-- https://daisyui.com/
+Customizing DaisyUI components was much faster than styling components from scratch, even with TailwindCSS. In this project, I wasn't trying to create anything stylistically unique or innovative so the existing components from DaisyUI were more than enough. Not to mention that most custom components I created looked worse. DaisyUI is based on TailwindCSS, which is just CSS, keeping things simple.
 
 ## SortableJS
 
-SortableJS was still the best JavaScript library I could find for creating the sorting effect. Svelte integrated nicely with SortableJS. It is possible to initialize SortableJS during `onMount` and update stores during the provided sorting events.
+![example of drag and drop](/static/content/images/blog/20240327/20240327_sortablejs_example.gif)
+*Example of drag and dropping cards with SortableJS*
 
-- https://github.com/SortableJS/Sortable
+SortableJS was still the best JavaScript library I could find for creating the drag and drop effect. Svelte integrated nicely with SortableJS, allowing you to initialize SortableJS during `onMount` and include whatever JavaScript you need the provided sorting events.
 
 ## tRPC
 
 During development, I found the type safety provided by TypeScript extremely useful. Simply knowing what type something is goes a long way towards figuring out what is going on. Unfortunately, the moment an HTTP requests is involved, you revert back to throwing objects around blindly. 
 
-It is worth noting that SvelteKit provides basic type safety when passing data using page load. However, this isn't available for client side requests or if your backend is separate. 
+![trpc auto complete](/static/content/images/blog/20240327/20240327_trpc_autocomplete.png)
+*tRPC autocomplete of API requests available*
 
 tRPC was the perfect solution for this problem and made creating backend API requests much easier. tRPC provides a TypeScript framework for RPC (Remote Procedure Call) and allows you to make HTTP requests like you are calling a function. I was using an API Gateway backend which was supported with a tRPC adapter. 
 
-However, there were a few minor downsides, primarily because tRPC isn't the same as an REST API. It was more difficult to interact with and debug in browser, for example, it isn't possible to just send a GET request with query parameters.
-
-- https://trpc.io/
+The tRPC makes the most sense when when you control the entire stack. tRPC uses HTTP requests differently than an REST API which can be annoying. For example, it isn't possible to send a GET request with query parameters just using the URL. To properly debug, you would need to import the tRPC router types and make the request from your frontend.
 
 ## DrizzleORM
 
-DrizzleORM felt like the best and most fully featured TypeScript ORM available.
+DrizzleORM feels like the only truly TypeScript ORM available at the moment. Some smaller ORMs such as Kysely are missing proper migration and introspection generation support. A more popular ORM such PrismaORM uses its own syntax in a `.prisma` file for database schema.
 
-When using DrizzleORM, the database schema is directly written in TypeScript and can be imported to other files like any other object in TypeScript. This is a much better development experience than PrismaORM (another popular TypeScript ORM), which uses its own custom syntax for database schema. 
+When using DrizzleORM, the database schema is directly written in TypeScript, providing type safety and allowing for straight forward importing into other files. DrizzleORM also provided automatic migration generation from schema.
 
-My main disappointment with DrizzleORM was the lackluster error handling. The database error is returned, however, there isn't much support available for classifying common errors such as duplicate item or delete cascade error.
+```ts
+// packages/core/src/schema.ts
+// ...
+export const location = pgTable("location", {
+  id: smallserial("id").primaryKey(),
+  name: varchar("name", { length: 256 }).notNull(),
+  sequence: smallint("sequence").default(0).notNull(),
+});
 
-- https://orm.drizzle.team/docs/overview
+//...
+```
+
+The only thing I found missing was the lack of error handling. Database errors are returned, however, there isn't much support available for classifying common errors. It would be great if you could catch duplicate item or delete cascade errors.
+
 - https://github.com/drizzle-team/drizzle-orm/issues/376
 
 ## SST
 
-SST provides a framework for deploying serverless applications using AWS CDK in a much more user friendly library. For this project, it provided easy to use constructs for creating the Lambda, API Gateway, and RDS instances. The provided `SvelteKitSite` construct also made it easy to package the SvelteKit frontend as an AWS Lambda. 
+SST allows deploying serverless applications through AWS CDK in a much more user friendly way. The SST constructs for Lambda and API Gateway were much easier to interact with than their AWS CDK variants. SST also provided a `SvelteKitSite` construct which took care of packaging the SvelteKit frontend as an AWS Lambda. 
 
-Important AWS Resources:
-- Lambda
-	- For tRPC backend
-	- For SvelteKit site
-- API Gateway
-	- For tRPC backend
-- RDS Aurora Serverless v1
-	- PostgreSQL database
-- EC2
-	- For bastion host
-- CloudFront
+![drawing of aws resources](/static/content/images/blog/20240327/20240327_aws_resource_drawing.png)
+*AWS resources used. I forgot to draw the bastion host.*
+
+- **SvelteKit Frontend:** Lambda, CloudFront
+- **tRPC Backend:** Lambda, API Gateway
+- **Database:** RDS, PostgreSQL, Aurora Serverless v1
+- **Bastion Host:** EC2, t4g.nano
+
 
 A nice feature of SST is how AWS CDK resources can be created within a stack. I used this to create a bastion host for connecting to the AWS RDS instance locally.
 
-There were a few downsides with using SST, however, I think many of them are AWS CDK related. Deployments are surprisingly slow and can't seem to be parallelized. There was slightly different behavior between using Live Lambda, developing locally and deployed instances. For example, queries were much slower in Live Lambda than when deployed, while auto pause felt slower when deployed than in Live Lambda. 
-
-- https://sst.dev/
+Most of the issues with SST are likely AWS CDK related. Deployments are surprisingly slow and can't seem to be parallelized. There was different behavior when running locally, using Live Lambda, and when fully deployed. For example, queries were much slower in Live Lambda than when deployed, while auto pause felt slower when deployed than in Live Lambda. 
 
 ## AWS
 
-AWS isn't very user friendly but it is what it is I guess.
+AWS has many annoyances which are basically features. For this project, I was using an AWS RDS Aurora Serverless v1 instance. The database is configured to auto pause after 5 minutes, making it much cheaper because nobody actually uses my site. Unfortunately, it takes almost a minute to resume from auto pause, exceeding the 10 sec Lambda time out limit. Annoyingly, this means whenever people visit the site, they get an error until the database finishes resuming. I couldn't find much information about how long resuming from auto pause is supposed to take and what affects it (ex. I don't think increasing ACU matters). Also auto pause seems to be missing from Aurora Serverless v2. 
 
-The database used was an Aurora Serverless v1 instance deployed using SST. The database is configured to auto pause after 5 minutes, making it much cheaper considering  nobody uses my site. Unfortunately, it takes almost a minute to resume from auto pause, exceeding the 10 sec Lambda time out limit. Annoyingly, this means whenever people visit the site, they get an error until the database finishes resuming.
+Also, you can't create Aurora Serverless v1 instances in console even though you can in AWS CDK, the docs don't say anything about this. Also, in AWS CDK, `rds.ServerlessCluster` seems to only create serverless v1 instances, but the docs don't say anything about serverless v1 or v2. Also, Data API was added to Aurora Serverless v2 but not in all regions. Many of these are minor or have reasonable explanations but AWS has a lot of these annoyances.
