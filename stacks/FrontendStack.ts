@@ -1,3 +1,4 @@
+import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
 import { Config, StackContext, SvelteKitSite } from "sst/constructs";
 
 export function SITE({ stack }: StackContext) {
@@ -8,9 +9,15 @@ export function SITE({ stack }: StackContext) {
     path: "frontend/",
     bind: [DOMAIN_NAME],
     customDomain: {
+      isExternalDomain: true,
       domainName: "mli.puffinsystems.com",
-      domainAlias: "www.mli.puffinsystems.com",
-      hostedZone: "puffinsystems.com",
+      cdk: {
+        certificate: Certificate.fromCertificateArn(
+          stack,
+          "mycert",
+          process.env.CERT_ARN ?? ""
+        ),
+      },
     },
   });
 
