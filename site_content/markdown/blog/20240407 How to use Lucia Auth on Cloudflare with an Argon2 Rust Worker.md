@@ -689,7 +689,7 @@ After deployment, you can check how long it takes to login.
 
 In Cloudflare, you can check how much CPU time is consumed when hashing. ~ 100 ms CPU time is high compared to normal workers, however, this is much better than pure JavaScript implementations (~ 2,000 ms CPU time for Lucia Scrypt and ~ 14,000 ms of CPU time for noble hashes Argon2id).
 ![argon2 worker cpu time](/static/content/images/blog/20240407/20240407_argon2_cpu_time.png)
-*CPU time when running*
+*CPU time when running argon2*
 ## Bonus: A Pure JavaScript Implementation of Argon2 Example
 - I don't think a pure JavaScript implementation of Argon2 is ever practical because of how long it takes. But if you still need a pure JavaScript implementation of Argon2, try [`@noble/hashes`](https://github.com/paulmillr/noble-hashes)
 - If you try to run this in Cloudflare, you will likely receive a `Worker exceeded CPU time limit` error.
