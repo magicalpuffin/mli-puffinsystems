@@ -1,3 +1,5 @@
+.wrangler
+
 # Ignore custom site content
 /static/static/content
 
