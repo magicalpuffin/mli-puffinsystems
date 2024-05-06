@@ -1,0 +1,43 @@
+name: Pages Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  DeployApp:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Run python script
+        run: |
+          python -m markdown_to_json.process_content
+      - name: Install JS dependencies
+        run: |
+          npm i
+      - name: Install frontend dependencies
+        run: |
+          npm i
+        working-directory: ./frontend
+      - name: Build
+        run: |
+          npm run build
+        working-directory: ./frontend
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .svelte-kit/cloudflare
+        working-directory: ./frontend
