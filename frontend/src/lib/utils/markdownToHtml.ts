@@ -1,7 +1,7 @@
 import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
-import sanitizeHtml from "sanitize-html";
+// import sanitizeHtml from "sanitize-html";
 
 export function markdownToHtml(markdown_text?: string): string {
   if (markdown_text === undefined) {
@@ -27,20 +27,21 @@ export function markdownToHtml(markdown_text?: string): string {
     { renderer }
   );
 
-  let html_text = marked.parse(markdown_text, {
+  const html_text = marked.parse(markdown_text, {
     mangle: false,
     headerIds: false,
   });
 
+  // I think sanitize html is causing issues
   // sanitizehtml, allow highlightjs
-  html_text = sanitizeHtml(html_text, {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-    allowedClasses: {
-      div: ["table-container"],
-      code: ["hljs", "language-*", "lang-*"],
-      span: ["hljs-*"],
-    },
-  });
+  // html_text = sanitizeHtml(html_text, {
+  //   allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+  //   allowedClasses: {
+  //     div: ["table-container"],
+  //     code: ["hljs", "language-*", "lang-*"],
+  //     span: ["hljs-*"],
+  //   },
+  // });
 
   return html_text;
 }
