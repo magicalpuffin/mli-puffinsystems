@@ -1,12 +1,12 @@
-import type { PageLoad } from "./$types.js";
-import type { BlogPostJSON, BlogPost } from "$lib/types/blog";
+import type { BlogPost, BlogPostBase } from "$lib/types/blog";
 import { error } from "@sveltejs/kit";
+import type { PageLoad } from "./$types.js";
 
 export const load = (async ({ params, fetch }) => {
   const URL_BLOGLIST = "/static/content/data/blogPostList.json";
   const BLOG_ID = params.slug;
 
-  const blogPostListJSON: BlogPostJSON[] = await (
+  const blogPostListJSON: BlogPostBase[] = await (
     await fetch(URL_BLOGLIST)
   ).json();
 

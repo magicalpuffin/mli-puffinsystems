@@ -1,6 +1,7 @@
 <script lang="ts">
   import Header from "$lib/components/Header.svelte";
-  import { CalendarIcon, InfoIcon } from "$lib/icons";
+  import CalendarIcon from "~icons/iconoir/calendar";
+  import InfoCircleIcon from "~icons/iconoir/info-circle";
 
   export let title: string;
   export let dateCreated: Date;
@@ -21,10 +22,10 @@
   data-tip={tooltipText}
 >
   {#if dateUpdated}
-    <CalendarIcon />
-    <InfoIcon />
+    <CalendarIcon style="font-size: 1.25em" />
+    <InfoCircleIcon style="font-size: 1.25em" />
   {:else}
-    <CalendarIcon />
+    <CalendarIcon style="font-size: 1.25em" />
   {/if}
   <p class="text-md font-light">
     {dateCreated.toLocaleDateString("en-US", {

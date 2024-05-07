@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { OpenInWindowIcon } from "$lib/icons";
+  import OpenNewWindow from "~icons/iconoir/open-new-window";
   export let link: string;
 </script>
 
@@ -9,5 +9,5 @@
   target="_blank"
   rel="noopener noreferrer"
   ><p class="hidden md:block">Open</p>
-  <OpenInWindowIcon /></a
->
+  <OpenNewWindow style="font-size: 1.5em" />
+</a>

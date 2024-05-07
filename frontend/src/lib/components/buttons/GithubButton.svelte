@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { GithubIcon } from "$lib/icons";
+  import Github from "~icons/iconoir/github";
+
   export let link: string;
 </script>
 
@@ -9,5 +10,5 @@
   target="_blank"
   rel="noopener noreferrer"
   ><p class="hidden md:block">Github</p>
-  <GithubIcon /></a
->
+  <Github style="font-size: 1.5em" />
+</a>

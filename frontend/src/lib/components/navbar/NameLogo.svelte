@@ -7,6 +7,3 @@
 >
   Michael Li
 </a>
-<!-- <a class="hover:text-secondary px-6 text-xl font-bold md:text-2xl" href="/"
-  >Michael Li
-</a> -->

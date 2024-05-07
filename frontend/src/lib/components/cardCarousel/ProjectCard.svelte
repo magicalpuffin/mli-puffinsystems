@@ -3,8 +3,7 @@
 
   import type { CardContent } from "$lib/types/card";
 
-  import NewWindowButton from "$lib/components/buttons/NewWindowButton.svelte";
-  import GithubButton from "$lib/components/buttons/GithubButton.svelte";
+  import { NewWindowButton, GithubButton } from "$lib/components/buttons";
   import { markdownToHtml } from "$lib/utils/markdownToHtml";
 
   export let cardContent: CardContent;

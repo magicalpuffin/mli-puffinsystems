@@ -1,7 +1,7 @@
 <script>
-  import { MenuIcon } from "$lib/icons";
   import NameLogo from "./NameLogo.svelte";
   import NavbarLinks from "./NavbarLinks.svelte";
+  import MenuIcon from "~icons/iconoir/menu";
 </script>
 
 <nav class="navbar bg-base-100 border-b">
@@ -22,7 +22,7 @@
     <div class="dropdown dropdown-end md:hidden">
       <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
       <div tabindex="0" class="btn btn-ghost">
-        <MenuIcon />
+        <MenuIcon style="font-size: 1.5em" />
       </div>
       <ul
         class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow"

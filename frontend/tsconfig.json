@@ -8,7 +8,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "types": [
+      "@cloudflare/workers-types/2023-07-01",
+      "unplugin-icons/types/vue"
+    ]
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //
