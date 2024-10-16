@@ -11,7 +11,7 @@ const highlighter = await createHighlighter({
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: [".svx"],
+	extensions: [".svx", ".md"],
 	highlight: {
 		highlighter: async (code, lang = "text") => {
 			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
@@ -22,7 +22,7 @@ const mdsvexOptions = {
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: [".svelte", ".svx"],
+	extensions: [".svelte", ".svx", ".md"],
 	preprocess: [mdsvex(mdsvexOptions), vitePreprocess()],
 	kit: {
 		adapter: adapter(),

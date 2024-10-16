@@ -7,6 +7,7 @@ date_updated: 2024-04-07
 ---
 ![cloudflare resources](/static/content/images/blog/20240407/20240407_cloudflare_resources.png)
 *Cloudflare resources used*
+
 ## Overview
 
 This tutorial will provide an example of how to use Lucia Auth in Cloudflare with an Argon2 Rust Worker. By using a Rust Cloudflare Worker, it is possible to hash with minimal performance downsides when compared to pure JavaScript implementations. This means no compromises in the hashing algorithm, no need to use weaker algorithms (ex. PBKDF2) to avoid exceeding the CPU limit.

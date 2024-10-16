@@ -5,9 +5,9 @@
 
   const buttonNumber = buttonIndex + 1;
 
-  const href_link = `#${carouselName}-${buttonNumber}`;
+  const href = `#${carouselName}-${buttonNumber}`;
 </script>
 
-<a href={href_link} class="btn btn-sm" class:btn-secondary={buttonActive}
+<a href={href} class="btn btn-sm" class:btn-secondary={buttonActive}
   >{buttonNumber}</a
 >
