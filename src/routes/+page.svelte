@@ -1,8 +1,11 @@
 <script lang="ts">
   import AboutMe from "$lib/components/AboutMe.svelte";
   import CardCarousel from "$lib/components/cardCarousel/CardCarousel.svelte";
+	import CarouselMenu from "$lib/components/cardCarousel/CarouselMenu.svelte";
 	import ProjectCard from "$lib/components/cardCarousel/ProjectCard.svelte";
   import Header from "$lib/components/Header.svelte";
+
+  let activeIndex = 0
 
 
 </script>
@@ -21,13 +24,17 @@
   </div>
   <div>
     <Header text="Demos" id="demos" />
-    <CardCarousel>
+    <CarouselMenu items={[{href: "#demo-carousel-1"}, {href: "#demo-carousel-2"}]} activeIndex={activeIndex}></CarouselMenu>
+    <CardCarousel bind:activeIndex={activeIndex}>
       <div id="demo-carousel-1" class="carousel-item w-full">
         <ProjectCard title="a" imgSrc="">
         This is the first item
-
         </ProjectCard>
-
+      </div>
+      <div id="demo-carousel-2" class="carousel-item w-full">
+        <ProjectCard title="BBBB" imgSrc="">
+        This is the another item
+        </ProjectCard>
       </div>
 
     </CardCarousel>

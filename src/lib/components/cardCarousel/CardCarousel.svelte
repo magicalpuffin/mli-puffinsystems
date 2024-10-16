@@ -1,9 +1,7 @@
 <script lang="ts">
-  import ProjectCard from "$lib/components/cardCarousel/ProjectCard.svelte";
-  import CarouselMenu from "$lib/components/cardCarousel/CarouselMenu.svelte";
 
+  export let activeIndex: number = 0;
   let carousel: HTMLElement;
-  let activeIndex: number = 0;
 
   function updateActiveIndex() {
     const xLeft = carousel.scrollLeft;
@@ -15,9 +13,6 @@
   }
 </script>
 
-<!--
-<CarouselMenu {cardContentList} {carouselName} {activeIndex} />
--->
 <div
   class="carousel w-full"
   bind:this={carousel}
