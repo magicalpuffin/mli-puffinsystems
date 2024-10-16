@@ -4,9 +4,9 @@
 	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<Navbar/>
+<Navbar />
 <main>
-	<div class="mx-2 my-2 flex justify-center">
+	<div class="flex justify-center my-2 mx-2">
 		<div class="container max-w-3xl">
 			<slot></slot>
 		</div>
