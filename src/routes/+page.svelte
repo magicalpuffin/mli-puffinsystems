@@ -1,48 +1,140 @@
 <script lang="ts">
-  import AboutMe from "$lib/components/AboutMe.svelte";
-  import CardCarousel from "$lib/components/cardCarousel/CardCarousel.svelte";
-	import CarouselMenu from "$lib/components/cardCarousel/CarouselMenu.svelte";
-	import ProjectCard from "$lib/components/cardCarousel/ProjectCard.svelte";
-  import Header from "$lib/components/Header.svelte";
+	import AboutMe from '$lib/components/AboutMe.svelte';
+	import {
+		Carousel,
+		CarouselCard,
+		CarouselMenu
+	} from '$lib/components/carousel';
+	import Header from '$lib/components/Header.svelte';
 
-  let activeIndex = 0
-
-
+	let demoCarouselIndex = 0;
+	let notebookCarouselIndex = 0;
 </script>
 
 <svelte:head
-  ><title>Michael Li</title><meta
-    name="description"
-    content="Michael Li. Personal website showcasing project and blog. "
-  /></svelte:head
+	><title>Michael Li</title><meta
+		name="description"
+		content="Michael Li. Personal website showcasing project and blog."
+	/></svelte:head
 >
 
 <div class="flex flex-col gap-2">
-  <div>
-    <Header text="About Me" id="aboutme" />
-    <AboutMe />
-  </div>
-  <div>
-    <Header text="Demos" id="demos" />
-    <CarouselMenu items={[{href: "#demo-carousel-1"}, {href: "#demo-carousel-2"}]} activeIndex={activeIndex}></CarouselMenu>
-    <CardCarousel bind:activeIndex={activeIndex}>
-      <div id="demo-carousel-1" class="carousel-item w-full">
-        <ProjectCard title="a" imgSrc="">
-        This is the first item
-        </ProjectCard>
-      </div>
-      <div id="demo-carousel-2" class="carousel-item w-full">
-        <ProjectCard title="BBBB" imgSrc="">
-        This is the another item
-        </ProjectCard>
-      </div>
-
-    </CardCarousel>
-  </div>
-  <!--
-  <div>
-    <Header text="Notebooks" id="notebooks" />
-    <CardCarousel cardContentList={notebookCardList} carouselName="notebook" />
-  </div>
-  -->
+	<div>
+		<Header text="About Me" id="aboutme" />
+		<AboutMe />
+	</div>
+	<div>
+		<Header text="Demos" id="demos" />
+		<CarouselMenu
+			links={['#markdown-notebook', '#manufacturing-kanban']}
+			activeIndex={demoCarouselIndex}
+		/>
+		<Carousel bind:activeIndex={demoCarouselIndex}>
+			<div id="markdown-notebook" class="w-full carousel-item">
+				<CarouselCard
+					title="Markdown Notebook"
+					imgSrc="/static/content/images/card/demo_md_notebook.png"
+					githubUrl="https://github.com/magicalpuffin/Demo-Markdown-Notebook"
+					detailUrl="https://github.com/magicalpuffin/Demo-Markdown-Notebook"
+				>
+					<p>
+						Create, edit and save markdown notebooks. This project was created
+						when I was first learning Svelte.
+					</p>
+					<a href="/blog/20230712">Read More</a>
+				</CarouselCard>
+			</div>
+			<div id="manufacturing-kanban" class="w-full carousel-item">
+				<CarouselCard
+					title="Manufacturing Kanban"
+					imgSrc="/static/content/images/card/demo_mfg_kanban.png"
+					githubUrl="https://github.com/magicalpuffin/Demo-Manufacturing-Kanban"
+				>
+					<p>
+						Basic manufacturing kanban board. Create parts, locations, and
+						workorders. Drag and drop to move workorders around.
+					</p>
+					<p>SvelteKit, DrizzleORM, tRPC, SortableJS, AWS Lambda</p>
+					<a href="/blog/20240327/">Read More</a>
+				</CarouselCard>
+			</div>
+		</Carousel>
+	</div>
+	<div>
+		<Header text="Notebooks" id="notebooks" />
+		<CarouselMenu
+			links={[
+				'#linear-programming-tube-cutting',
+				'#housing-rental-data-analysis',
+				'#tiny-wars-ranked-statistics'
+			]}
+			activeIndex={notebookCarouselIndex}
+		/>
+		<Carousel bind:activeIndex={notebookCarouselIndex}>
+			<div id="linear-programming-tube-cutting" class="w-full carousel-item">
+				<CarouselCard
+					title="Linear Programming Tube Cutting"
+					imgSrc="/static/content/images/card/lp_tube_cutting.png"
+					githubUrl="https://github.com/magicalpuffin/Py-Notebooks/tree/main/lp_tube_cutting"
+				>
+					<p>
+						Solves a basic tube cutting linear programming problem. Optimizes
+						the parts cut on stock material to minimize waste.
+					</p>
+					<p>jupyter, pulp, pandas</p>
+				</CarouselCard>
+			</div>
+			<div id="housing-rental-data-analysis" class="w-full carousel-item">
+				<CarouselCard
+					title="Housing Rental Data Analysis"
+					imgSrc="/static/content/images/card/invh_data.png"
+					githubUrl="https://github.com/magicalpuffin/Py-Notebooks/tree/main/invh_house_rental_data"
+				>
+					<p>
+						Developed a model using machine learning to predict market_rent
+						given factors such as beds, bath, sqrft and location. Data was
+						collected from a web scrapper.
+					</p>
+					<p>jupyter, pandas, plotly, sklearn</p>
+					<a
+						href="/static/content/notebooks/market_rent_prediciton_preliminary.html"
+						>Market Rent Prediction Preliminary</a
+					>
+				</CarouselCard>
+			</div>
+			<div id="tiny-wars-ranked-statistics" class="w-full carousel-item">
+				<CarouselCard
+					title="Tiny Wars Ranked Statistics"
+					imgSrc="/static/content/images/card/tinywars_stats.png"
+					githubUrl="https://github.com/magicalpuffin/Py-Notebooks/tree/main/TinyWars_ranked_statistics"
+				>
+					<p>
+						Tiny Wars is a small online game with a ranked ladder. Cleaned the
+						data to create various data visualizations about ranked matches.
+					</p>
+					<p>jupyter, pandas, plotly</p>
+					<ul>
+						<li>
+							<a href="/static/content/notebooks/co_matchup_matrix.html"
+								>Matchup Matrix</a
+							>
+						</li>
+						<li>
+							<a href="/static/content/notebooks/co_stats_all.html"
+								>CO Statistics</a
+							>
+						</li>
+						<li>
+							<a href="/static/content/notebooks/map_winrates.html"
+								>Matchup Matrix</a
+							>
+						</li>
+						<li>
+							<a href="/static/content/notebooks/user_elo.html">User Elo</a>
+						</li>
+					</ul>
+				</CarouselCard>
+			</div>
+		</Carousel>
+	</div>
 </div>
