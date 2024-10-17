@@ -1,7 +1,3 @@
-<script lang="ts">
-  import MenuItem from "./MenuItem.svelte";
-</script>
-
-<MenuItem href="/#demos">Demos</MenuItem>
-<MenuItem href="/#notebooks">Notebooks</MenuItem>
-<MenuItem href="/blog">Blog</MenuItem>
+<li><a class="hover:text-secondary" href="/#demos">Demos</a></li>
+<li><a class="hover:text-secondary" href="/#notebooks">Notebooks</a></li>
+<li><a class="hover:text-secondary" href="/#blog">Blog</a></li>
