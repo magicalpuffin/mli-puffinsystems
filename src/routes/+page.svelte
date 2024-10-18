@@ -1,11 +1,11 @@
 <script lang="ts">
-	import AboutMe from '$lib/components/AboutMe.svelte';
+	import AboutMe from '$lib/content/AboutMe.svelte';
 	import {
 		Carousel,
 		CarouselCard,
 		CarouselMenu
 	} from '$lib/components/carousel';
-	import Header from '$lib/components/Header.svelte';
+	import Heading1 from '$lib/components/Heading1.svelte';
 
 	let demoCarouselIndex = 0;
 	let notebookCarouselIndex = 0;
@@ -20,11 +20,11 @@
 
 <div class="flex flex-col gap-2">
 	<div>
-		<Header text="About Me" id="aboutme" />
+		<Heading1 id="aboutme">About Me</Heading1>
 		<AboutMe />
 	</div>
 	<div>
-		<Header text="Demos" id="demos" />
+		<Heading1 id="demos">Demos</Heading1>
 		<CarouselMenu
 			links={['#markdown-notebook', '#manufacturing-kanban']}
 			activeIndex={demoCarouselIndex}
@@ -61,7 +61,7 @@
 		</Carousel>
 	</div>
 	<div>
-		<Header text="Notebooks" id="notebooks" />
+		<Heading1 id="notebooks">Notebooks</Heading1>
 		<CarouselMenu
 			links={[
 				'#linear-programming-tube-cutting',

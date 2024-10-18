@@ -1,15 +1,16 @@
-import { PUBLIC_DOMAIN_NAME } from "$env/static/public";
+//import { PUBLIC_DOMAIN_NAME } from "$env/static/public";
+const PUBLIC_DOMAIN_NAME = "mli.puffinsystems.com";
 import type { BlogPost } from "$lib/types/blog";
 
 export async function GET() {
-  // console.log(PUBLIC_DOMAIN_NAME);
-  const website = "https://" + PUBLIC_DOMAIN_NAME;
-  const URL_BLOGLIST = website + "/static/content/data/blogPostList.json";
+	// console.log(PUBLIC_DOMAIN_NAME);
+	const website = "https://" + PUBLIC_DOMAIN_NAME;
+	const URL_BLOGLIST = website + "/static/content/data/blogPostList.json";
 
-  const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
+	const blogPostList: BlogPost[] = await (await fetch(URL_BLOGLIST)).json();
 
-  return new Response(
-    `
+	return new Response(
+		`
 		<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
 			xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -20,16 +21,16 @@ export async function GET() {
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
 		${blogPostList
-      .map(
-        (blogPost) => `
-		<url><loc>${website}/blog/${String(blogPost.post_id)}</loc></url>`
-      )
-      .join("")}
+			.map(
+				(blogPost) => `
+		<url><loc>${website}/blog/${String(blogPost.post_id)}</loc></url>`,
+			)
+			.join("")}
 		</urlset>`.trim(),
-    {
-      headers: {
-        "Content-Type": "application/xml",
-      },
-    }
-  );
+		{
+			headers: {
+				"Content-Type": "application/xml",
+			},
+		},
+	);
 }
