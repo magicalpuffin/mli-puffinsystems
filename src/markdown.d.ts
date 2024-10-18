@@ -3,5 +3,5 @@ declare module "*.md" {
 
 	export default class Comp extends SvelteComponent {}
 
-	export const metadata: Record<string, unknown>;
+	export const metadata: unknown;
 }

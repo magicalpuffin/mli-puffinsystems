@@ -1,9 +1,9 @@
 ---
-post_id: 20240327
+id: 20240327
 title: Demo Manufacturing Kanban Part 2
 description: How I created a manufacturing kanban site. This time using SvelteKit, DrizzleORM, and SST.
-date_created: 2024-03-27
-date_updated: 2024-03-30
+createdDate: "2024-03-27"
+updatedDate: "2024-03-30"
 ---
 ![screenshot of manufacturing kanban](/static/content/images/blog/20240327/20240327_mfg_kanban.png)
 *Screenshot of some cards in SvelteKit Demo Manufacturing Kanban*

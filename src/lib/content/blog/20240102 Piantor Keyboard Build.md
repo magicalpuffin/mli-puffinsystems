@@ -1,9 +1,8 @@
 ---
-post_id: 20240102
+id: 20240102
 title: Piantor Keyboard Build
 description: My experience with building a Piantor keyboard; including issues I ran into, budget, 3d printing.
-date_created: 2024-01-02
-date_updated: 2024-01-02
+createdDate: "2024-01-02"
 ---
 ![my piantor keyboard](/static/content/images/blog/20231018/20231018_piantor_complete.png)
 *My custom Piantor keyboard*
@@ -21,7 +20,7 @@ I highly recommend the Piantor keyboard, although, I don't recommend the process
 
 ## Sourcing
 
-Components were all independently sourced instead of being bought from a kit. The total cost was ~ $250 including the soldering equipment. With the correct tools and components, you could probably build the Piantor for < $100.
+Components were all independently sourced instead of being bought from a kit. The total cost was ~ $250 including the soldering equipment. With the correct tools and components, you could probably build the Piantor for `<` $100.
 
 I made a mistake during the build process, either bought incompatible microcontrollers or was missing resisters. The safest and fastest option was to restart the build but with official Rasberry Pi Picos, resulting in a second set of components being purchased.
 

@@ -1,9 +1,9 @@
 ---
-post_id: 20230706
+id: 20230706
 title: Thoughts on the Moonlander Keyboard
 description: Blog post about my experience using the Moolander keyboard. Reliability and  ergonomics issues.
-date_created: 2023-07-06
-date_updated: 2024-01-02
+createdDate: "2023-07-06"
+updatedDate: "2024-01-02"
 ---
 ![my keyboards](/static/content/images/blog/20230706/20230706_moonlander_and_keyboards.png)
 *My keyboards*

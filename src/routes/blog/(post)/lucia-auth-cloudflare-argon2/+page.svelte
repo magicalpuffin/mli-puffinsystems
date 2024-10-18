@@ -1,0 +1,24 @@
+<script lang="ts">
+	import { Blog } from '$lib/components/blog';
+	import BlogPost, {
+		metadata
+	} from '$lib/content/blog/20240407 How to use Lucia Auth on Cloudflare with an Argon2 Rust Worker.md';
+	import type { BlogMetadata } from '$lib/types';
+
+	const blogMetadata = metadata as BlogMetadata;
+</script>
+
+<svelte:head
+	><title>{blogMetadata.title}</title><meta
+		name="description"
+		content={blogMetadata.description}
+	/></svelte:head
+>
+
+<Blog
+	title={blogMetadata.title}
+	createdDate={blogMetadata.createdDate}
+	updatedDate={blogMetadata.updatedDate}
+>
+	<BlogPost />
+</Blog>
