@@ -1,5 +1,6 @@
 ---
 id: 20240102
+slug: piantor-keyboard-build
 title: Piantor Keyboard Build
 description: My experience with building a Piantor keyboard; including issues I ran into, budget, 3d printing.
 createdDate: "2024-01-02"

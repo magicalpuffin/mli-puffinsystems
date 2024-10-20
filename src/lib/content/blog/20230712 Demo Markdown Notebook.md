@@ -1,5 +1,6 @@
 ---
 id: 20230712
+slug: demo-markdown-notebook
 title: Demo Markdown Notebook
 description: Overview about creating a markdown editor using SvelteKit
 createdDate: "2023-07-12"
