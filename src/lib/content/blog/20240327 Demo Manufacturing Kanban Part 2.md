@@ -11,7 +11,7 @@ updatedDate: "2024-03-30"
 
 ## Overview
 
-Previously, I created a basic kanban board using Django and Htmx in [Demo Manufacturing Kanban Part 1](/blog/20230715/). Since then, I have learned a lot about web development and cloud infrastructure, so I decided to recreate everything using a better stack.
+Previously, I created a basic kanban board using Django and Htmx in [Demo Manufacturing Kanban Part 1](/blog/demo-manufacturing-kanban-1). Since then, I have learned a lot about web development and cloud infrastructure, so I decided to recreate everything using a better stack.
 
 - [**SvelteKit:**](https://kit.svelte.dev/) JavaScript web framework for rendering Svelte components. Used as frontend.
 - [**DaisyUI:**](https://daisyui.com/) Component framework based on TailwindCSS. Used to style components.

@@ -10,7 +10,7 @@ updatedDate: "2024-03-27"
 *Screenshot of some cards in Demo Manufacturing Kanban*
 ## Overview
 
-**2024-03-28 UPDATE:** This post describes the original Django version of this project. See [Demo Manufacturing Kanban Part 2](/blog/20240327/) 
+**2024-03-28 UPDATE:** This post describes the original Django version of this project. See [Demo Manufacturing Kanban Part 2](/blog/demo-manufacturing-kanban-2) 
 
 I tried to create a "kanban" or "andon" board as quickly as possible. The end result was a Django and Htmx deployed to AWS Lambda using Zappa. The database was an sqlite database on AWS S3.
 
