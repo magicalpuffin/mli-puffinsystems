@@ -40,22 +40,9 @@ export const load = (async ({ params, fetch }) => {
 	//return { component: BlogPost };
 }) satisfies PageLoad;
 
-//export const load = (async ({ params, fetch }) => {
-//	const BLOG_ID = params.id;
-//
-//	const blogPost = blogList.find((blogPost) => {
-//		return String(blogPost.id) === BLOG_ID;
-//	});
-//
-//	if (blogPost === undefined) {
-//		error(404, "Can't find blog post");
-//	}
-//	redirect(302, `/blog/${blogPost.slug}`);
-//}) satisfies PageServerLoad;
-
 export const entries: EntryGenerator = async () => {
 	const modules = import.meta.glob("/src/lib/content/blog/*.md");
-
+	// todo consider putting slug in pathname for easier parsing
 	const entries: { slug: string }[] = [];
 
 	for (const path of Object.keys(modules)) {

@@ -35,13 +35,12 @@
 					title="Markdown Notebook"
 					imgSrc="/static/content/images/card/demo_md_notebook.png"
 					githubUrl="https://github.com/magicalpuffin/Demo-Markdown-Notebook"
-					detailUrl="https://github.com/magicalpuffin/Demo-Markdown-Notebook"
 				>
 					<p>
 						Create, edit and save markdown notebooks. This project was created
 						when I was first learning Svelte.
 					</p>
-					<a href="/blog/20230712">Read More</a>
+					<a href="blog/demo-markdown-notebook">Read More</a>
 				</CarouselCard>
 			</div>
 			<div id="manufacturing-kanban" class="w-full carousel-item">
@@ -55,7 +54,7 @@
 						workorders. Drag and drop to move workorders around.
 					</p>
 					<p>SvelteKit, DrizzleORM, tRPC, SortableJS, AWS Lambda</p>
-					<a href="/blog/20240327/">Read More</a>
+					<a href="blog/demo-manufacturing-kanban-2">Read More</a>
 				</CarouselCard>
 			</div>
 		</Carousel>

@@ -14,7 +14,7 @@
 <div
 	class="flex gap-2 tooltip-bottom w-fit"
 	class:tooltip={updatedDate}
-	data-tip={updatedDate}
+	data-tip={`Updated on: ${updatedDate}`}
 >
 	{#if updatedDate}
 		<CalendarIcon />
