@@ -1,7 +1,0 @@
-{
-  "alwaysUpdateLinks": true,
-  "newLinkFormat": "absolute",
-  "newFileLocation": "current",
-  "attachmentFolderPath": "static/content/images",
-  "useMarkdownLinks": true
-}
