@@ -42,5 +42,6 @@
 	"type": "module",
 	"volta": {
 		"node": "22.10.0"
-	}
+	},
+	"packageManager": "pnpm@9.9.0"
 }
