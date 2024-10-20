@@ -39,5 +39,9 @@
 		"vite": "^5.4.9",
 		"wrangler": "^3.81.0"
 	},
-	"type": "module"
+	"type": "module",
+	"volta": {
+		"node": "22.10.0"
+	},
+	"packageManager": "pnpm@9.9.0"
 }
