@@ -23,7 +23,7 @@ export const blogList: BlogPost[] = [
 		id: 20240117,
 		slug: "pandas-to-pydantic",
 		title: "Converting Pandas Dataframes to Pydantic Models",
-		createdDate: "20240117",
+		createdDate: "2024-01-17",
 	},
 	{
 		id: 20240102,
@@ -35,7 +35,7 @@ export const blogList: BlogPost[] = [
 		id: 20230801,
 		slug: "confluence-to-obsidian",
 		title: "Confluence to Obsidian",
-		createdDate: "20230801",
+		createdDate: "2023-08-01",
 	},
 	{
 		id: 20230715,
