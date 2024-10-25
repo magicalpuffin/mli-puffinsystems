@@ -1,3 +1,5 @@
+import type { ComponentType } from "svelte";
+
 export type BlogMetadata = {
 	id: number;
 	slug: string;
@@ -6,3 +8,8 @@ export type BlogMetadata = {
 	createdDate: string;
 	updatedDate?: string;
 };
+
+export type BlogModules = Record<
+	string,
+	() => Promise<{ default: ComponentType; metadata: BlogMetadata }>
+>;

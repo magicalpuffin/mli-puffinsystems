@@ -1,12 +1,21 @@
 .table-container {
-  overflow-x: auto;
+	overflow-x: auto;
 }
 
 /* captions style */
-img+em {
-  margin-top: 1.0rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  max-width: fit-content;
+img + em {
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	max-width: fit-content;
 }
+
+picture + em {
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	max-width: fit-content;
+}
+

@@ -1,4 +1,4 @@
-import type { BlogMetadata } from "$lib/types.js";
+import type { BlogMetadata, BlogModules } from "$lib/types.js";
 import { error, redirect } from "@sveltejs/kit";
 import type { ComponentType } from "svelte";
 import type { EntryGenerator, PageLoad } from "./$types.js";
@@ -8,7 +8,8 @@ export const prerender = "auto";
 export const load = (async ({ params, fetch }) => {
 	const BLOG_SLUG = params.slug;
 
-	const modules = import.meta.glob("/src/lib/content/blog/*.md");
+	//const modules = import.meta.glob("/src/lib/content/blog/*.md");
+	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
 
 	const blogMetadataList: (BlogMetadata & { component: ComponentType })[] = [];
 
@@ -41,7 +42,7 @@ export const load = (async ({ params, fetch }) => {
 }) satisfies PageLoad;
 
 export const entries: EntryGenerator = async () => {
-	const modules = import.meta.glob("/src/lib/content/blog/*.md");
+	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
 	// todo consider putting slug in pathname for easier parsing
 	const entries: { slug: string }[] = [];
 

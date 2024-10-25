@@ -1,8 +1,10 @@
+import type { BlogModules } from "$lib/types";
+
 //import { PUBLIC_DOMAIN_NAME } from "$env/static/public";
 const SITE_NAME = "https://mli.puffinsystems.com";
 
 export async function GET() {
-	const modules = import.meta.glob("/src/lib/content/blog/*.md");
+	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
 
 	const entries: { slug: string }[] = [];
 
