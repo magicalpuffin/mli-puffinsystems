@@ -3,9 +3,13 @@
 	import CalendarIcon from 'lucide-svelte/icons/calendar';
 	import InfoIcon from 'lucide-svelte/icons/info';
 
-	export let title: string;
-	export let createdDate: string;
-	export let updatedDate: string | undefined = undefined;
+	interface Props {
+		title: string;
+		createdDate: string;
+		updatedDate?: string | undefined;
+	}
+
+	let { title, createdDate, updatedDate = undefined }: Props = $props();
 </script>
 
 <Heading1 id="blogTitle">

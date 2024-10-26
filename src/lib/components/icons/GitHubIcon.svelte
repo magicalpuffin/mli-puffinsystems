@@ -1,6 +1,10 @@
 <script lang="ts">
-	// https://iconoir.com/
-	export let color: string = 'currentColor';
+	interface Props {
+		// https://iconoir.com/
+		color?: string;
+	}
+
+	let { color = 'currentColor' }: Props = $props();
 </script>
 
 <svg
