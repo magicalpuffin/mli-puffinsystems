@@ -2,11 +2,21 @@
 	import BlogHeader from './BlogHeader.svelte';
 	import BlogContent from './BlogContent.svelte';
 
-	export let title: string;
-	export let createdDate: string;
-	export let updatedDate: string | undefined = undefined;
+	interface Props {
+		title: string;
+		createdDate: string;
+		updatedDate?: string | undefined;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title,
+		createdDate,
+		updatedDate = undefined,
+		children
+	}: Props = $props();
 </script>
 
 <BlogHeader {title} {createdDate} {updatedDate} />
-<div class="my-1 divider" />
-<BlogContent><slot /></BlogContent>
+<div class="my-1 divider"></div>
+<BlogContent>{@render children?.()}</BlogContent>

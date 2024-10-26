@@ -1,4 +1,4 @@
-import type { ComponentType } from "svelte";
+import type { Component } from "svelte";
 
 export type BlogMetadata = {
 	id: number;
@@ -11,5 +11,5 @@ export type BlogMetadata = {
 
 export type BlogModules = Record<
 	string,
-	() => Promise<{ default: ComponentType; metadata: BlogMetadata }>
+	() => Promise<{ default: Component; metadata: BlogMetadata }>
 >;

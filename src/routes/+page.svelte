@@ -7,8 +7,8 @@
 	} from '$lib/components/carousel';
 	import Heading1 from '$lib/components/Heading1.svelte';
 
-	let demoCarouselIndex = 0;
-	let notebookCarouselIndex = 0;
+	let demoCarouselIndex = $state(0);
+	let notebookCarouselIndex = $state(0);
 </script>
 
 <svelte:head

@@ -20,7 +20,7 @@
 	</div>
 	<div class="navbar-end">
 		<div class="md:hidden dropdown dropdown-end">
-			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 			<div tabindex="0" class="btn btn-ghost">
 				<MenuIcon />
 			</div>

@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let links: string[];
-	export let activeIndex: number;
+	interface Props {
+		links: string[];
+		activeIndex: number;
+	}
+
+	let { links, activeIndex }: Props = $props();
 </script>
 
 <div class="flex gap-1 py-2">

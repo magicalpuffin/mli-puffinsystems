@@ -2,10 +2,21 @@
 	import ExternalLinkIcon from 'lucide-svelte/icons/external-link';
 	import GitHubIcon from '$lib/components/icons/GitHubIcon.svelte';
 
-	export let title: string;
-	export let detailUrl: string | undefined = undefined;
-	export let githubUrl: string | undefined = undefined;
-	export let imgSrc: string;
+	interface Props {
+		title: string;
+		detailUrl?: string | undefined;
+		githubUrl?: string | undefined;
+		imgSrc: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title,
+		detailUrl = undefined,
+		githubUrl = undefined,
+		imgSrc,
+		children
+	}: Props = $props();
 </script>
 
 <div class="rounded-2xl border shadow-lg md:h-96">
@@ -44,7 +55,7 @@
 				alt="project screenshot"
 			/>
 			<article class="my-2 mx-2 prose">
-				<slot />
+				{@render children?.()}
 			</article>
 		</div>
 	</div>

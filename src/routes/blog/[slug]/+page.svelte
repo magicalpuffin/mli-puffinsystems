@@ -2,7 +2,11 @@
 	import { Blog } from '$lib/components/blog';
 	import type { PageData } from './$types';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <svelte:head
@@ -17,5 +21,5 @@
 	createdDate={data.blogPost.createdDate}
 	updatedDate={data.blogPost.updatedDate}
 >
-	<svelte:component this={data.blogPost.component} />
+	<data.blogPost.component />
 </Blog>

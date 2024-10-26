@@ -1,6 +1,6 @@
 import type { BlogMetadata, BlogModules } from "$lib/types.js";
 import { error, redirect } from "@sveltejs/kit";
-import type { ComponentType } from "svelte";
+import type { Component } from "svelte";
 import type { EntryGenerator, PageLoad } from "./$types.js";
 
 export const prerender = "auto";
@@ -11,7 +11,7 @@ export const load = (async ({ params, fetch }) => {
 	//const modules = import.meta.glob("/src/lib/content/blog/*.md");
 	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
 
-	const blogMetadataList: (BlogMetadata & { component: ComponentType })[] = [];
+	const blogMetadataList: (BlogMetadata & { component: Component })[] = [];
 
 	for (const path of Object.keys(modules)) {
 		await modules[path]().then((mod) => {

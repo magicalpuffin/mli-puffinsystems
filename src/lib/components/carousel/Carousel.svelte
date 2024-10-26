@@ -1,8 +1,14 @@
 <script lang="ts">
-	export let activeIndex: number = 0;
-	let carousel: HTMLElement;
+	interface Props {
+		activeIndex?: number;
+		children?: import('svelte').Snippet;
+	}
+
+	let { activeIndex = $bindable(0), children }: Props = $props();
+	let carousel: HTMLElement | undefined = $state();
 
 	function updateActiveIndex() {
+		if (!carousel) return 0;
 		const xLeft = carousel.scrollLeft;
 		const xWidth = carousel.clientWidth;
 
@@ -15,9 +21,9 @@
 <div
 	class="w-full carousel"
 	bind:this={carousel}
-	on:scroll={() => {
+	onscroll={() => {
 		activeIndex = updateActiveIndex();
 	}}
 >
-	<slot />
+	{@render children?.()}
 </div>
