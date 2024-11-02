@@ -3,7 +3,7 @@ id: 20241102
 slug: sveltekit-blog-docs-with-mdsvex
 title: Dynamically rendering markdown on SvelteKit using mdsvex
 description: How to dynamically render markdown in SvelteKit using mdsvex and example template-sveltekit-md-docs. Page routing with vite glob imports and native like support of images and links.
-createdDate: "2024-10-28"
+createdDate: "2024-11-02"
 ---
 `mdsvex` allows using markdown in Svelte components; however, this is usually done by creating or importing your component in a `.svx` file. This works great for writing Svelte components with markdown, but gets annoying if you primarily want to markdown content.
 
