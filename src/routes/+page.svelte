@@ -96,7 +96,7 @@
 					</p>
 					<p>jupyter, pandas, plotly, sklearn</p>
 					<a
-						href="/static/content/notebooks/market_rent_prediciton_preliminary.html"
+						href="/static/content/notebooks/market_rent_prediciton_preliminary.htm"
 						>Market Rent Prediction Preliminary</a
 					>
 				</CarouselCard>
@@ -114,22 +114,22 @@
 					<p>jupyter, pandas, plotly</p>
 					<ul>
 						<li>
-							<a href="/static/content/notebooks/co_matchup_matrix.html"
+							<a href="/static/content/notebooks/co_matchup_matrix.htm"
 								>Matchup Matrix</a
 							>
 						</li>
 						<li>
-							<a href="/static/content/notebooks/co_stats_all.html"
+							<a href="/static/content/notebooks/co_stats_all.htm"
 								>CO Statistics</a
 							>
 						</li>
 						<li>
-							<a href="/static/content/notebooks/map_winrates.html"
+							<a href="/static/content/notebooks/map_winrates.htm"
 								>Matchup Matrix</a
 							>
 						</li>
 						<li>
-							<a href="/static/content/notebooks/user_elo.html">User Elo</a>
+							<a href="/static/content/notebooks/user_elo.htm">User Elo</a>
 						</li>
 					</ul>
 				</CarouselCard>
