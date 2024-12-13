@@ -23,7 +23,7 @@
 		<li>
 			<a href="/blog/{blog.slug}">
 				<p>
-					{blog.createdDate}
+					{blog.createdDate.slice(0, 10)}
 					{blog.title}
 				</p>
 			</a>

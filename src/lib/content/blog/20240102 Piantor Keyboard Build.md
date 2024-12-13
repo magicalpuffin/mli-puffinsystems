@@ -3,7 +3,7 @@ id: 20240102
 slug: piantor-keyboard-build
 title: Piantor Keyboard Build
 description: My experience with building a Piantor keyboard; including issues I ran into, budget, 3d printing.
-createdDate: "2024-01-02"
+createdDate: 2024-01-02
 ---
 ![my piantor keyboard](/static/content/images/blog/20231018/20231018_piantor_complete.png)
 *My custom Piantor keyboard*
