@@ -26,10 +26,24 @@
 	<div>
 		<Heading1 id="demos">Demos</Heading1>
 		<CarouselMenu
-			links={['#markdown-notebook', '#manufacturing-kanban']}
+			links={['#ai-db-query', '#markdown-notebook', '#manufacturing-kanban']}
 			activeIndex={demoCarouselIndex}
 		/>
 		<Carousel bind:activeIndex={demoCarouselIndex}>
+			<div id="ai-db-query" class="w-full carousel-item">
+				<CarouselCard
+					title="AI DB Query"
+					imgSrc="/content/images/blog/20241210/20241210_ai_working.png"
+					githubUrl="https://github.com/magicalpuffin/demo-ai-db-query"
+				>
+					<p>
+						Use AI to generate SQL queries based on prompts. Identifies relevant
+						tables using a vector database to provide additional context.
+					</p>
+					<p>SvelteKit, Cloudflare Workers AI, Cloudflare Vectorize</p>
+					<a href="blog/creating-ai-sql-query-sveltekit">Read More</a>
+				</CarouselCard>
+			</div>
 			<div id="markdown-notebook" class="w-full carousel-item">
 				<CarouselCard
 					title="Markdown Notebook"
