@@ -45,5 +45,10 @@
 	"type": "module",
 	"volta": {
 		"node": "22.10.0"
+	},
+	"pnpm": {
+		"overrides": {
+			"cookie@<0.7.0": ">=0.7.0"
+		}
 	}
 }
