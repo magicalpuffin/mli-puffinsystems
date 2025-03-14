@@ -12,7 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250303.0",
+		"@cloudflare/workers-types": "^4.20250313.0",
 		"@internationalized/date": "^3.7.0",
 		"@sveltejs/adapter-cloudflare": "^4.9.0",
 		"@sveltejs/enhanced-img": "^0.3.10",
@@ -21,7 +21,7 @@
 		"@tailwindcss/typography": "^0.5.16",
 		"@types/eslint": "^9.6.1",
 		"@types/hast": "^3.0.4",
-		"autoprefixer": "^10.4.20",
+		"autoprefixer": "^10.4.21",
 		"daisyui": "^4.12.24",
 		"eslint": "^9.22.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -33,14 +33,14 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"shiki": "^1.29.2",
-		"svelte": "^5.22.6",
+		"svelte": "^5.23.0",
 		"svelte-check": "^4.1.5",
 		"tailwindcss": "^3.4.17",
 		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.26.0",
+		"typescript-eslint": "^8.26.1",
 		"unist-util-visit": "^5.0.0",
 		"vite": "^5.4.14",
-		"wrangler": "^3.114.0"
+		"wrangler": "^3.114.1"
 	},
 	"type": "module",
 	"volta": {

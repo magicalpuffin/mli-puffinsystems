@@ -3,7 +3,7 @@ import { error, redirect } from "@sveltejs/kit";
 import type { Component } from "svelte";
 import type { EntryGenerator, PageLoad } from "./$types.js";
 
-export const prerender = "auto";
+export const prerender = true;
 
 export const load = (async ({ params, fetch }) => {
 	const BLOG_SLUG = params.slug;
