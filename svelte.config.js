@@ -25,7 +25,7 @@ import { visit } from "unist-util-visit";
  * @import {Root} from 'hast'
  */
 
-export function rehypeEnhancedImage() {
+export function rehypeUpdateImage() {
 	/**
 	 * @param {Root} tree
 	 * @return {undefined}
@@ -34,16 +34,7 @@ export function rehypeEnhancedImage() {
 		visit(tree, "element", (node) => {
 			// Check if the node is an img element
 			if (node.tagName === "img") {
-				if (typeof node.properties.src === "string") {
-					const srcext = node.properties.src?.toString().split(".").pop();
-
-					if (srcext === "gif") {
-						node.properties.src = node.properties.src.replace("/static", "");
-					} else {
-						// Change the tag name to 'enhanced:img'
-						node.tagName = "enhanced:img";
-					}
-				}
+				node.properties.src = node.properties.src.replace("/static", "");
 			}
 		});
 	};
@@ -51,7 +42,7 @@ export function rehypeEnhancedImage() {
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	rehypePlugins: [rehypeEnhancedImage],
+	rehypePlugins: [rehypeUpdateImage],
 	extensions: [".svx", ".md"],
 	highlight: {
 		highlighter: async (code, lang = "text") => {
