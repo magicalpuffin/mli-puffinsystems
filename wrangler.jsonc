@@ -11,8 +11,10 @@
 	"observability": {
 		"enabled": true
 	},
-  {
-    "pattern": "mli.puffinsystems.com",
-    "custom_domain": true
-  }
+	"routes": [
+		{
+			"pattern": "mli.puffinsystems.com",
+			"custom_domain": true
+		}
+	]
 }
