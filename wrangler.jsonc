@@ -10,5 +10,9 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+  {
+    "pattern": "mli.puffinsystems.com",
+    "custom_domain": true
+  }
 }
