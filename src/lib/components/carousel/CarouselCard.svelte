@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ExternalLinkIcon from 'lucide-svelte/icons/external-link';
+	import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
 	import GitHubIcon from '$lib/components/icons/GitHubIcon.svelte';
 
 	interface Props {

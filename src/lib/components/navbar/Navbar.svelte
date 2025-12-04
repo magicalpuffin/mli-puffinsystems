@@ -1,7 +1,7 @@
 <script>
 	import NameLogo from './NameLogo.svelte';
 	import NavbarLinks from './NavbarLinks.svelte';
-	import MenuIcon from 'lucide-svelte/icons/menu';
+	import MenuIcon from '@lucide/svelte/icons/menu';
 </script>
 
 <nav class="border-b navbar bg-base-100">
@@ -25,7 +25,7 @@
 				<MenuIcon />
 			</div>
 			<ul
-				class="p-2 w-52 shadow menu dropdown-content bg-base-100 rounded-box z-[1]"
+				class="p-2 w-52 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1"
 			>
 				<NavbarLinks />
 			</ul>
