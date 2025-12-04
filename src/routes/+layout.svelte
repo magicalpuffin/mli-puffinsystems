@@ -1,17 +1,27 @@
 <script lang="ts">
 	import '../app.css';
-	import Navbar from '$lib/components/navbar/Navbar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import { Navbar } from '$lib/components/nav';
+
+	let links: { href: string; label: string }[] = [
+		{ href: '/#About', label: 'About' },
+		{ href: '/#Experience', label: 'Experience' },
+		{ href: '/#Project', label: 'Project' },
+		{ href: '/blog', label: 'Blog' }
+	];
 
 	let { children } = $props();
 </script>
 
-<Navbar />
+<Navbar
+	{links}
+	githubUrl="https://github.com/magicalpuffin"
+	linkedinUrl="https://www.linkedin.com/in/michael-li-745a13199/"
+/>
+
 <main>
-	<div class="flex justify-center my-2 mx-2">
+	<div class="flex justify-center my-16 mx-4">
 		<div class="container max-w-3xl">
 			{@render children?.()}
 		</div>
 	</div>
 </main>
-<Footer></Footer>

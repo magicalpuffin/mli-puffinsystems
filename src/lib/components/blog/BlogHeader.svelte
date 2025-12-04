@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Heading1 from '$lib/components/Heading1.svelte';
-	import CalendarIcon from 'lucide-svelte/icons/calendar';
-	import InfoIcon from 'lucide-svelte/icons/info';
+	import CalendarIcon from '@lucide/svelte/icons/calendar';
+	import InfoIcon from '@lucide/svelte/icons/info';
 
 	interface Props {
 		title: string;
