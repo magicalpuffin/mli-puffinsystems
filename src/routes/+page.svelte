@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Separator } from '$lib/components/ui/separator/';
 	import { ExperienceSection } from '$lib/components/section/experience-section';
+	import SectionHeader from '$lib/components/section/section-header.svelte';
 </script>
 
 <svelte:head
@@ -15,7 +16,7 @@
 	<h1 class="mx-4 font-mono text-6xl font-bold">Michael Li</h1>
 	<div class="text-gray-600">Manufacturing / Statistics / Software</div>
 
-	<div class="p-4 my-4 border border-orange-600">
+	<div class="p-4 my-4 border border-orange-600 hover:shadow-xl duration-600">
 		<p>
 			I'm an industrial engineer interested in using statistics and software to
 			solve manufacturing problems. I enjoy thinking about complex systems,
@@ -25,10 +26,7 @@
 </div>
 
 <div class="my-16">
-	<div class="flex flex-row gap-4 items-center">
-		<h2 class="text-2xl font-bold" id="Experience">Experience</h2>
-		<Separator class="shrink" />
-	</div>
+	<SectionHeader id={'experience'} label="Experience" />
 	<ExperienceSection
 		experiences={[
 			{
@@ -51,10 +49,7 @@
 </div>
 
 <div class="my-16">
-	<div class="flex flex-row gap-4 items-center">
-		<h2 class="text-2xl font-bold" id="project">Project</h2>
-		<Separator class="shrink" />
-	</div>
+	<SectionHeader id={'project'} label="Project" />
 	<div class="flex flex-col gap-4 m-2 md:flex-row">
 		<img
 			src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"

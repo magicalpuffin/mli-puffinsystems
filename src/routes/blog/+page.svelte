@@ -20,13 +20,17 @@
 <Heading1 id="blog">My Blog Posts</Heading1>
 <div class="mt-2 menu bg-base-200 rounded-box">
 	{#each data.blogMetadataList as blog}
-		<li>
-			<a href="/blog/{blog.slug}">
-				<p>
-					{blog.createdDate.slice(0, 10)}
-					{blog.title}
-				</p>
-			</a>
-		</li>
+		<a
+			href="/blog/{blog.slug}"
+			class="block p-4 border-l-2 hover:border-orange-600 hover:bg-gray-300/30"
+		>
+			<div class="text-xs text-gray-400">{blog.createdDate.slice(0, 10)}</div>
+			<h3 class="text-xl font-bold">{blog.title}</h3>
+			<p
+				class="p-4 my-2 text-sm border border-orange-600 hover:shadow-xl duration-600"
+			>
+				{blog.description}
+			</p>
+		</a>
 	{/each}
 </div>

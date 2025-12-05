@@ -3,9 +3,9 @@
 	import { Navbar } from '$lib/components/nav';
 
 	let links: { href: string; label: string }[] = [
-		{ href: '/#About', label: 'About' },
-		{ href: '/#Experience', label: 'Experience' },
-		{ href: '/#Project', label: 'Project' },
+		{ href: '/#about', label: 'About' },
+		{ href: '/#experience', label: 'Experience' },
+		{ href: '/#project', label: 'Project' },
 		{ href: '/blog', label: 'Blog' }
 	];
 

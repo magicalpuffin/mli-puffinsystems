@@ -9,7 +9,7 @@
 	let { id, label }: Props = $props();
 </script>
 
-<div class="flex flex-row items-center gap-4">
+<div class="flex flex-row gap-4 items-center my-4">
 	<h2 class="text-2xl font-bold" {id}>{label}</h2>
 	<Separator class="shrink" />
 </div>

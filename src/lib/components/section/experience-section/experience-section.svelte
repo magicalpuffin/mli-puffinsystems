@@ -3,7 +3,12 @@
 	import { fade } from 'svelte/transition';
 
 	interface Props {
-		experiences: { name: string; title: string; duration: string; description: string }[];
+		experiences: {
+			name: string;
+			title: string;
+			duration: string;
+			description: string;
+		}[];
 	}
 
 	let { experiences }: Props = $props();
@@ -13,9 +18,9 @@
 <Tabs.Root
 	bind:value={selectedTab}
 	orientation="vertical"
-	class="m-2 flex h-96 flex-col gap-4 md:h-64 md:flex-row"
+	class="flex flex-col gap-4 m-2 h-96 md:flex-row md:h-64"
 >
-	<Tabs.List class="flex h-fit w-full shrink-0 flex-row md:w-42 md:flex-col">
+	<Tabs.List class="flex flex-row w-full md:flex-col h-fit shrink-0 md:w-42">
 		{#each experiences as e}
 			<Tabs.Trigger
 				value={e.name}
@@ -31,11 +36,13 @@
 					<div transition:fade>
 						<h3 class="my-2 text-xl font-semibold">{e.name}</h3>
 						<div class="flex flex-row justify-between">
-							<span class="font-medium">{e.title}</span><span class="text-gray-600"
-								>{e.duration}</span
+							<span class="font-medium">{e.title}</span><span
+								class="text-gray-600">{e.duration}</span
 							>
 						</div>
-						<p class="my-2 border border-orange-600 p-4">
+						<p
+							class="p-4 my-2 border border-orange-600 hover:shadow-xl duration-600"
+						>
 							{e.description}
 						</p>
 					</div>
