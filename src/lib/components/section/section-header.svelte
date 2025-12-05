@@ -11,5 +11,5 @@
 
 <div class="flex flex-row gap-4 items-center my-4">
 	<h2 class="text-2xl font-bold" {id}>{label}</h2>
-	<Separator class="shrink" />
+	<Separator class="shrink bg-secondary" />
 </div>

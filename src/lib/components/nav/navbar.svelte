@@ -36,11 +36,11 @@
           transition-transform duration-500 ${show ? 'translate-y-0' : '-translate-y-full'}`}
 >
 	<div
-		class="flex justify-between items-center px-4 mx-auto max-w-4xl h-12 border-b"
+		class="flex justify-between items-center px-4 mx-auto max-w-4xl h-12 border-b border-secondary"
 	>
 		<a
 			href="/"
-			class="py-1 my-1 w-36 font-mono text-lg font-bold text-center rounded-lg md:text-2xl hover:text-orange-600 hover:bg-gray-300/30"
+			class="py-1 my-1 w-36 font-mono text-lg font-bold text-center rounded-lg md:text-2xl hover:bg-secondary/30 hover:text-primary"
 			>Michael Li</a
 		>
 		<div class="hidden flex-row gap-6 sm:flex">

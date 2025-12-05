@@ -22,12 +22,12 @@
 	{#each data.blogMetadataList as blog}
 		<a
 			href="/blog/{blog.slug}"
-			class="block p-4 border-l-2 hover:border-orange-600 hover:bg-gray-300/30"
+			class="block p-4 border-l-2 border-secondary hover:border-primary hover:bg-secondary/30"
 		>
 			<div class="text-xs text-gray-400">{blog.createdDate.slice(0, 10)}</div>
 			<h3 class="text-xl font-bold">{blog.title}</h3>
 			<p
-				class="p-4 my-2 text-sm border border-orange-600 hover:shadow-xl duration-600"
+				class="p-4 my-2 text-sm border hover:shadow-xl border-primary duration-600"
 			>
 				{blog.description}
 			</p>

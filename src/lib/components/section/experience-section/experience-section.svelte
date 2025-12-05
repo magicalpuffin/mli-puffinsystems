@@ -24,7 +24,7 @@
 		{#each experiences as e}
 			<Tabs.Trigger
 				value={e.name}
-				class="flex h-12 w-full items-center border-t-2 px-2 font-medium hover:border-l-orange-600 hover:bg-gray-300/30 hover:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:text-orange-600 md:border-t-0 md:border-l-2"
+				class="flex h-12 w-full items-center border-t-2 border-secondary px-2 font-medium hover:border-l-primary hover:bg-secondary/30 hover:text-primary data-[state=active]:border-primary data-[state=active]:text-primary md:border-t-0 md:border-l-2"
 				>{e.name}</Tabs.Trigger
 			>
 		{/each}
@@ -41,7 +41,7 @@
 							>
 						</div>
 						<p
-							class="p-4 my-2 border border-orange-600 hover:shadow-xl duration-600"
+							class="p-4 my-2 border hover:shadow-xl border-primary duration-600"
 						>
 							{e.description}
 						</p>

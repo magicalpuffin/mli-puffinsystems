@@ -2,6 +2,7 @@
 	import { Separator } from '$lib/components/ui/separator/';
 	import { ExperienceSection } from '$lib/components/section/experience-section';
 	import SectionHeader from '$lib/components/section/section-header.svelte';
+	// import { Button } from '$lib/components/ui/button';
 </script>
 
 <svelte:head
@@ -11,12 +12,15 @@
 	/></svelte:head
 >
 
+<!-- <Button variant="default">Primary Button</Button> -->
+<!-- <Button variant="secondary">Primary Button</Button> -->
+
 <div class="my-4">
 	<div class="text-xl font-medium">Hello! My name is</div>
 	<h1 class="mx-4 font-mono text-6xl font-bold">Michael Li</h1>
 	<div class="text-gray-600">Manufacturing / Statistics / Software</div>
 
-	<div class="p-4 my-4 border border-orange-600 hover:shadow-xl duration-600">
+	<div class="p-4 my-4 border hover:shadow-xl border-primary duration-600">
 		<p>
 			I'm an industrial engineer interested in using statistics and software to
 			solve manufacturing problems. I enjoy thinking about complex systems,
@@ -58,7 +62,7 @@
 		/>
 		<div>
 			<h3 class="text-xl font-medium">AI DB Query</h3>
-			<p class="p-2 border border-orange-600">
+			<p class="p-2 border border-primary">
 				Use AI to generate SQL queries based on prompts. Identifies relevant
 				tables using a vector database to provide additional context.
 			</p>
