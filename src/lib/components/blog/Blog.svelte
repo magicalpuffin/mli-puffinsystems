@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BlogHeader from './BlogHeader.svelte';
 	import BlogContent from './BlogContent.svelte';
+	import { Separator } from '$lib/components/ui/separator';
 
 	interface Props {
 		title: string;
@@ -18,5 +19,6 @@
 </script>
 
 <BlogHeader {title} {createdDate} {updatedDate} />
-<div class="my-1 divider"></div>
+
+<Separator class="my-2 bg-secondary" />
 <BlogContent>{@render children?.()}</BlogContent>

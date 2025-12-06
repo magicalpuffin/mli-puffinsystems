@@ -11,5 +11,5 @@ export type BlogMetadata = {
 
 export type BlogModules = Record<
 	string,
-	() => Promise<{ default: Component; metadata: BlogMetadata }>
+	{ default: Component; metadata: BlogMetadata }
 >;

@@ -9,16 +9,14 @@ export const prerender = "auto";
 export const load = (async ({ params, fetch }) => {
 	const BLOG_SLUG = params.slug;
 
-	//const modules = import.meta.glob("/src/lib/content/blog/*.md");
-	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
+	const modules = import.meta.glob("/src/lib/content/blog/*.md", {
+		eager: true,
+	}) as BlogModules;
 
-	const blogMetadataList: (BlogMetadata & { component: Component })[] = [];
-
-	for (const path of Object.keys(modules)) {
-		await modules[path]().then((mod) => {
-			blogMetadataList.push({ ...mod.metadata, component: mod.default });
-		});
-	}
+	const blogMetadataList = Object.values(modules).map((mod) => ({
+		...mod.metadata,
+		component: mod.default,
+	}));
 
 	let blogPost = blogMetadataList.find((blogMetadata) => {
 		return String(blogMetadata.id) === BLOG_SLUG;
@@ -39,19 +37,17 @@ export const load = (async ({ params, fetch }) => {
 	}
 
 	return { blogPost };
-	//return { component: BlogPost };
 }) satisfies PageLoad;
 
 export const entries: EntryGenerator = async () => {
-	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
-	// todo consider putting slug in pathname for easier parsing
-	const entries: { slug: string }[] = [];
+	const modules = import.meta.glob("/src/lib/content/blog/*.md", {
+		eager: true,
+	}) as BlogModules;
 
-	for (const path of Object.keys(modules)) {
-		await modules[path]().then((mod) => {
-			entries.push({ slug: mod.metadata.slug });
-		});
-	}
+	// todo consider putting slug in pathname for easier parsing
+	const entries = Object.values(modules).map((mod) => ({
+		slug: mod.metadata.slug,
+	}));
 
 	//const entries = [
 	//	{ slug: "demo-markdown-notebook" },

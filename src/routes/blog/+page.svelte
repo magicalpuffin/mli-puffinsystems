@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Heading1 from '$lib/components/Heading1.svelte';
 	//import { blogList } from '$lib/content/blogList';
 	import type { PageData } from './$types';
 
@@ -17,7 +16,7 @@
 	/></svelte:head
 >
 
-<Heading1 id="blog">My Blog Posts</Heading1>
+<h1 class="my-4 text-2xl font-bold">Blog Posts</h1>
 <div class="mt-2">
 	{#each data.blogMetadataList as blog}
 		<a

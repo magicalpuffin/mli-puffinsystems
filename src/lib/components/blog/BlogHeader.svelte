@@ -1,7 +1,11 @@
 <script lang="ts">
-	import Heading1 from '$lib/components/Heading1.svelte';
 	import CalendarIcon from '@lucide/svelte/icons/calendar';
-	import InfoIcon from '@lucide/svelte/icons/info';
+	import {
+		Tooltip,
+		TooltipContent,
+		TooltipProvider,
+		TooltipTrigger
+	} from '../ui/tooltip';
 
 	interface Props {
 		title: string;
@@ -12,21 +16,31 @@
 	let { title, createdDate, updatedDate = undefined }: Props = $props();
 </script>
 
-<Heading1 id="blogTitle">
+<h1 class="my-4 text-2xl font-bold tracking-wide">
 	{title}
-</Heading1>
-<div
-	class="flex gap-2 tooltip-bottom w-fit"
-	class:tooltip={updatedDate}
-	data-tip={`Updated on: ${updatedDate}`}
->
-	{#if updatedDate}
-		<CalendarIcon />
-		<InfoIcon />
-	{:else}
-		<CalendarIcon />
-	{/if}
-	<p class="font-light text-md">
-		{createdDate}
-	</p>
-</div>
+</h1>
+
+<TooltipProvider>
+	<Tooltip>
+		<TooltipTrigger>
+			<div class="flex gap-2 w-fit">
+				<CalendarIcon size="20" />
+				<p class="font-light text-md">
+					{createdDate}
+				</p>
+			</div>
+		</TooltipTrigger>
+		<TooltipContent
+			class="bg-secondary text-secondary-foreground"
+			arrowClasses="bg-secondary"
+			side="bottom"
+		>
+			<div>
+				<p>Created on {createdDate}</p>
+				{#if updatedDate}
+					<p>Updated on: {updatedDate}</p>
+				{/if}
+			</div>
+		</TooltipContent>
+	</Tooltip>
+</TooltipProvider>
