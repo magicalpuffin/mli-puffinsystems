@@ -1,8 +1,15 @@
 <script lang="ts">
-	import { Separator } from '$lib/components/ui/separator/';
+	import type { PageData } from './$types';
 	import { ExperienceSection } from '$lib/components/section/experience-section';
 	import SectionHeader from '$lib/components/section/section-header.svelte';
+	import BlogMenuItem from '$lib/components/blog/blog-menu-item.svelte';
 	// import { Button } from '$lib/components/ui/button';
+
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <svelte:head
@@ -71,8 +78,8 @@
 </div>
 
 <div class="my-16">
-	<div class="flex flex-row gap-4 items-center">
-		<h2 class="text-2xl font-bold" id="blog">Blog</h2>
-		<Separator class="shrink" />
-	</div>
+	<SectionHeader id="blog" label="Blog" />
+	{#each data.blogPosts as blog}
+		<BlogMenuItem {blog} />
+	{/each}
 </div>

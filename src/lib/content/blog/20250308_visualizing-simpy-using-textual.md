@@ -1,9 +1,11 @@
 ---
-id: 20250308
-slug: visualizing-simpy-using-textual
 title: Visualizing Simpy using Textual
 description: How to use Textual to visualize and animate Simpy discrete event simulations in Python. Simulating a machine shop example.
 createdDate: 2025-03-08
+tags:
+  - python
+  - textual
+  - simpy
 ---
 ![demo simpy textual app running](/static/content/images/blog/20250308/20250308_demo-simpy-textual.gif)
 *Example running machine shop simulation*

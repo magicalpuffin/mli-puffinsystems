@@ -24,7 +24,7 @@
 	<Tooltip>
 		<TooltipTrigger>
 			<div class="flex gap-2 w-fit">
-				<CalendarIcon size="20" />
+				<CalendarIcon size={20} />
 				<p class="font-light text-md">
 					{createdDate}
 				</p>

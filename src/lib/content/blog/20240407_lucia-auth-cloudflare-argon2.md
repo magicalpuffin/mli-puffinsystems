@@ -1,9 +1,11 @@
 ---
-id: 20240407
-slug: lucia-auth-cloudflare-argon2
 title: How to use Lucia Auth on Cloudflare with an Argon2 Rust Worker
 description: Tutorial for building a SvelteKit site on Cloudflare with Lucia Auth. Using a Rust worker to implement Argon2. Using DrizzleORM to connect Lucia Auth with Cloudflare D1.
 createdDate: 2024-04-07
+tags:
+  - sveltekit
+  - typescript
+  - cloudflare
 ---
 ![cloudflare resources](/static/content/images/blog/20240407/20240407_cloudflare_resources.png)
 *Cloudflare resources used*

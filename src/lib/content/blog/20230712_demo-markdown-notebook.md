@@ -1,10 +1,11 @@
 ---
-id: 20230712
-slug: demo-markdown-notebook
 title: Demo Markdown Notebook
 description: Overview about creating a markdown editor using SvelteKit
 createdDate: 2023-07-12
-updatedDate: 2023-12-18 
+updatedDate: 2023-12-18
+tags:
+  - sveltekit
+  - typescript
 ---
 ![demo markdown notebook screenshot](/static/content/images/blog/20230712_markdown_notebook.png)
 *Screenshot of writing markdown using Demo Markdown Notebook*

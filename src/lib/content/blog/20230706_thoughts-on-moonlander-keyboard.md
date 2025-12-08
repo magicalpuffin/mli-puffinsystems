@@ -1,10 +1,10 @@
 ---
-id: 20230706
-slug: thoughts-on-moonlander-keyboard
 title: Thoughts on the Moonlander Keyboard
 description: Blog post about my experience using the Moolander keyboard. Reliability and  ergonomics issues.
 createdDate: 2023-07-06
 updatedDate: 2024-01-02
+tags:
+  - keyboard
 ---
 ![my keyboards](/static/content/images/blog/20230706/20230706_moonlander_and_keyboards.png)
 *My keyboards*

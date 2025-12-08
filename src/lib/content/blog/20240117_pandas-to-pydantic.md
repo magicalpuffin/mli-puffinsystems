@@ -1,9 +1,10 @@
 ---
-id: 20240117
-slug: pandas-to-pydantic
 title: Converting Pandas Dataframes to Pydantic Models
 description: Blog post about how I created pandas-to-pydantic, and how it could be used for restructuring data.
 createdDate: 2024-01-17
+tags:
+  - python
+  - pandas
 ---
 ## Overview
 

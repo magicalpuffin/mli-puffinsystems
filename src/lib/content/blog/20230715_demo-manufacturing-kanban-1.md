@@ -1,10 +1,11 @@
 ---
-id: 20230715
-slug: demo-manufacturing-kanban-1
 title: Demo Manufacturing Kanban Part 1
 description: Blog post about creating a manufacturing kanban using Django, HTMX, and Bootstrap.
 createdDate: 2023-07-15
 updatedDate: 2024-03-27
+tags:
+  - python
+  - django
 ---
 ![demo mfg kanban screenshot](/static/content/images/blog/20230715_mfg_kanban.png)
 *Screenshot of some cards in Demo Manufacturing Kanban*
