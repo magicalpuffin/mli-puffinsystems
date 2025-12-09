@@ -22,7 +22,7 @@
 <!-- <Button variant="default">Primary Button</Button> -->
 <!-- <Button variant="secondary">Primary Button</Button> -->
 
-<div class="my-4">
+<div class="my-4" id="about">
 	<div class="text-xl font-medium">Hello! My name is</div>
 	<h1 class="mx-4 font-mono text-6xl font-bold">Michael Li</h1>
 	<div class="text-gray-600">Manufacturing / Statistics / Software</div>
@@ -60,7 +60,7 @@
 </div>
 
 <div class="my-16">
-	<SectionHeader id={'project'} label="Project" />
+	<SectionHeader id="project" label="Project" />
 	<div class="flex flex-col gap-4 m-2 md:flex-row">
 		<img
 			src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"
