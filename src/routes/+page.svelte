@@ -22,9 +22,11 @@
 <!-- <Button variant="default">Primary Button</Button> -->
 <!-- <Button variant="secondary">Primary Button</Button> -->
 
-<div class="my-4" id="about">
+<div class="my-4">
 	<div class="text-xl font-medium">Hello! My name is</div>
-	<h1 class="mx-4 font-mono text-6xl font-bold">Michael Li</h1>
+	<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-16" id="about">
+		Michael Li
+	</h1>
 	<div class="text-gray-600">Manufacturing / Statistics / Software</div>
 
 	<div class="p-4 my-4 border hover:shadow-xl border-primary duration-600">
@@ -36,7 +38,7 @@
 	</div>
 </div>
 
-<div class="my-16">
+<div class="my-32">
 	<SectionHeader id={'experience'} label="Experience" />
 	<ExperienceSection
 		experiences={[
@@ -59,7 +61,7 @@
 	/>
 </div>
 
-<div class="my-16">
+<div class="my-32">
 	<SectionHeader id="project" label="Project" />
 	<div class="flex flex-col gap-4 m-2 md:flex-row">
 		<img
@@ -77,7 +79,7 @@
 	</div>
 </div>
 
-<div class="my-16">
+<div class="my-32">
 	<SectionHeader id="blog" label="Blog" />
 	{#each data.blogPosts as blog}
 		<BlogMenuItem {blog} />

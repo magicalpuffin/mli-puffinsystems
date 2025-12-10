@@ -5,9 +5,11 @@
 	import TopNavLink from './top-nav-link.svelte';
 	import MenuNavLink from './menu-nav-link.svelte';
 	import ExternalIconLink from './external-icon-link.svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 
 	interface Props {
-		links: { href: string; label: string }[];
+		links: { href: string; label: string; scrollId: string }[];
 		githubUrl: string;
 		linkedinUrl: string;
 	}
@@ -23,11 +25,50 @@
 		lastScrollY = current;
 	}
 
+	let active = $state('');
+
+	const observeSections = () => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						active = entry.target.id;
+					}
+				});
+			},
+			{
+				rootMargin: '0px 0px -70% 0px',
+				threshold: 0
+			}
+		);
+
+		links.forEach((sec) => {
+			const el = document.getElementById(sec.scrollId);
+			if (el) observer.observe(el);
+		});
+	};
+
 	// Register scroll listener
 	onMount(() => {
 		window.addEventListener('scroll', handleScroll);
+		// observeSections();
+		// if (page.url.pathname.startsWith('/blog')) {
+		// 	active = 'blog';
+		// }
+
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
+
+	afterNavigate(() => {
+		// headings disappear on nav
+		observeSections();
+
+		// check if on blog path
+		if (page.url.pathname.startsWith('/blog')) {
+			active = 'blog';
+		}
+	});
+
 	let sheetOpen = $state(false);
 </script>
 
@@ -45,7 +86,14 @@
 		>
 		<div class="hidden flex-row gap-6 sm:flex">
 			{#each links as link}
-				<TopNavLink href={link.href} label={link.label} />
+				<TopNavLink
+					href={link.href}
+					label={link.label}
+					active={active === link.scrollId}
+					onclick={() => {
+						// active = link.scrollId;
+					}}
+				/>
 			{/each}
 		</div>
 		<div class="hidden gap-2 sm:flex md:w-36">

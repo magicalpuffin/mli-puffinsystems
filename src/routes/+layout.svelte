@@ -2,11 +2,11 @@
 	import '../app.css';
 	import { Navbar } from '$lib/components/nav';
 
-	let links: { href: string; label: string }[] = [
-		{ href: '/#about', label: 'About' },
-		{ href: '/#experience', label: 'Experience' },
-		{ href: '/#project', label: 'Project' },
-		{ href: '/blog', label: 'Blog' }
+	let links: { href: string; label: string; scrollId: string }[] = [
+		{ href: '/#about', label: 'About', scrollId: 'about' },
+		{ href: '/#experience', label: 'Experience', scrollId: 'experience' },
+		{ href: '/#project', label: 'Project', scrollId: 'project' },
+		{ href: '/blog', label: 'Blog', scrollId: 'blog' }
 	];
 
 	let { children } = $props();
