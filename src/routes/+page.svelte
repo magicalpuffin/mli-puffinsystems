@@ -3,7 +3,7 @@
 	import { ExperienceSection } from '$lib/components/section/experience-section';
 	import SectionHeader from '$lib/components/section/section-header.svelte';
 	import BlogMenuItem from '$lib/components/blog/blog-menu-item.svelte';
-	// import { Button } from '$lib/components/ui/button';
+	import { Button } from '$lib/components/ui/button';
 
 	interface Props {
 		data: PageData;
@@ -84,4 +84,7 @@
 	{#each data.blogPosts as blog}
 		<BlogMenuItem {blog} />
 	{/each}
+	<div class="flex justify-center my-2">
+		<Button variant="secondary" size="sm" href="/blog">View All</Button>
+	</div>
 </div>

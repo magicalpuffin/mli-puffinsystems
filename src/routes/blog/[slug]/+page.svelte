@@ -32,6 +32,7 @@
 		year: 'numeric',
 		timeZone: 'UTC'
 	})}
+	tags={data.blogPost.tags}
 >
 	<data.blogPost.component />
 </Blog>

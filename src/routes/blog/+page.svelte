@@ -11,13 +11,13 @@
 </script>
 
 <svelte:head
-	><title>My Blog Posts</title><meta
+	><title>Blog</title><meta
 		name="description"
 		content="List of my blog posts"
 	/></svelte:head
 >
 
-<h1 class="my-4 text-2xl font-bold">Blog Posts</h1>
+<h1 class="my-4 text-2xl font-bold tracking-wide">Blog</h1>
 <div class="mt-2">
 	{#each data.blogPosts as blog}
 		<BlogMenuItem {blog} />

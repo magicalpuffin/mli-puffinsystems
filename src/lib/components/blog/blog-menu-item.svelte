@@ -1,4 +1,6 @@
 <script lang="ts">
+	import BlogTag from './blog-tag.svelte';
+
 	interface Props {
 		blog: {
 			id: string;
@@ -35,10 +37,7 @@
 	{#if blog.tags}
 		<div class="space-x-2">
 			{#each blog.tags as tag}
-				<span
-					class="py-1 px-2 text-xs font-medium rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80"
-					>{tag}</span
-				>
+				<BlogTag label={tag} />
 			{/each}
 		</div>
 	{/if}

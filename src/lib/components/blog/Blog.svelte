@@ -7,6 +7,7 @@
 		title: string;
 		createdDate: string;
 		updatedDate?: string | undefined;
+		tags?: string[];
 		children?: import('svelte').Snippet;
 	}
 
@@ -14,11 +15,12 @@
 		title,
 		createdDate,
 		updatedDate = undefined,
+		tags,
 		children
 	}: Props = $props();
 </script>
 
-<BlogHeader {title} {createdDate} {updatedDate} />
+<BlogHeader {title} {createdDate} {updatedDate} {tags} />
 
 <Separator class="my-2 bg-secondary" />
 <BlogContent>{@render children?.()}</BlogContent>
