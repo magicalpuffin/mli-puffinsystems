@@ -7,7 +7,7 @@
 			name: string;
 			title: string;
 			duration: string;
-			description: string;
+			description: string[];
 		}[];
 	}
 
@@ -18,7 +18,7 @@
 <Tabs.Root
 	bind:value={selectedTab}
 	orientation="vertical"
-	class="flex flex-col gap-4 m-2 h-96 md:flex-row md:h-64"
+	class="flex flex-col gap-4 m-2 md:flex-row md:h-96 h-fit"
 >
 	<Tabs.List class="flex flex-row w-full md:flex-col h-fit shrink-0 md:w-42">
 		{#each experiences as e}
@@ -40,11 +40,20 @@
 								class="text-gray-600">{e.duration}</span
 							>
 						</div>
-						<p
+						<!-- <p -->
+						<!-- 	class="p-4 my-2 border hover:shadow-xl border-primary duration-600" -->
+						<!-- > -->
+						<!-- 	{e.description} -->
+						<!-- </p> -->
+						<div
 							class="p-4 my-2 border hover:shadow-xl border-primary duration-600"
 						>
-							{e.description}
-						</p>
+							<ul class="pl-4 space-y-2 list-[square] marker:text-primary">
+								{#each e.description as line}
+									<li>{line}</li>
+								{/each}
+							</ul>
+						</div>
 					</div>
 				{/if}
 			</Tabs.Content>

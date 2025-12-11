@@ -22,69 +22,74 @@
 <!-- <Button variant="default">Primary Button</Button> -->
 <!-- <Button variant="secondary">Primary Button</Button> -->
 
-<div class="my-4">
-	<div class="text-xl font-medium">Hello! My name is</div>
-	<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-16" id="about">
-		Michael Li
-	</h1>
-	<div class="text-gray-600">Manufacturing / Statistics / Software</div>
+<div class="my-4 space-y-32">
+	<div>
+		<div class="text-xl font-medium">Hello! My name is</div>
+		<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-16" id="about">
+			Michael Li
+		</h1>
+		<div class="text-gray-600">Manufacturing / Statistics / Software</div>
 
-	<div class="p-4 my-4 border hover:shadow-xl border-primary duration-600">
-		<p>
-			I'm an industrial engineer interested in using statistics and software to
-			solve manufacturing problems. I enjoy thinking about complex systems,
-			finding improvements using statistics, and developing software solutions.
-		</p>
-	</div>
-</div>
-
-<div class="my-32">
-	<SectionHeader id={'experience'} label="Experience" />
-	<ExperienceSection
-		experiences={[
-			{
-				name: 'RefleXion Medical',
-				title: 'Manufacturing Engineer',
-				duration: 'January 2022 - October 2025',
-				description: `Supported the manufacturing of complex radiotherapy systems, including system calibration and
-			acceptance testing. Used statistics to understand manufacturing processes and developed a
-			linear regression model for mechanical alignment. Released a python application for automating
-			alignment calculations.`
-			},
-			{
-				name: 'General Atomics',
-				title: 'Intern',
-				duration: 'June 2021 - September 2021',
-				description: `Industrial engineering intern for aerospace composites.`
-			}
-		]}
-	/>
-</div>
-
-<div class="my-32">
-	<SectionHeader id="project" label="Project" />
-	<div class="flex flex-col gap-4 m-2 md:flex-row">
-		<img
-			src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"
-			alt="temp"
-			class="object-cover w-96 shadow-xl aspect-video"
-		/>
-		<div>
-			<h3 class="text-xl font-medium">AI DB Query</h3>
-			<p class="p-2 border border-primary">
-				Use AI to generate SQL queries based on prompts. Identifies relevant
-				tables using a vector database to provide additional context.
+		<div class="p-4 my-4 border hover:shadow-xl border-primary duration-600">
+			<p>
+				I'm an industrial engineer interested in using statistics and software
+				to solve manufacturing problems. I enjoy thinking about complex systems,
+				finding improvements using statistics, and developing software
+				solutions.
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="my-32">
-	<SectionHeader id="blog" label="Blog" />
-	{#each data.blogPosts as blog}
-		<BlogMenuItem {blog} />
-	{/each}
-	<div class="flex justify-center my-2">
-		<Button variant="secondary" size="sm" href="/blog">View All</Button>
+	<div>
+		<SectionHeader id={'experience'} label="Experience" />
+		<ExperienceSection
+			experiences={[
+				{
+					name: 'RefleXion Medical',
+					title: 'Manufacturing Engineer',
+					duration: 'January 2022 - October 2025',
+					description: [
+						'Supported calibration and acceptance testing of radiotherapy systems',
+						'Worked crossfunctionally with R&D to investigate nonconformances, determine root cause, and implement corrective actions',
+						'Applied Design of Experiments (DOE) and multivariate regression to model mechanical factors affecting beam alignment, resulting in improved alignment accuracy.',
+						'Developed a Python regression and visualization tool (PySide + Plotly) to optimize beam alignment, allowing for tighter specs and reduced process time by 50%.'
+					]
+				},
+				{
+					name: 'General Atomics',
+					title: 'Intern',
+					duration: 'June 2021 - September 2021',
+					description: [
+						'Developed a Python script to analyze WIP, creating production priority and status reports.',
+						'Analyzed lamination consumable utilization using Excel to reduce material shortages.'
+					]
+				}
+			]}
+		/>
+	</div>
+	<div>
+		<SectionHeader id="project" label="Project" />
+		<div class="flex flex-col gap-4 m-2 md:flex-row">
+			<img
+				src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"
+				alt="temp"
+				class="object-cover w-96 shadow-xl aspect-video"
+			/>
+			<div>
+				<h3 class="text-xl font-medium">AI DB Query</h3>
+				<p class="p-2 border border-primary">
+					Use AI to generate SQL queries based on prompts. Identifies relevant
+					tables using a vector database to provide additional context.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div>
+		<SectionHeader id="blog" label="Blog" />
+		{#each data.blogPosts as blog}
+			<BlogMenuItem {blog} />
+		{/each}
+		<div class="flex justify-center my-2">
+			<Button variant="secondary" size="sm" href="/blog">View All</Button>
+		</div>
 	</div>
 </div>
