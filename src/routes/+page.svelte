@@ -68,15 +68,20 @@
 	</div>
 	<div>
 		<SectionHeader id="project" label="Project" />
-		<div class="flex flex-col gap-4 m-2 md:flex-row">
-			<img
-				src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"
-				alt="temp"
-				class="object-cover w-96 shadow-xl aspect-video"
-			/>
-			<div>
-				<h3 class="text-xl font-medium">AI DB Query</h3>
-				<p class="p-2 border border-primary">
+		<div class="flex relative flex-col gap-4 m-2 md:flex-row">
+			<div class="relative w-2/3 hover:z-30 group">
+				<img
+					src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"
+					alt="temp"
+					class="object-cover w-full rounded-xl group-hover:shadow-xl aspect-video brightness-75 duration-600 group-hover:brightness-100"
+				/>
+				<div
+					class="absolute inset-0 w-full rounded-xl group-hover:bg-transparent bg-secondary/80 duration-600"
+				></div>
+			</div>
+			<div class="absolute top-0 right-0 z-20 w-2/3">
+				<h3 class="my-2 text-xl font-semibold text-right">AI Database Query</h3>
+				<p class="p-4 bg-white border shadow-xl border-primary">
 					Use AI to generate SQL queries based on prompts. Identifies relevant
 					tables using a vector database to provide additional context.
 				</p>
@@ -90,6 +95,28 @@
 		{/each}
 		<div class="flex justify-center my-2">
 			<Button variant="secondary" size="sm" href="/blog">View All</Button>
+		</div>
+	</div>
+</div>
+
+<div class="overflow-hidden relative w-full max-w-3xl h-64 rounded-xl group">
+	<!-- Image -->
+	<img
+		src="https://mli.puffinsystems.com/content/images/blog/20241210/20241210_ai_working.png"
+		alt="temp"
+		class="object-cover z-20 w-96 shadow-xl aspect-video"
+	/>
+
+	<!-- Text Box -->
+	<div
+		class="flex absolute top-0 right-0 z-30 items-center p-6 w-2/3 h-full transition-all duration-500 group-hover:z-10 bg-white/70 backdrop-blur"
+	>
+		<div>
+			<h2 class="text-2xl font-bold">Overlapping Text Box</h2>
+			<p class="mt-2 text-gray-700">
+				This text overlaps the image until you hover, then the image comes
+				forward.
+			</p>
 		</div>
 	</div>
 </div>
