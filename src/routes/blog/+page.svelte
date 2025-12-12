@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Heading1 from '$lib/components/Heading1.svelte';
 	//import { blogList } from '$lib/content/blogList';
+	import BlogMenuItem from '$lib/components/blog/blog-menu-item.svelte';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -11,22 +11,44 @@
 </script>
 
 <svelte:head
-	><title>My Blog Posts</title><meta
+	><title>Blog</title><meta
 		name="description"
 		content="List of my blog posts"
 	/></svelte:head
 >
 
-<Heading1 id="blog">My Blog Posts</Heading1>
-<div class="mt-2 menu bg-base-200 rounded-box">
-	{#each data.blogMetadataList as blog}
-		<li>
-			<a href="/blog/{blog.slug}">
-				<p>
-					{blog.createdDate.slice(0, 10)}
-					{blog.title}
-				</p>
-			</a>
-		</li>
+<h1 class="my-4 text-2xl font-bold tracking-wide">Blog</h1>
+<div class="mt-2">
+	{#each data.blogPosts as blog}
+		<BlogMenuItem {blog} />
+		<!-- <a -->
+		<!-- 	href="/blog/{blog.slug}" -->
+		<!-- 	class="block p-4 border-l-2 border-secondary hover:border-primary hover:bg-secondary/30" -->
+		<!-- > -->
+		<!-- 	<div class="text-xs text-gray-600"> -->
+		<!-- 		{blog.createdDate.toLocaleString('en-US', { -->
+		<!-- 			month: 'long', -->
+		<!-- 			day: 'numeric', -->
+		<!-- 			year: 'numeric', -->
+		<!-- 			timeZone: 'UTC' -->
+		<!-- 		})} -->
+		<!-- 	</div> -->
+		<!-- 	<h3 class="text-xl font-bold">{blog.title}</h3> -->
+		<!-- 	<p -->
+		<!-- 		class="p-4 my-2 text-sm border hover:shadow-xl border-primary duration-600" -->
+		<!-- 	> -->
+		<!-- 		{blog.description} -->
+		<!-- 	</p> -->
+		<!-- 	{#if blog.tags} -->
+		<!-- 		<div class="space-x-2"> -->
+		<!-- 			{#each blog.tags as tag} -->
+		<!-- 				<span -->
+		<!-- 					class="py-1 px-2 text-xs font-medium rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80" -->
+		<!-- 					>{tag}</span -->
+		<!-- 				> -->
+		<!-- 			{/each} -->
+		<!-- 		</div> -->
+		<!-- 	{/if} -->
+		<!-- </a> -->
 	{/each}
 </div>

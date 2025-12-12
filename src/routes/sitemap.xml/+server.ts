@@ -1,18 +1,10 @@
-import type { BlogModules } from "$lib/types";
+import { getBlogSlugs } from "$lib/blogPost";
 
 //import { PUBLIC_DOMAIN_NAME } from "$env/static/public";
 const SITE_NAME = "https://mli.puffinsystems.com";
 
 export async function GET() {
-	const modules = import.meta.glob("/src/lib/content/blog/*.md") as BlogModules;
-
-	const entries: { slug: string }[] = [];
-
-	for (const path of Object.keys(modules)) {
-		await modules[path]().then((mod) => {
-			entries.push({ slug: mod.metadata.slug });
-		});
-	}
+	const entries = getBlogSlugs();
 
 	// console.log(PUBLIC_DOMAIN_NAME);
 	return new Response(

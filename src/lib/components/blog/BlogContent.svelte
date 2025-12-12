@@ -8,7 +8,7 @@
 </script>
 
 <article
-	class="prose prose-img:my-0 prose-img:rounded-lg prose-img:mx-auto prose-img:shadow-lg"
+	class="mt-8 max-w-none prose prose-img:mx-auto prose-img:my-0 prose-img:rounded-lg prose-img:shadow-lg"
 >
 	{@render children?.()}
 </article>

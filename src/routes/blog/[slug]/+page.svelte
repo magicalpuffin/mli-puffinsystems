@@ -20,8 +20,19 @@
 
 <Blog
 	title={data.blogPost.title}
-	createdDate={data.blogPost.createdDate.slice(0, 10)}
-	updatedDate={data.blogPost.updatedDate?.slice(0, 10)}
+	createdDate={data.blogPost.createdDate.toLocaleString('en-US', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+		timeZone: 'UTC'
+	})}
+	updatedDate={data.blogPost.updatedDate?.toLocaleString('en-US', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+		timeZone: 'UTC'
+	})}
+	tags={data.blogPost.tags}
 >
 	<data.blogPost.component />
 </Blog>
