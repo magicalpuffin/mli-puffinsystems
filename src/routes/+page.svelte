@@ -5,6 +5,7 @@
 	import BlogMenuItem from '$lib/components/blog/blog-menu-item.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import ProjectCard from '$lib/components/section/project-card.svelte';
+	import RandomHist from '$lib/content/interactive/random-hist.svelte';
 
 	interface Props {
 		data: PageData;
@@ -24,13 +25,18 @@
 <!-- <Button variant="secondary">Primary Button</Button> -->
 
 <div class="my-4 space-y-32">
+	<!-- <RandomHist /> -->
 	<div>
-		<div class="text-xl font-medium">Hello! My name is</div>
-		<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-16" id="about">
-			Michael Li
-		</h1>
-		<div class="text-gray-600">Manufacturing / Statistics / Software</div>
-
+		<div class="flex flex-col-reverse gap-8 md:flex-row">
+			<div class="shrink-0">
+				<div class="text-xl font-medium">Hello! My name is</div>
+				<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-16" id="about">
+					Michael Li
+				</h1>
+				<div class="text-gray-600">Manufacturing / Statistics / Software</div>
+			</div>
+			<RandomHist />
+		</div>
 		<div class="p-4 my-4 border hover:shadow-xl border-primary duration-600">
 			<p>
 				I'm an industrial engineer interested in using statistics and software
