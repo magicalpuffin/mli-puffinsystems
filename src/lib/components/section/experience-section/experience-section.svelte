@@ -33,7 +33,7 @@
 		{#each experiences as e}
 			<Tabs.Content value={e.name}>
 				{#if selectedTab === e.name}
-					<div transition:fade>
+					<div transition:fade class="group">
 						<h3 class="my-2 text-xl font-semibold">{e.name}</h3>
 						<div class="flex flex-row justify-between">
 							<span class="font-medium">{e.title}</span><span
@@ -46,7 +46,7 @@
 						<!-- 	{e.description} -->
 						<!-- </p> -->
 						<div
-							class="p-4 my-2 border hover:shadow-xl border-primary duration-600"
+							class="p-4 my-2 border group-hover:shadow-xl border-primary duration-600"
 						>
 							<ul class="pl-4 space-y-2 list-[square] marker:text-primary">
 								{#each e.description as line}

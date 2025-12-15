@@ -30,7 +30,7 @@
 		<div class="flex flex-col-reverse gap-8 md:flex-row">
 			<div class="shrink-0">
 				<div class="text-xl font-medium">Hello! My name is</div>
-				<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-16" id="about">
+				<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-32" id="about">
 					Michael Li
 				</h1>
 				<div class="text-gray-600">Manufacturing / Statistics / Software</div>
@@ -79,6 +79,7 @@
 			imgSrc="/content/images/blog/20241210/20241210_ai_working.png"
 			imgAlt="Creating query using prompt"
 			githubLink={'https://github.com/magicalpuffin/demo-ai-db-query'}
+			externalLink={'https://demo.ai-db-query.puffinsystems.com/'}
 			detailsLink={'/blog/creating-ai-sql-query-sveltekit'}
 			title="AI Database Query"
 			description="Use AI to generate SQL queries based on prompts. Identifies relevant	tables using a vector database to provide additional context."
