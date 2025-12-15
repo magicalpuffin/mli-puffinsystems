@@ -54,10 +54,10 @@
 	const distribution = distributions[randomInt(distributions.length)()];
 	// const distribution = distributions[3];
 
-	const values = Array.from({ length: sampleSize }, () =>
+	const values = $derived(Array.from({ length: sampleSize }, () =>
 		distribution.random()
-	);
-	let sliceEnd = $state(incrementSize);
+	));
+	let sliceEnd = $derived(incrementSize);
 
 	const bins = $derived.by(() => {
 		const b = distribution.bin(values.slice(0, sliceEnd));

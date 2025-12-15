@@ -12,7 +12,7 @@
 	}
 
 	let { experiences }: Props = $props();
-	let selectedTab = $state(experiences[0].name);
+	let selectedTab = $derived(experiences[0].name);
 </script>
 
 <Tabs.Root
