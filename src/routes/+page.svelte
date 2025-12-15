@@ -75,18 +75,30 @@
 	</div>
 	<div>
 		<SectionHeader id="project" label="Project" />
-		<ProjectCard
-			imgSrc="/content/images/blog/20241210/20241210_ai_working.png"
-			imgAlt="Creating query using prompt"
-			githubLink={'https://github.com/magicalpuffin/demo-ai-db-query'}
-			externalLink={'https://demo.ai-db-query.puffinsystems.com/'}
-			detailsLink={'/blog/creating-ai-sql-query-sveltekit'}
-			title="AI Database Query"
-			description="Use AI to generate SQL queries based on prompts. Identifies relevant	tables using a vector database to provide additional context."
-			tags={['sveltekit', 'typescript', 'cloudflare', 'ai']}
-		/>
+		<div class="space-y-16">
+			<ProjectCard
+				imgSrc="/content/images/blog/20241210/20241210_ai_working.png"
+				imgAlt="Creating query using prompt"
+				githubLink={'https://github.com/magicalpuffin/demo-ai-db-query'}
+				externalLink={'https://demo.ai-db-query.puffinsystems.com/'}
+				detailsLink={'/blog/creating-ai-sql-query-sveltekit'}
+				title="AI Database Query"
+				description="Use AI to generate SQL queries based on prompts. Identifies relevant	tables using a vector database to provide additional context."
+				tags={['sveltekit', 'typescript', 'cloudflare', 'ai']}
+			/>
+			<ProjectCard
+				imgSrc="/content/images/blog/20240117_pandas_to_pydantic.png"
+				imgAlt="Using pandas-to-pydantic library"
+				imgSide="right"
+				githubLink={'https://github.com/magicalpuffin/pandas-to-pydantic'}
+				detailsLink={'/blog/pandas-to-pydantic'}
+				title="Pandas to Pydantic"
+				description="A simple library for converting pandas dataframes into pydantic models."
+				tags={['python', 'pandas']}
+			/>
+		</div>
 	</div>
-	<div>
+	<div class="mb-16">
 		<SectionHeader id="blog" label="Blog" />
 		{#each data.blogPosts as blog}
 			<BlogMenuItem {blog} />
