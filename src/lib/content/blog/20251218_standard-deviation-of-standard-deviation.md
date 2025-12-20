@@ -6,33 +6,50 @@ tags:
   - python
   - statistics
 ---
-## Standard Error of Sample Standard Deviation
+## Standard Error of Sample Variance and Standard Deviation
 
-The standard error of  sample variance
-$$
-SE(S^2) = \sigma^2\sqrt{\frac{2}{n-1}}
-$$
+These formulas are from [Standard Errors of Mean, Variance, and Standard Deviation Estimators, Sangtae Ahn and Jeffrey A. Fessler, University of Michigan, 2003](https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf).
 
-$$
-\hat{SE}(S^2) = S^2\sqrt{\frac{2}{n-1}}
-$$
+The standard error of sample variance. 
+
+Note that standard error and standard deviation are used interchangeably. The standard error of sample variance is the standard deviation of sample variance
 
 
-- $\sigma^2$ is the true variance
-- $S^2$ is the sample variance
-- $\hat{\sigma}_{S^2}$ is the estimate of the standard error for sample variance
-- $\hat{SE}(S^2)$ is the estimator for standard error of sample variance
-- Note that standard error and standard deviation are used interchangeably. The standard error of sample variance is the standard deviation of sample variance
-- [Standard Errors of Mean, Variance, and Standard Deviation Estimators, Sangtae Ahn and Jeffrey A. Fessler, University of Michigan, 2003](https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf)
-
-The standard error of standard deviation
+### Standard Error of Sample Variance
 
 $$
-SE(S) = \frac{\sigma}{\sqrt{2(n-1)}}
+SE(S^2) = \sigma^2\sqrt{\frac{2}{n-1}} \qquad \hat{SE}(S^2) = s^2\sqrt{\frac{2}{n-1}}
 $$
+
+- $\sigma^2$ is the population variance
+- $s^2$ is the sample variance
+- $\hat{SE}(S^2)$ is the estimator of standard error of sample variance
+- $n-1$ is the degrees of freedom
+
+$SE(S^2)$ is the standard error of sample variance and while $\hat{SE}(S^2)$ is it's estimator. The main difference is that $\sigma^2$ is the true or population variance while $s^2$ is the sample variance. Practically speaking, the population variance will always be unknown.
+
+### Standard Error of Sample Standard Deviation
+
+$$
+SE(S) = \frac{\sigma}{\sqrt{2(n-1)}} \qquad \hat{SE}(S) = \frac{s}{\sqrt{2(n-1)}}
+$$
+
+- $\sigma$ is the population standard deviation
+- $s$ is the sample standard deviation
+- $\hat{SE}(S)$ is the estimator of standard error of standard deviation
+- $n-1$ is the degrees of freedom
+
+It is important to note that the standard error of standard deviation is not the square root of the standard error of sample variance, $\sqrt{SE(S^2)} \neq SE(S)$
+
+
+### Example
+
+For a sample size of $n=30$, a mean of $\hat{x}=0.27$ and sample standard deviation of $s=0.89$ was found. The estimated standard error of standard deviation would be $0.12$.
 
 
 ## Confidence Interval of Sample Standard Deviation
+
+These formulas were taken from [Wikipedia Standard Deviation ](https://en.wikipedia.org/wiki/Standard_deviation#Confidence_interval_of_a_sampled_standard_deviation).
 
 $$
 \frac{(n-1)s^2}{\chi^2_{1-\alpha/2,n-1}} \leq \sigma^2 \leq \frac{(n-1)s^2}{\chi^2_{\alpha/2,n-1}}
@@ -48,8 +65,9 @@ $$
 $$
 
 - $s$ is the sample standard deviation
-- $\sigma$ is the population or true standard deviation
+- $\sigma$ is the population standard deviation or true standard deviation
 - $(n-1)$ is the degree of freedom
+- $1-\alpha$ is the confidence level
 - $q_p$ is the $p$-th quantile of the chi-squared distribution, $\chi^2_{1-\alpha/2,n-1}$
 - Results are based on [Wikipedia Standard Deviation ](https://en.wikipedia.org/wiki/Standard_deviation#Confidence_interval_of_a_sampled_standard_deviation)
 
@@ -67,10 +85,10 @@ def calc_stdv_ci(sample_size: int, confidence_level: float = 0.95, s: float = 1.
 ```
 
 
-## One sided CI of standard deviation
+### One Sided Confidence Interval
 
 $$
-\sigma^2 \leq \frac{(n-1)s^2}{q_{\alpha}}
+\frac{(n-1)s^2}{q_{1-\alpha}} \leq \sigma^2  \qquad \sigma^2 \leq \frac{(n-1)s^2}{q_{\alpha}}
 $$
 ## i don't know how to structure this
 
@@ -95,5 +113,13 @@ $$
 		- For continuous measurements, it seems to just use standard deviation, there isn't really any consideration for how standard deviation itself could vary. 
 	- For stuff like 6 sigma, it is usually in the context of a mean. I guess it could already consider how standard deviation could vary. 6 sigma is a very strict standard. But it mostly applies for low samples and how samples are taken. It mostly informs you if you should push samples lower or higher. Theoretically a smaller sample could work if you are 95% confident that the true stdev is within a passing range. Or you could interpret it is a warning if your sample size is too low. That you can incorrectly estimate your standard deviation
 	- In Process Capability
+	- Maybe this would also go into running a hypothesis test using standard deviation
+- I think there are 3 main ideas
+	- Confidence interval of standard deviation
+	- Standard error of standard deviation
+	- Practical applications of this interpretation
+- There are two main objectives
+	- Creating a calculator of standard deviation confidence interval
+	- A good explanation of how standard deviation is random
 - https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf
 - https://stats.stackexchange.com/questions/156518/what-is-the-standard-error-of-the-sample-standard-deviation
