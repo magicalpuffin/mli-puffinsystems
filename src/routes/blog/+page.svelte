@@ -13,7 +13,7 @@
 <svelte:head
 	><title>Blog</title><meta
 		name="description"
-		content="List of my blog posts"
+		content="Michael Li. Blog posts I have written."
 	/></svelte:head
 >
 
