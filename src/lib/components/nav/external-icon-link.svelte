@@ -13,7 +13,7 @@
 	target="_blank"
 	rel="noopener noreferrer"
 	{href}
-	class="p-2 text-gray-600 rounded-full hover:bg-secondary/30 hover:text-primary"
+	class="rounded-full p-2 text-black hover:bg-secondary/30 hover:text-primary"
 >
 	{@render children()}
 </a>

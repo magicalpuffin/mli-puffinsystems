@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { ExternalLinkIcon, GithubIcon } from '@lucide/svelte';
+	import { ExternalLinkIcon } from '@lucide/svelte';
+	import GitHubIcon from '../icons/GitHubIcon.svelte';
 	import ExternalIconLink from '../nav/external-icon-link.svelte';
 	import BlogTag from '../blog/blog-tag.svelte';
 
@@ -33,14 +34,14 @@
 		? 'md:flex-row'
 		: 'md:flex-row-reverse'}"
 >
-	<div class="relative md:w-2/3 hover:z-30 group">
+	<div class="group relative hover:z-30 md:w-2/3">
 		<img
 			src={imgSrc}
 			alt={imgAlt}
-			class="object-cover w-full rounded-xl group-hover:shadow-xl aspect-video duration-600 md:brightness-75 group-hover:brightness-100"
+			class="aspect-video w-full rounded-xl object-cover duration-600 group-hover:shadow-xl group-hover:brightness-100 md:brightness-75"
 		/>
 		<div
-			class="absolute inset-0 w-full bg-transparent rounded-xl group-hover:bg-transparent duration-600 md:bg-secondary/80"
+			class="absolute inset-0 w-full rounded-xl bg-transparent duration-600 group-hover:bg-transparent md:bg-secondary/80"
 		></div>
 	</div>
 	<div
@@ -56,12 +57,12 @@
 			{title}
 		</h3>
 		<div
-			class="p-4 bg-white border group-hover:shadow-xl border-primary duration-600"
+			class="border border-primary bg-white p-4 duration-600 group-hover:shadow-xl"
 		>
 			<p>{description}</p>
 			{#if detailsLink}
 				<div class="flex justify-end">
-					<a href={detailsLink} class="font-semibold underline text-primary"
+					<a href={detailsLink} class="font-semibold text-primary underline"
 						>Read More</a
 					>
 				</div>
@@ -82,7 +83,7 @@
 			class="my-2 flex {imgSide == 'left' ? 'justify-end' : 'justify-start'}"
 		>
 			{#if githubLink}
-				<ExternalIconLink href={githubLink}><GithubIcon /></ExternalIconLink>
+				<ExternalIconLink href={githubLink}><GitHubIcon /></ExternalIconLink>
 			{/if}
 			{#if externalLink}
 				<ExternalIconLink href={externalLink}

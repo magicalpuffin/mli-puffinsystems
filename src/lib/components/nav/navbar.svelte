@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { GithubIcon, LinkedinIcon, MenuIcon } from '@lucide/svelte';
+	import { MenuIcon } from '@lucide/svelte';
+	import { GitHubIcon, LinkedInIcon } from '$lib/components/icons';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import TopNavLink from './top-nav-link.svelte';
 	import MenuNavLink from './menu-nav-link.svelte';
@@ -77,11 +78,11 @@
           transition-transform duration-500 ${show ? 'translate-y-0' : '-translate-y-full'}`}
 >
 	<div
-		class="flex justify-between items-center px-4 mx-auto max-w-4xl h-12 border-b border-secondary"
+		class="mx-auto flex h-12 max-w-4xl items-center justify-between border-b border-secondary px-4"
 	>
 		<a
 			href="/"
-			class="py-1 my-1 w-36 font-mono text-lg font-bold text-center rounded-lg md:text-2xl hover:bg-secondary/30 hover:text-primary"
+			class="my-1 w-36 rounded-lg py-1 text-center font-mono text-lg font-bold hover:bg-secondary/30 hover:text-primary md:text-2xl"
 			>Michael Li</a
 		>
 		<div class="hidden flex-row gap-6 sm:flex">
@@ -98,10 +99,10 @@
 		</div>
 		<div class="hidden gap-2 sm:flex md:w-36">
 			<ExternalIconLink href={githubUrl}>
-				<GithubIcon size={20} />
+				<GitHubIcon />
 			</ExternalIconLink>
 			<ExternalIconLink href={linkedinUrl}>
-				<LinkedinIcon size={20} />
+				<LinkedInIcon />
 			</ExternalIconLink>
 		</div>
 		<div class="sm:hidden">
@@ -123,12 +124,12 @@
 						{/each}
 					</div>
 					<Sheet.Footer>
-						<div class="flex gap-2 w-32">
+						<div class="flex w-32 gap-2">
 							<ExternalIconLink href={githubUrl}>
-								<GithubIcon size={20} />
+								<GitHubIcon />
 							</ExternalIconLink>
 							<ExternalIconLink href={linkedinUrl}>
-								<LinkedinIcon size={20} />
+								<LinkedInIcon />
 							</ExternalIconLink>
 						</div>
 					</Sheet.Footer>
