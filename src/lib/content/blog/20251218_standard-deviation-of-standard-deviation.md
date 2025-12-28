@@ -6,6 +6,12 @@ tags:
   - python
   - statistics
 ---
+<script>
+	import SampleStandardDev from "$lib/content/interactive/sample-standard-dev.svelte"
+</script>
+
+<SampleStandardDev/>
+
 ## Standard Error of Sample Variance and Standard Deviation
 
 These formulas are from [Standard Errors of Mean, Variance, and Standard Deviation Estimators, Sangtae Ahn and Jeffrey A. Fessler, University of Michigan, 2003](https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf).
