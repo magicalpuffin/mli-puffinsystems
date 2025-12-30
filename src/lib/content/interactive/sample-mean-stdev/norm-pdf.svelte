@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { LineChart } from 'layerchart';
-	import { bin, mean, range, deviation } from 'd3-array';
-	import { randomNormal } from 'd3-random';
 	import { curveNatural } from 'd3-shape';
 	import * as Chart from '$lib/components/ui/chart/index.js';
-	import * as Table from '$lib/components/ui/table/index.js';
-	import Button from '$lib/components/ui/button/button.svelte';
-	import RowHist from './row-hist.svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface Props {
+		class?: HTMLAttributes<HTMLDivElement>['class'];
+	}
+
+	let { class: className }: Props = $props();
 
 	const chartData = [
 		{ x: -3.5, y: 0.0008726827 },
@@ -85,84 +87,27 @@
 	const chartConfig = {
 		y: { label: 'norm_pdf', color: 'var(--primary)' }
 	} satisfies Chart.ChartConfig;
-
-	const distribution = {
-		random: randomNormal(),
-		bin: bin()
-			.domain([-3.5, 3.5])
-			.thresholds(range(-3.5, 3.5, 0.5))
-	};
-
-	const samplesSize = 10;
-
-	let samples: {
-		sampleNum: number;
-		data: number[];
-		mean: number;
-		stdev: number;
-	}[] = $state([]);
-
-	function addSample() {
-		const data = Array.from({ length: samplesSize }, () =>
-			distribution.random()
-		);
-		samples.push({
-			sampleNum: samples.length + 1,
-			data: data,
-			mean: mean(data),
-			stdev: deviation(data)
-		});
-	}
 </script>
 
-<div class="aspect-video rounded-xl border p-4">
-	<Chart.Container config={chartConfig} class="h-56">
-		<LineChart
-			data={chartData}
-			x="x"
-			axis="x"
-			series={[
-				{
-					key: 'y',
-					label: 'norm_pdf',
-					color: chartConfig.y.color
-				}
-			]}
-			props={{
-				spline: { curve: curveNatural, motion: 'tween', strokeWidth: 2 },
-				highlight: { points: { r: 4 } }
-			}}
-		>
-			{#snippet tooltip()}
-				<Chart.Tooltip hideLabel />
-			{/snippet}
-		</LineChart>
-	</Chart.Container>
-	<Button
-		onclick={() => {
-			addSample();
-		}}>Sample Data</Button
+<Chart.Container config={chartConfig} class={className}>
+	<LineChart
+		data={chartData}
+		x="x"
+		axis="x"
+		series={[
+			{
+				key: 'y',
+				label: 'norm_pdf',
+				color: chartConfig.y.color
+			}
+		]}
+		props={{
+			spline: { curve: curveNatural, motion: 'tween', strokeWidth: 2 },
+			highlight: { points: { r: 4 } }
+		}}
 	>
-	<Table.Root>
-		<Table.Header>
-			<Table.Row>
-				<Table.Head>#</Table.Head>
-				<Table.Head>Sample Size</Table.Head>
-				<Table.Head>Mean</Table.Head>
-				<Table.Head>Standard Deviation</Table.Head>
-				<Table.Head class="w-64">Distribution</Table.Head>
-			</Table.Row>
-		</Table.Header>
-		<Table.Body>
-			{#each samples as s}
-				<Table.Row>
-					<Table.Cell>{s.sampleNum}</Table.Cell>
-					<Table.Cell>{samplesSize}</Table.Cell>
-					<Table.Cell>{s.mean.toFixed(3)}</Table.Cell>
-					<Table.Cell>{s.stdev.toFixed(3)}</Table.Cell>
-					<Table.Cell><RowHist values={s.data} /></Table.Cell>
-				</Table.Row>
-			{/each}
-		</Table.Body>
-	</Table.Root>
-</div>
+		{#snippet tooltip()}
+			<Chart.Tooltip hideLabel />
+		{/snippet}
+	</LineChart>
+</Chart.Container>

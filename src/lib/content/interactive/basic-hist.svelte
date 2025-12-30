@@ -3,17 +3,38 @@
 	import { bin, range } from 'd3-array';
 	import { cubicInOut } from 'svelte/easing';
 	import { BarChart, Highlight, type ChartContextValue } from 'layerchart';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	interface Props {
 		values: number[];
+		min?: number;
+		max?: number;
+		binSize?: number;
+		axis?: boolean | 'x' | 'y';
+		class?: HTMLAttributes<HTMLDivElement>['class'];
 	}
 
-	let { values }: Props = $props();
+	let {
+		values,
+		min,
+		max,
+		binSize,
+		axis = false,
+		class: className
+	}: Props = $props();
+
+	let binMethod = $derived.by(() => {
+		if (min && max) {
+			return bin()
+				.domain([min, max])
+				.thresholds(range(min, max, binSize));
+		} else {
+			return bin();
+		}
+	});
 
 	const bins = $derived.by(() => {
-		const b = bin()
-			.domain([-3.5, 3.5])
-			.thresholds(range(-3.5, 3.5, 0.5))(values);
+		const b = binMethod(values);
 
 		b.forEach((b) => {
 			Object.assign(b, {
@@ -39,11 +60,11 @@
 	// });
 </script>
 
-<Chart.Container config={chartConfig} class="aspect-auto h-8">
+<Chart.Container config={chartConfig} class={className}>
 	<BarChart
 		bind:context
 		data={bins}
-		axis={false}
+		{axis}
 		x="binLabel"
 		y="length"
 		bandPadding={0.1}

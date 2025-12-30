@@ -7,10 +7,10 @@ tags:
   - statistics
 ---
 <script>
-	import SampleStandardDev from "$lib/content/interactive/sample-standard-dev.svelte"
+	import {SampleMeanStdev} from "$lib/content/interactive/sample-mean-stdev"
 </script>
 
-<SampleStandardDev/>
+<SampleMeanStdev/>
 
 ## Standard Error of Sample Variance and Standard Deviation
 
