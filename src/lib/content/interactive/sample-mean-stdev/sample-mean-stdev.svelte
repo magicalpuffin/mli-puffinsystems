@@ -7,6 +7,8 @@
 	import SampleTable from './sample-table.svelte';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
+	import { Debounced } from 'runed';
+	import Katex from '$lib/components/katex.svelte';
 
 	const distribution = {
 		random: randomNormal(),
@@ -18,20 +20,34 @@
 	let samplesSize = $state(10);
 
 	let samples: {
+		id: number;
 		values: number[];
 		mean: number;
 		stdev: number;
 	}[] = $state([]);
 
+	let debouncedSamples = new Debounced(() => samples, 250);
+
 	function addSample() {
 		const data = Array.from({ length: samplesSize }, () =>
 			distribution.random()
 		);
-		samples.push({
-			values: data,
-			mean: mean(data) as number,
-			stdev: deviation(data) as number
-		});
+		samples = [
+			{
+				id: samples.length + 1,
+				values: data,
+				mean: mean(data) as number,
+				stdev: deviation(data) as number
+			},
+			...samples
+		];
+		// samples.unshift({
+		// 	id: samples.length + 1,
+		// 	values: data,
+		// 	mean: mean(data) as number,
+		// 	stdev: deviation(data) as number
+		// });
+		// samples = samples;
 	}
 	function clearSample() {
 		samples = [];
@@ -47,19 +63,24 @@
 
 <div class="aspect-video rounded-xl border p-4">
 	<div class="grid grid-cols-2 gap-2">
-		<div>
-			<div>
+		<div class="space-y-4">
+			<div class="p-2">
 				<div class="my-2 font-bold">Normal PDF</div>
 				<NormPdf />
+			</div>
+			<div class="p-2">
 				<div class="my-2 font-bold">
-					Distribution of Sample Standard Deviation
+					Distribution of Sample Standard Deviation <Katex math="s" />
 				</div>
-				<BasicHist values={samples.map((s) => s.stdev)} axis={true} />
+				<BasicHist
+					values={debouncedSamples.current.map((s) => s.stdev)}
+					axis="x"
+				/>
 			</div>
 		</div>
 		<div class="flex flex-col gap-2">
 			<div class="grid w-full max-w-sm items-center gap-1.5">
-				<Label>Sample Size</Label>
+				<Label>Sample Size <Katex math="n = " /></Label>
 				<Input type="number" min="1" max="100" bind:value={samplesSize} />
 			</div>
 			<Button
@@ -79,7 +100,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="h-64 overflow-x-hidden overflow-y-scroll">
+	<div>
 		<SampleTable {samples} />
 	</div>
 </div>
