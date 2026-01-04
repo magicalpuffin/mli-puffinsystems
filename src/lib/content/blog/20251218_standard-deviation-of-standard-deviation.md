@@ -12,16 +12,17 @@ tags:
 
 <SampleMeanStdev/>
 
-## Standard Error of Sample Variance and Standard Deviation
+**Sample standard deviation** ($s$) is random. If you collect multiple samples with the same **sample size** ($n$) from the same population, you will calculate different standard deviations. The standard deviation of a statistics sampling distribution is called **standard error**. 
 
-These formulas are from [Standard Errors of Mean, Variance, and Standard Deviation Estimators, Sangtae Ahn and Jeffrey A. Fessler, University of Michigan, 2003](https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf).
+The randomness inherent with sample statistics is acknowledged when discussing **sample mean** ($\hat{x}$) in the form of **standard error**, **confidence intervals** and **hypothesis testing**. The same applies for **sample standard deviation** ($s$).
 
-The standard error of sample variance. 
-
-Note that standard error and standard deviation are used interchangeably. The standard error of sample variance is the standard deviation of sample variance
+This blog post will be an online resource for the standard deviation of standard deviation, or more specifically, the **standard error of sample standard deviation**
 
 
-### Standard Error of Sample Variance
+**Note:**
+- Formulas are from: [Standard Errors of Mean, Variance, and Standard Deviation Estimators, Sangtae Ahn and Jeffrey A. Fessler, University of Michigan, 2003](https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf)
+
+## Standard Error of Sample Variance
 
 $$
 SE(S^2) = \sigma^2\sqrt{\frac{2}{n-1}} \qquad \hat{SE}(S^2) = s^2\sqrt{\frac{2}{n-1}}
@@ -34,7 +35,7 @@ $$
 
 $SE(S^2)$ is the standard error of sample variance and while $\hat{SE}(S^2)$ is it's estimator. The main difference is that $\sigma^2$ is the true or population variance while $s^2$ is the sample variance. Practically speaking, the population variance will always be unknown.
 
-### Standard Error of Sample Standard Deviation
+## Standard Error of Sample Standard Deviation
 
 $$
 SE(S) = \frac{\sigma}{\sqrt{2(n-1)}} \qquad \hat{SE}(S) = \frac{s}{\sqrt{2(n-1)}}
