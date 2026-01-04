@@ -28,7 +28,7 @@
 			<Table.Row>
 				<Table.Head class="sticky top-0 z-10 bg-white">#</Table.Head>
 				<Table.Head class="sticky top-0 z-10 bg-white"
-					>Sample <Katex math="n" /></Table.Head
+					>Size <Katex math="n" /></Table.Head
 				>
 				<Table.Head class="sticky top-0 z-10 bg-white"
 					>Mean <Katex math={'\\\hat{x}'} /></Table.Head

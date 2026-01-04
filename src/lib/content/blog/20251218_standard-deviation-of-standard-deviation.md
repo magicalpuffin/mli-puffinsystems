@@ -14,9 +14,9 @@ tags:
 
 **Sample standard deviation** ($s$) is random. If you collect multiple samples with the same **sample size** ($n$) from the same population, you will calculate different standard deviations. The standard deviation of a statistics sampling distribution is called **standard error**. 
 
-The randomness inherent with sample statistics is acknowledged when discussing **sample mean** ($\hat{x}$) in the form of **standard error**, **confidence intervals** and **hypothesis testing**. The same applies for **sample standard deviation** ($s$).
+The randomness inherent with sample statistics is acknowledged when discussing **sample mean** ($\hat{x}$) in the form of **standard error**, **confidence intervals** and **hypothesis testing**. The same applies for **sample standard deviation** ($s$) but I couldn't find many good online resources.
 
-This blog post will be an online resource for the standard deviation of standard deviation, or more specifically, the **standard error of sample standard deviation**
+This blog post aims to be that online resource for the standard deviation of standard deviation, or more specifically, the **standard error of sample standard deviation**
 
 
 **Note:**
