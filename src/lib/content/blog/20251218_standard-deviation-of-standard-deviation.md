@@ -12,14 +12,24 @@ tags:
 
 <SampleMeanStdev/>
 
-**Sample standard deviation** ($s$) is random. Repeat independent samples with the same **sample size** ($n$) from the same population, will result in different standard deviations. The standard deviation of a statistic's sampling distribution is called **standard error**. 
+Standard deviation is random, or more specifically, **sample standard deviation** $s$ is random. Whenever you take a sample from a population, the data you collect is inherently random. Repeat samples will result in different data, and therefore different statistics (mean, standard deviation). 
 
-The randomness inherent with sample statistics is acknowledged when discussing **sample mean** ($\hat{x}$) in the form of **standard error**, **confidence intervals** and **hypothesis testing**. The same applies for **sample standard deviation** ($s$) but I couldn't find many good online resources.
+This spread is quantified by **standard error** $SE$, which is equal to standard deviation of a statistic's sampling distribution. In other words, the standard deviation of standard deviation, is also the **standard error of sample standard deviation** $\hat{SE}(S)$.
 
-This blog post aims to be that online resource for the standard deviation of standard deviation, or more specifically, the **standard error of sample standard deviation**
+Standard error is well understood in the context of **sample mean** $\hat{x}$, where **standard error of sample mean** $SE(\hat{x})$ represents the distribution of each sample mean generated from repeated sampling. Importantly, it shows how **sample size** $n$ affects the spread of sample means, ex. larger sample sizes are closer to the true mean.
+
+$$
+SE(\hat{x}) = \frac{\sigma}{\sqrt{n}}
+$$
+
+The effect of sampling on **sample standard deviation** $s$ on the other hand, seems to be much less generally understood, or at least I couldn't as many good online resources. I decided create this blog post to be that online resource.
 
 
-**Note:**
+**Notes:**
+- Replicates means an independent random repeat of the same sample size
+- Standard deviation and standard error is often interchangeable, standard error is the standard deviation of a sample statistic
+- standard deviation and mean usually refers to the sample standard deviation and sample mean, not population. 
+- Replicates should be random and independent. Population should also be large compared to sample size.
 - Formulas are from: [Standard Errors of Mean, Variance, and Standard Deviation Estimators, Sangtae Ahn and Jeffrey A. Fessler, University of Michigan, 2003](https://www.eecs.umich.edu/techreports/systems/cspl/cspl-413.pdf)
 
 ## Standard Error of Sample Variance
