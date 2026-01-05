@@ -55,11 +55,20 @@
 		samples = [];
 	}
 
+	function calcStderrStdev(s: number, n: number) {
+		return s / (2 * (n - 1)) ** 0.5;
+	}
+
 	let stderrStdev = $derived.by(() => {
-		return deviation(samples.map((s) => s.stdev));
+		return calcStderrStdev(1, samplesSize);
 	});
-	let expectedStderrStdev = $derived.by(() => {
-		return 1 / (2 * (samplesSize - 1)) ** 0.5;
+	let estStderrStdev = $derived.by(() => {
+		if (samples.length > 0) {
+			return calcStderrStdev(samples[0].stdev, samples[0].values.length);
+		}
+	});
+	let replicateStderrStdev = $derived.by(() => {
+		return deviation(samples.map((s) => s.stdev));
 	});
 </script>
 
@@ -68,16 +77,25 @@
 		<div class="space-y-4">
 			<div class="p-2">
 				<div class="my-2 font-bold">Normal PDF <Katex math="N(0,1)" /></div>
-				<NormPdf />
+				<NormPdf class="aspect-auto h-36" />
 			</div>
 			<div class="p-2">
 				<div class="my-2 font-bold">
 					Distribution of Sample Stdev <Katex math="s" />
 				</div>
-				<BasicHist
-					values={debouncedSamples.current.map((s) => s.stdev)}
-					axis="x"
-				/>
+				{#if debouncedSamples.current.length > 2}
+					<BasicHist
+						class="aspect-auto h-36"
+						values={debouncedSamples.current.map((s) => s.stdev)}
+						axis="x"
+					/>
+				{:else}
+					<div class="grid aspect-auto h-36 w-full">
+						<div class="mx-auto my-4 text-sm italic">
+							Sample more data to see distribution
+						</div>
+					</div>
+				{/if}
 			</div>
 		</div>
 		<div class="flex flex-col gap-2">
@@ -92,44 +110,31 @@
 					/>
 				</div>
 			</div>
-			<Button
-				onclick={() => {
-					addSample();
-				}}>Sample Data</Button
-			>
-			<Button
-				variant="outline"
-				onclick={() => {
-					clearSample();
-				}}>Clear Data</Button
-			>
-			<div class="my-4 grid w-full gap-1.5">
+			<Button onclick={addSample}>Sample Data</Button>
+			<Button variant="outline" onclick={clearSample}>Clear Data</Button>
+			<div class="mt-4 grid w-full gap-1.5">
 				<Label>Standard Error of Sample Standard Deviation</Label>
-				<div class="flex flex-row items-center gap-2">
-					<Katex math="SE(S)=" />{expectedStderrStdev?.toFixed(3)}
+				<div class="flex h-8 flex-row items-center gap-2">
+					<Katex math="SE(S)=" />{stderrStdev?.toFixed(3)}
 				</div>
 			</div>
-			{#if samples.length > 2}
-				<div class="my-4 grid w-full gap-1.5">
-					<Label
-						>Estimated Standard Error of Sample Standard Deviation using
-						replicate #{samples[0].id}</Label
-					>
-					<div class="flex flex-row items-center gap-2">
-						<Katex math={'\\hat{SE}(S)='} />
-						{(
-							(samples[0].stdev / (2 * (samples[0].values.length - 1))) **
-							0.5
-						).toFixed(3)}
-					</div>
-				</div>
-			{/if}
-			<div class="my-4 grid w-full gap-1.5">
+			<div class="grid w-full gap-1.5">
 				<Label
-					>Standard Error of Sample Standard Deviation using {samples.length} replicates</Label
+					>Estimated Standard Error of Sample Standard Deviation (using
+					replicate #{samples.length > 0 ? samples[0].id : ''})</Label
 				>
-				<div class="flex flex-row items-center gap-2">
-					{stderrStdev?.toFixed(3)}
+				<div class="flex h-8 flex-row items-center gap-2">
+					<Katex math={'\\hat{SE}(S)='} />
+					{estStderrStdev?.toFixed(3)}
+				</div>
+			</div>
+			<div class="grid w-full gap-1.5">
+				<Label
+					>Standard Deviation of Sample Standard Deviation (using {samples.length}
+					replicates)</Label
+				>
+				<div class="flex h-8 flex-row items-center gap-2">
+					{replicateStderrStdev?.toFixed(3)}
 				</div>
 			</div>
 		</div>
