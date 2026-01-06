@@ -72,12 +72,12 @@
 	});
 </script>
 
-<div class="aspect-video rounded-xl border p-4">
-	<div class="grid grid-cols-2 gap-2">
+<div class="p-4 rounded-xl border aspect-video">
+	<div class="gap-2 md:grid md:grid-cols-2">
 		<div class="space-y-4">
 			<div class="p-2">
 				<div class="my-2 font-bold">Normal PDF <Katex math="N(0,1)" /></div>
-				<NormPdf class="aspect-auto h-36" />
+				<NormPdf class="h-36 aspect-auto" />
 			</div>
 			<div class="p-2">
 				<div class="my-2 font-bold">
@@ -85,13 +85,13 @@
 				</div>
 				{#if debouncedSamples.current.length > 2}
 					<BasicHist
-						class="aspect-auto h-36"
+						class="h-36 aspect-auto"
 						values={debouncedSamples.current.map((s) => s.stdev)}
 						axis="x"
 					/>
 				{:else}
-					<div class="grid aspect-auto h-36 w-full">
-						<div class="mx-auto my-4 text-sm italic">
+					<div class="grid w-full h-36 aspect-auto">
+						<div class="my-4 mx-auto text-sm italic">
 							Sample more data to see distribution
 						</div>
 					</div>
@@ -99,9 +99,9 @@
 			</div>
 		</div>
 		<div class="flex flex-col gap-2">
-			<div class="my-4 grid w-full gap-1.5">
+			<div class="grid gap-1.5 my-4 w-full">
 				<Label>Sample Size</Label>
-				<div class="flex flex-row items-center gap-2">
+				<div class="flex flex-row gap-2 items-center">
 					<Katex math="n = " /><Input
 						type="number"
 						min="1"
@@ -112,28 +112,28 @@
 			</div>
 			<Button onclick={addSample}>Sample Data</Button>
 			<Button variant="outline" onclick={clearSample}>Clear Data</Button>
-			<div class="mt-4 grid w-full gap-1.5">
+			<div class="grid gap-1.5 mt-4 w-full">
 				<Label>Standard Error of Sample Standard Deviation</Label>
-				<div class="flex h-8 flex-row items-center gap-2">
+				<div class="flex flex-row gap-2 items-center h-8">
 					<Katex math="SE(S)=" />{stderrStdev?.toFixed(3)}
 				</div>
 			</div>
-			<div class="grid w-full gap-1.5">
+			<div class="grid gap-1.5 w-full">
 				<Label
 					>Estimated Standard Error of Sample Standard Deviation (using
 					replicate #{samples.length > 0 ? samples[0].id : ''})</Label
 				>
-				<div class="flex h-8 flex-row items-center gap-2">
+				<div class="flex flex-row gap-2 items-center h-8">
 					<Katex math={'\\hat{SE}(S)='} />
 					{estStderrStdev?.toFixed(3)}
 				</div>
 			</div>
-			<div class="grid w-full gap-1.5">
+			<div class="grid gap-1.5 w-full">
 				<Label
 					>Standard Deviation of Sample Standard Deviation (using {samples.length}
 					replicates)</Label
 				>
-				<div class="flex h-8 flex-row items-center gap-2">
+				<div class="flex flex-row gap-2 items-center h-8">
 					{replicateStderrStdev?.toFixed(3)}
 				</div>
 			</div>
