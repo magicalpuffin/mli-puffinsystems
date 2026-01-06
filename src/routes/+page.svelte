@@ -17,7 +17,7 @@
 <svelte:head
 	><title>Michael Li</title><meta
 		name="description"
-		content="Michael Li. Personal website showcasing project and blog."
+		content="Hello! My name is Michael Li. I'm an industrial engineer interested in using statistics and software to solve manufacturing problems."
 	/></svelte:head
 >
 
@@ -30,14 +30,14 @@
 		<div class="flex flex-col-reverse gap-8 md:flex-row">
 			<div class="shrink-0">
 				<div class="text-xl font-medium">Hello! My name is</div>
-				<h1 class="mx-4 font-mono text-6xl font-bold scroll-mt-32" id="about">
+				<h1 class="mx-4 scroll-mt-32 font-mono text-6xl font-bold" id="about">
 					Michael Li
 				</h1>
 				<div class="text-gray-600">Manufacturing / Statistics / Software</div>
 			</div>
 			<RandomHist />
 		</div>
-		<div class="p-4 my-4 border hover:shadow-xl border-primary duration-600">
+		<div class="my-4 border border-primary p-4 duration-600 hover:shadow-xl">
 			<p>
 				I'm an industrial engineer interested in using statistics and software
 				to solve manufacturing problems. I enjoy thinking about complex systems,
@@ -103,7 +103,7 @@
 		{#each data.blogPosts as blog}
 			<BlogMenuItem {blog} />
 		{/each}
-		<div class="flex justify-center my-2">
+		<div class="my-2 flex justify-center">
 			<Button variant="secondary" size="sm" href="/blog">View All</Button>
 		</div>
 	</div>

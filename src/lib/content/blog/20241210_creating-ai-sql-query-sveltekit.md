@@ -1,6 +1,6 @@
 ---
 title: Creating an SQL Query Generator using AI in SvelteKit
-description: How to use Cloudflare workers AI to generate and execute SQL queries in a SvelteKit app. Generate and retrieve data using a AI prompt.
+description: Demo project using Cloudflare Workers AI to generate and execute SQL queries in a SvelteKit app.
 createdDate: 2024-12-10
 tags:
   - sveltekit

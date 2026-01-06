@@ -1,6 +1,6 @@
 ---
 title: Dynamically rendering markdown on SvelteKit using mdsvex
-description: How to dynamically render markdown in SvelteKit using mdsvex and example template-sveltekit-md-docs. Page routing with vite glob imports and native like support of images and links.
+description: How to dynamically render markdown in SvelteKit using mdsvex and create page routing using vite glob imports.
 createdDate: 2024-11-02
 tags:
   - sveltekit

@@ -1,6 +1,6 @@
 ---
 title: Piantor Keyboard Build
-description: My experience with building a Piantor keyboard; including issues I ran into, budget, 3d printing.
+description: My experience with building a Piantor keyboard and the issues I ran into. Budget for building a keyboard and 3d printing key caps.
 createdDate: 2024-01-02
 tags:
   - keyboard
