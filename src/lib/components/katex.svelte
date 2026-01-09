@@ -8,12 +8,13 @@
 
 	let { math, displayMode = false }: Props = $props();
 
-	const options = {
-		displayMode: displayMode,
-		throwOnError: false
-	};
-
-	let katexString = $derived(katex.renderToString(math, options));
+	let katexString = $derived(
+		katex.renderToString(math, {
+			displayMode,
+			throwOnError: false
+		})
+	);
 </script>
 
+<!-- eslint-disable -->
 {@html katexString}
