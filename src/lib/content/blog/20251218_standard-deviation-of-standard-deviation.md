@@ -8,7 +8,7 @@ tags:
   - statistics
 ---
 <script>
-	import {SampleMeanStdev} from "$lib/content/interactive/sample-mean-stdev"
+	import {SampleStdevDemo} from "$lib/content/interactive/sample-stdev-demo"
 	import StderrStdevCalc from "$lib/content/interactive/stderr-stdev-calc.svelte"
 </script>
 
@@ -65,7 +65,7 @@ The distribution of sample variance follows a chi squared distribution with $n-1
 
 ## Sample Standard Deviation Demo
 
-<SampleMeanStdev/>
+<SampleStdevDemo/>
 
 The above demo allows you to generate repeat samples from the standard normal distribution. The standard error of standard deviation is calculated using multiple methods for comparison.
 - $SE(S)$ is calculated using the population standard deviation $\sigma$ and sample size $n$
