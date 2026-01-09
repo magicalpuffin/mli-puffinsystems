@@ -2,7 +2,7 @@
 	import * as Table from '$lib/components/ui/table/index.js';
 	import BasicHist from '../basic-hist.svelte';
 	import Katex from '$lib/components/katex.svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	interface Props {
 		samples: {
@@ -18,11 +18,11 @@
 
 <div
 	data-slot="table-container"
-	class="relative my-4 h-56 w-full overflow-x-hidden overflow-y-auto"
+	class="overflow-y-auto overflow-x-hidden relative my-4 w-full h-56"
 >
 	<table
 		data-slot="table"
-		class="not-prose w-full caption-bottom border-collapse text-sm"
+		class="w-full text-sm border-collapse not-prose caption-bottom"
 	>
 		<Table.Header>
 			<Table.Row>
@@ -31,7 +31,7 @@
 					>Size <Katex math="n" /></Table.Head
 				>
 				<Table.Head class="sticky top-0 z-10 bg-white"
-					>Mean <Katex math={'\\\hat{x}'} /></Table.Head
+					>Mean <Katex math={'\\hat{x}'} /></Table.Head
 				>
 				<Table.Head class="sticky top-0 z-10 bg-white"
 					>Stdev <Katex math="s" /></Table.Head
@@ -54,8 +54,9 @@
 					<Table.Cell>{s.stdev.toFixed(3)}</Table.Cell>
 					<Table.Cell
 						><BasicHist
-							class="aspect-auto h-8"
+							class="h-8 aspect-auto"
 							values={s.values}
+							grid={false}
 							min={-3.5}
 							max={3.5}
 							binSize={0.5}
