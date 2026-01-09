@@ -18,7 +18,10 @@
 	let { title, createdDate, updatedDate, tags }: Props = $props();
 </script>
 
-<h1 class="my-4 text-2xl font-bold tracking-wide">
+<h1
+	id={title.toLowerCase().replaceAll(' ', '-')}
+	class="my-4 text-2xl font-bold tracking-wide"
+>
 	{title}
 </h1>
 

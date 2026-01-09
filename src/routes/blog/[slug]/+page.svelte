@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Blog } from '$lib/components/blog';
+	// import FloatingToc from '$lib/components/nav/floating-toc.svelte';
 	//import { parseDate } from '@internationalized/date';
 	import type { PageData } from './$types';
 
@@ -22,6 +23,9 @@
 	/>
 </svelte:head>
 
+<!-- <div class="relative"> -->
+<!-- 	<FloatingToc /> -->
+
 <Blog
 	title={data.blogPost.title}
 	createdDate={data.blogPost.createdDate.toLocaleString('en-US', {
@@ -40,3 +44,4 @@
 >
 	<data.blogPost.component />
 </Blog>
+<!-- </div> -->
