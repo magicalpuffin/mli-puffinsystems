@@ -1,6 +1,6 @@
 ---
 title: Standard Deviation of Standard Deviation
-description: Understanding how sample standard deviation can vary depending on sample size. Calculating the confidence interval of standard deviation and how to interpret the results
+description: Standard deviation standard deviation calculator. Formulas for standard error of sample sample standard deviation and variance.
 createdDate: 2025-12-18
 updatedDate: 2026-01-06
 tags:
