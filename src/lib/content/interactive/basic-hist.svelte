@@ -11,6 +11,7 @@
 		max?: number;
 		binSize?: number;
 		axis?: boolean | 'x' | 'y';
+		grid?: boolean;
 		class?: HTMLAttributes<HTMLDivElement>['class'];
 	}
 
@@ -20,6 +21,7 @@
 		max,
 		binSize,
 		axis = false,
+		grid = true,
 		class: className
 	}: Props = $props();
 
@@ -65,6 +67,7 @@
 		bind:context
 		data={bins}
 		{axis}
+		{grid}
 		x="binLabel"
 		y="length"
 		bandPadding={0.1}

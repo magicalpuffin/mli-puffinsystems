@@ -2,7 +2,9 @@
 	import * as Table from '$lib/components/ui/table/index.js';
 	import BasicHist from '../basic-hist.svelte';
 	import Katex from '$lib/components/katex.svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import { SvelteSet } from 'svelte/reactivity';
 
 	interface Props {
 		samples: {
@@ -14,15 +16,40 @@
 	}
 
 	let { samples }: Props = $props();
+
+	let observer: IntersectionObserver | undefined;
+
+	let visibleRowId = new SvelteSet();
+
+	onMount(() => {
+		observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					visibleRowId.add(entry.target.id);
+				} else {
+					visibleRowId.delete(entry.target.id);
+				}
+			});
+		});
+	});
+
+	$effect(() => {
+		if (observer) {
+			samples.forEach((s) => {
+				const el = document.getElementById('samplerow-' + s.id);
+				if (el && observer) observer.observe(el);
+			});
+		}
+	});
 </script>
 
 <div
 	data-slot="table-container"
-	class="relative my-4 h-56 w-full overflow-x-hidden overflow-y-auto"
+	class="overflow-y-auto overflow-x-hidden relative my-4 w-full h-56"
 >
 	<table
 		data-slot="table"
-		class="not-prose w-full caption-bottom border-collapse text-sm"
+		class="w-full text-sm border-collapse not-prose caption-bottom"
 	>
 		<Table.Header>
 			<Table.Row>
@@ -31,7 +58,7 @@
 					>Size <Katex math="n" /></Table.Head
 				>
 				<Table.Head class="sticky top-0 z-10 bg-white"
-					>Mean <Katex math={'\\\hat{x}'} /></Table.Head
+					>Mean <Katex math={'\\hat{x}'} /></Table.Head
 				>
 				<Table.Head class="sticky top-0 z-10 bg-white"
 					>Stdev <Katex math="s" /></Table.Head
@@ -44,6 +71,7 @@
 		<Table.Body>
 			{#each samples as s (s.id)}
 				<tr
+					id={'samplerow-' + s.id}
 					data-slot="table-row"
 					class="border-b transition-colors data-[state=selected]:bg-muted hover:[&,&>svelte-css-wrapper]:[&>th,td]:bg-muted/50"
 					transition:fly={{ x: 50 }}
@@ -54,13 +82,21 @@
 					<Table.Cell>{s.stdev.toFixed(3)}</Table.Cell>
 					<Table.Cell
 						><BasicHist
-							class="aspect-auto h-8"
+							class="aspect-auto h-8 {visibleRowId.has('samplerow-' + s.id)
+								? ''
+								: 'hidden'}"
 							values={s.values}
+							grid={false}
 							min={-3.5}
 							max={3.5}
 							binSize={0.5}
-						/></Table.Cell
-					>
+						/>
+						<div
+							class="h-8
+              {visibleRowId.has('samplerow-' + s.id) ? 'hidden' : ''}
+              "
+						></div>
+					</Table.Cell>
 				</tr>
 			{/each}
 		</Table.Body>
