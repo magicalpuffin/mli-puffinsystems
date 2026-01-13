@@ -7,7 +7,7 @@ tags:
   - sveltekit
   - typescript
 ---
-![demo markdown notebook screenshot](/static/content/images/blog/20230712_markdown_notebook.png)
+![demo markdown notebook screenshot](/static/blog/20230712_markdown_notebook.png)
 *Screenshot of writing markdown using Demo Markdown Notebook*
 
 ## Overview

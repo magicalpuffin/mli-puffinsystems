@@ -7,7 +7,7 @@ tags:
   - typescript
   - cloudflare
 ---
-![cloudflare resources](/static/content/images/blog/20240407/20240407_cloudflare_resources.png)
+![cloudflare resources](/static/blog/20240407/20240407_cloudflare_resources.png)
 *Cloudflare resources used*
 
 ## Overview
@@ -85,7 +85,7 @@ Run the worker in dev. This builds the Rust worker and makes it accessible at `h
 npm run dev
 ```
 
-![worker running dev](/static/content/images/blog/20240407/20240407_worker_in_dev.png)
+![worker running dev](/static/blog/20240407/20240407_worker_in_dev.png)
 *Rust worker running in dev after building*
 
 Test the worker using `curl`:
@@ -656,10 +656,10 @@ cd tutorial-sveltekit/
 npx drizzle-kit studio
 ```
 
-![signup page](/static/content/images/blog/20240407/20240407_signup.png)
+![signup page](/static/blog/20240407/20240407_signup.png)
 *Sign up page*
 
-![drizzlekit studio](/static/content/images/blog/20240407/20240407_drizzlekit_studio.png)
+![drizzlekit studio](/static/blog/20240407/20240407_drizzlekit_studio.png)
 *DrizzleKit Studio with local data*
 
 ## Deploy to Cloudflare
@@ -683,15 +683,15 @@ npm run deploy
 ```
 
 
-![deployedbinding](/static/content/images/blog/20240407/20240407_deployed_bindings.png)
+![deployedbinding](/static/blog/20240407/20240407_deployed_bindings.png)
 *Bindings automatically setup in Cloudflare from wrangler.toml*
 
 After deployment, you can check how long it takes to login. 
-![login resonse time](/static/content/images/blog/20240407/20240407_login_response.png)
+![login resonse time](/static/blog/20240407/20240407_login_response.png)
 *Response timing in Firefox for a login*
 
 In Cloudflare, you can check how much CPU time is consumed when hashing. ~ 100 ms CPU time is high compared to normal workers, however, this is much better than pure JavaScript implementations (~ 2,000 ms CPU time for Lucia Scrypt and ~ 14,000 ms of CPU time for noble hashes Argon2id).
-![argon2 worker cpu time](/static/content/images/blog/20240407/20240407_argon2_cpu_time.png)
+![argon2 worker cpu time](/static/blog/20240407/20240407_argon2_cpu_time.png)
 *CPU time when running argon2*
 ## Bonus: A Pure JavaScript Implementation of Argon2 Example
 - I don't think a pure JavaScript implementation of Argon2 is ever practical because of how long it takes. But if you still need a pure JavaScript implementation of Argon2, try [`@noble/hashes`](https://github.com/paulmillr/noble-hashes)

@@ -7,7 +7,7 @@ tags:
   - python
   - django
 ---
-![demo mfg kanban screenshot](/static/content/images/blog/20230715_mfg_kanban.png)
+![demo mfg kanban screenshot](/static/blog/20230715_mfg_kanban.png)
 *Screenshot of some cards in Demo Manufacturing Kanban*
 ## Overview
 

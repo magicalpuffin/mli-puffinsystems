@@ -8,7 +8,7 @@ tags:
   - cloudflare
   - ai
 ---
-![demo ai db showcase](/static/content/images/blog/20241210/20241210_demo_ai_db_showcase.gif)
+![demo ai db showcase](/static/blog/20241210/20241210_demo_ai_db_showcase.gif)
 *Example generating SQL query*
 
 AI is very popular right now, *but is it actually useful?* Are LLMs reliable enough to solve problems beyond chat bots? I decided to create this demo project to practice developing an AI product and test one of these ideas: LLMs generated SQL queries. 
@@ -25,7 +25,7 @@ Regardless, here is what I built.
 ## Architecture
 
 
-![demo ai db architecture](/static/content/images/blog/20241210/20241210_demo_ai_db_architecture.png)
+![demo ai db architecture](/static/blog/20241210/20241210_demo_ai_db_architecture.png)
 *Cloudflare resources used for demo ai db query*
 
 ### SvelteKit
@@ -99,7 +99,7 @@ matchedTables = returnedMatches.matches.map((m) => m.metadata!.table as string);
 
 ### D1 Database
 
-![demo ai db databases showcase](/static/content/images/blog/20241210/20241210_demo_ai_db_databases_showcase.gif)
+![demo ai db databases showcase](/static/blog/20241210/20241210_demo_ai_db_databases_showcase.gif)
 *Showcase with of multiple databases*
 
 As part of the demo, I wanted to be able to test different SQLite databases.
@@ -115,7 +115,7 @@ Here is where I found the SQLite databases:
 
 ## Issues Working with AI
 
-![demo ai db databases showcase](/static/content/images/blog/20241210/20241210_ai_doing_weird_stuff.png)
+![demo ai db databases showcase](/static/blog/20241210/20241210_ai_doing_weird_stuff.png)
 *The LLM doing a nonsense join*
 
 Although many models have large token limits. I noticed that with massive prompts, the LLM seems to lose focus. It is possible to limit context using RAG through a vector database, however, not all context may be captured. 
@@ -126,7 +126,7 @@ Working with LLMs feels like gambling. Random, low effort, and a chance of rewar
 
 ## Conclusion
 
-![demo ai db databases showcase](/static/content/images/blog/20241210/20241210_ai_working.png)
+![demo ai db databases showcase](/static/blog/20241210/20241210_ai_working.png)
 *AI works for basic queries*
 
 The end result is interesting but I don't know if it is useful. I feel like there are so many edge cases. Or situations where the LLM requires so much context that you might as well write the query yourself.
