@@ -21,7 +21,7 @@
 	}: Props = $props();
 </script>
 
-<div transition:fade={{ duration: 150 }}>
+<div in:fade={{ duration: 150 }}>
 	<BlogHeader {title} {createdDate} {updatedDate} {tags} />
 
 	<Separator class="my-2 bg-secondary" />
