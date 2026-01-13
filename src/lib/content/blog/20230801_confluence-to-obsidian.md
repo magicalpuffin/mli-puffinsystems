@@ -6,7 +6,7 @@ updatedDate: 2023-11-04
 tags:
   - obsidian
 ---
-![confluence to obsidian](/static/content/images/blog/20230801_confluence_to_obsidian.png)
+![confluence to obsidian](/static/blog/20230801/confluence_to_obsidian.png)
 ## Overview
 
 I migrated my notes from Confluence to Obsidian using a few scripts. More generically, this converts Confluence to markdown. This blog post describes the general process so others who face this problem have a starting point.

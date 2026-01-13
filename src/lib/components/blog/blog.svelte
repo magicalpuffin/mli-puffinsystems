@@ -1,7 +1,8 @@
 <script lang="ts">
-	import BlogHeader from './BlogHeader.svelte';
-	import BlogContent from './BlogContent.svelte';
+	import BlogHeader from './blog-header.svelte';
+	import BlogContent from './blog-content.svelte';
 	import { Separator } from '$lib/components/ui/separator';
+	import { fade } from 'svelte/transition';
 
 	interface Props {
 		title: string;
@@ -20,7 +21,9 @@
 	}: Props = $props();
 </script>
 
-<BlogHeader {title} {createdDate} {updatedDate} {tags} />
+<div in:fade={{ duration: 150 }}>
+	<BlogHeader {title} {createdDate} {updatedDate} {tags} />
 
-<Separator class="my-2 bg-secondary" />
-<BlogContent>{@render children?.()}</BlogContent>
+	<Separator class="my-2 bg-secondary" />
+	<BlogContent>{@render children?.()}</BlogContent>
+</div>

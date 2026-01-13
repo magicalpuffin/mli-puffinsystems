@@ -5,7 +5,7 @@ createdDate: 2024-01-02
 tags:
   - keyboard
 ---
-![my piantor keyboard](/static/content/images/blog/20231018/20231018_piantor_complete.png)
+![my piantor keyboard](/static/blog/20240102/piantor_complete.png)
 *My custom Piantor keyboard*
 ## Overview
 
@@ -82,7 +82,7 @@ To save on cost, I 3d printed the key caps on my Ender3V2. Key caps should be pr
 
 When printing multiple keys (I did 6 keys at a time), position the keys facing outwards. This ensures stringing would be on the sides or stems instead of typing surface. I used 0.16 mm resolution, but I don't really think it matters.
 
-![prusa slice of 6 key caps](/static/content/images/blog/20231018/20231018_keycaps_prusa.png)
+![prusa slice of 6 key caps](/static/blog/20240102/keycaps_prusa.png)
 *3d printing keycaps orientation*
 ### Case
 
@@ -100,11 +100,11 @@ I completed the soldering with a Pinecil on a USB C laptop charger. Using lead f
 
 Pliers are essential, not just for holding small components, but also for shorting keys when testing. If a key is acting unusual, open the PCB in KiCad and try shorting corresponding pads or pins.
 
-![solder setup](/static/content/images/blog/20231018/20231018_piantor_solder.png)
+![solder setup](/static/blog/20240102/piantor_solder.png)
 *Soldering hotswap sockets to PCB*
 ## Firmware
 
 The default firmware provided by Beekeeb for the Piantor was Vial, a QMK fork which allows you to update the firmware live. Real time firmware changes is such an amazing feature that I don't think I can go back to normal QMK. I recreated my Moonlander layout and everything works as expected.
 
-![my vial layout](/static/content/images/blog/20231018/20231018_piantor_vial.png)
+![my vial layout](/static/blog/20240102/piantor_vial.png)
 *Configuring layout in Vial*
