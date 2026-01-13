@@ -78,11 +78,11 @@
           transition-transform duration-500 ${show ? 'translate-y-0' : '-translate-y-full'}`}
 >
 	<div
-		class="mx-auto flex h-12 max-w-4xl items-center justify-between border-b border-secondary px-4"
+		class="flex justify-between items-center px-4 mx-auto max-w-4xl h-12 border-b border-secondary"
 	>
 		<a
 			href="/"
-			class="my-1 w-36 rounded-lg py-1 text-center font-mono text-lg font-bold hover:bg-secondary/30 hover:text-primary md:text-2xl"
+			class="py-1 my-1 w-40 font-mono text-lg font-bold text-center rounded-lg md:text-2xl hover:bg-secondary/30 hover:text-primary"
 			>Michael Li</a
 		>
 		<div class="hidden flex-row gap-6 sm:flex">
@@ -97,7 +97,7 @@
 				/>
 			{/each}
 		</div>
-		<div class="hidden gap-2 sm:flex md:w-36">
+		<div class="hidden gap-2 sm:flex md:w-40">
 			<ExternalIconLink href={githubUrl}>
 				<GitHubIcon />
 			</ExternalIconLink>
@@ -124,7 +124,7 @@
 						{/each}
 					</div>
 					<Sheet.Footer>
-						<div class="flex w-32 gap-2">
+						<div class="flex gap-2 w-40">
 							<ExternalIconLink href={githubUrl}>
 								<GitHubIcon />
 							</ExternalIconLink>
