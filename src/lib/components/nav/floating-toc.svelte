@@ -39,7 +39,7 @@
 
 {#if headers.length > 0}
 	<aside
-		class="hidden overflow-y-scroll fixed top-20 flex-col px-4 max-h-96 text-sm xl:flex max-w-96"
+		class="hidden overflow-y-auto fixed top-20 flex-col px-4 max-h-96 text-sm xl:flex max-w-96"
 		transition:fly={{ x: 50 }}
 	>
 		{#each headers as header}

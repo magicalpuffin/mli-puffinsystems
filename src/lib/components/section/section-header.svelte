@@ -10,6 +10,6 @@
 </script>
 
 <div class="flex flex-row gap-4 items-center my-4">
-	<h2 class="text-2xl font-bold tracking-wide scroll-mt-16" {id}>{label}</h2>
+	<h2 class="text-2xl font-bold tracking-wide" {id}>{label}</h2>
 	<Separator class="shrink bg-secondary" />
 </div>
