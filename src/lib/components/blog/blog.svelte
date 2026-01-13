@@ -1,6 +1,6 @@
 <script lang="ts">
-	import BlogHeader from './BlogHeader.svelte';
-	import BlogContent from './BlogContent.svelte';
+	import BlogHeader from './blog-header.svelte';
+	import BlogContent from './blog-content.svelte';
 	import { Separator } from '$lib/components/ui/separator';
 	import { fade } from 'svelte/transition';
 
