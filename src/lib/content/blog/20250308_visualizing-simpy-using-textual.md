@@ -7,7 +7,7 @@ tags:
   - textual
   - simpy
 ---
-![demo simpy textual app running](/static/blog/20250308/20250308_demo-simpy-textual.gif)
+![demo simpy textual app running](/static/blog/20250308/demo-simpy-textual.gif)
 *Example running machine shop simulation*
 
 I recently started looking into discrete event simulation and found the barrier to entry was surprisingly low. Instead of learning dedicated software like Arena or Simio, you can use [simpy](https://simpy.readthedocs.io/en/latest/contents.html), an open source Python framework for discrete event simulation.
@@ -29,7 +29,7 @@ This proof of concept is the end result, the rest of the blog post explains how 
 
 ## Animating Machines and Modifying Simulation Parameters
 
-![textual simpy changing inputs](/static/blog/20250308/20250308_textual-simpy-inputs.gif)
+![textual simpy changing inputs](/static/blog/20250308/textual-simpy-inputs.gif)
 *Changing input parameters for machine shop simulation*
 
 Model parameters were handled using `textual` input widgets. If the simulation or model parameters is changed, the entire environment needs to be reset for it to apply. The performance impact of the simulation itself is very low compared to updating the animations and figures. The start time and step delay controls when the animation starts and how long to wait before continuing the simulation.
@@ -196,7 +196,7 @@ class MachineShop:
 
 ## Creating Figures with plotext
 
-![textual plot text figures](/static/blog/20250308/20250308_textual-plotext-figures.png)
+![textual plot text figures](/static/blog/20250308/textual-plotext-figures.png)
 *Figures created by textual-plotext of machine shop metrics*
 
 Figures were created using [plotext](https://github.com/piccolomo/plotext) and [textual-plotext](https://github.com/Textualize/textual-plotext/). Using the metrics log, the figure is cleared and redrawn each simulation iteration. Data is converted to `polars` for easier filtering.

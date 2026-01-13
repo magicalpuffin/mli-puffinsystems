@@ -8,7 +8,7 @@ tags:
   - typescript
   - manufacturing
 ---
-![screenshot of manufacturing kanban](/static/blog/20240327/20240327_mfg_kanban.png)
+![screenshot of manufacturing kanban](/static/blog/20240327/mfg_kanban.png)
 *Screenshot of some cards in SvelteKit Demo Manufacturing Kanban*
 
 ## Overview
@@ -83,7 +83,7 @@ Customizing DaisyUI components was much faster than styling components from scra
 
 ## SortableJS
 
-![example of drag and drop](/static/blog/20240327/20240327_sortablejs_example.gif)
+![example of drag and drop](/static/blog/20240327/sortablejs_example.gif)
 *Example of drag and dropping cards with SortableJS*
 
 SortableJS was still the best JavaScript library I could find for creating the drag and drop effect. Svelte integrated nicely with SortableJS, allowing you to initialize SortableJS during `onMount` and include whatever JavaScript you need the provided sorting events.
@@ -92,7 +92,7 @@ SortableJS was still the best JavaScript library I could find for creating the d
 
 During development, I found the type safety provided by TypeScript extremely useful. Simply knowing what type something is goes a long way towards figuring out what is going on. Unfortunately, the moment an HTTP requests is involved, you revert back to throwing objects around blindly. 
 
-![trpc auto complete](/static/blog/20240327/20240327_trpc_autocomplete.png)
+![trpc auto complete](/static/blog/20240327/trpc_autocomplete.png)
 *tRPC autocomplete of API requests available*
 
 tRPC was the perfect solution for this problem and made creating backend API requests much easier. tRPC provides a TypeScript framework for RPC (Remote Procedure Call) and allows you to make HTTP requests like you are calling a function. I was using an API Gateway backend which was supported with a tRPC adapter. 
@@ -125,7 +125,7 @@ The only thing I found missing was the lack of error handling. Database errors a
 
 SST allows deploying serverless applications through AWS CDK in a much more user friendly way. The SST constructs for Lambda and API Gateway were much easier to interact with than their AWS CDK variants. SST also provided a `SvelteKitSite` construct which took care of packaging the SvelteKit frontend as an AWS Lambda. 
 
-![drawing of aws resources](/static/blog/20240327/20240327_aws_resource_drawing.png)
+![drawing of aws resources](/static/blog/20240327/aws_resource_drawing.png)
 *AWS resources used. I forgot to draw the bastion host.*
 
 - **SvelteKit Frontend:** Lambda, CloudFront
