@@ -1,6 +1,6 @@
 ---
 title: Standard Deviation of Standard Deviation
-description: How to calculate the standard deviation standard deviation. Formulas for standard error of sample sample standard deviation and variance.
+description: How to calculate the standard deviation of standard deviation. Formulas for standard error of sample sample standard deviation and variance.
 createdDate: 2025-12-18
 updatedDate: 2026-01-06
 tags:
