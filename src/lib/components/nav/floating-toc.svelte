@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { tv } from 'tailwind-variants';
 
-	let headers: { level: string; id: string; text: string }[] = $state([]);
+	let headers: { level: 'H1' | 'H2' | 'H3'; id: string; text: string }[] =
+		$state([]);
 	let headerElements: NodeListOf<Element> | undefined = $state();
-	let active = $state('');
+	let activeId = $state('');
 
-	const observeSections = () => {
+	onMount(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						active = entry.target.id;
+						activeId = entry.target.id;
 					}
 				});
 			},
@@ -21,17 +23,34 @@
 			}
 		);
 
-		headerElements?.forEach((el) => {
-			if (el) observer.observe(el);
-		});
-	};
-
-	onMount(() => {
 		headerElements = document.querySelectorAll('h1, h2, h3');
-		headerElements?.forEach((e) =>
-			headers.push({ level: e.tagName, id: e.id, text: e.innerHTML })
-		);
-		observeSections();
+		headerElements?.forEach((e) => {
+			headers.push({
+				level: e.tagName as 'H1' | 'H2' | 'H3',
+				id: e.id,
+				text: e.innerHTML
+			});
+			observer.observe(e);
+		});
+		return () => observer.disconnect();
+	});
+
+	const tocVariants = tv({
+		base: 'items-center pl-2 border-l-2 truncate hover:border-l-primary hover:bg-secondary/30 hover:text-primary',
+		variants: {
+			level: {
+				H1: 'font-bold',
+				H2: 'pl-4',
+				H3: 'pl-8'
+			},
+			active: {
+				true: 'border-l-primary text-primary'
+			}
+		},
+		defaultVariants: {
+			level: 'H3',
+			active: false
+		}
 	});
 
 	// $inspect(active);
@@ -45,12 +64,10 @@
 		{#each headers as header}
 			<a
 				href={header.level === 'H1' ? '#top' : '#' + header.id}
-				class="items-center pl-2 border-l-2 truncate hover:border-l-primary hover:bg-secondary/30 hover:text-primary"
-				class:font-bold={header.level === 'H1'}
-				class:pl-4={header.level === 'H2'}
-				class:pl-8={header.level === 'H3'}
-				class:border-l-primary={header.id === active}
-				class:text-primary={header.id === active}>{header.text}</a
+				class={tocVariants({
+					level: header.level,
+					active: header.id === activeId
+				})}>{header.text}</a
 			>
 		{/each}
 	</aside>

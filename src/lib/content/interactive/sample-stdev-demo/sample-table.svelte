@@ -31,6 +31,8 @@
 				}
 			});
 		});
+
+		return () => observer?.disconnect();
 	});
 
 	$effect(() => {
