@@ -11,6 +11,6 @@
 <a
 	{href}
 	{onclick}
-	class="flex items-center px-2 h-12 border-l-2 hover:text-orange-600 hover:border-l-orange-600"
+	class="flex items-center px-2 h-12 border-l-2 hover:border-l-primary hover:text-primary"
 	>{label}</a
 >
