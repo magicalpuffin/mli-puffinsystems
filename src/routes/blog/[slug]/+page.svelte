@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Blog } from '$lib/components/blog';
-	import FloatingToc from '$lib/components/nav/floating-toc.svelte';
+	import { FloatingToc } from '$lib/components/nav';
 	//import { parseDate } from '@internationalized/date';
 	import type { PageData } from './$types';
 

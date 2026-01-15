@@ -1,1 +1,4 @@
-export { default as Blog } from "./blog.svelte";
+import BlogTag from "./blog-tag.svelte";
+import Blog from "./blog.svelte";
+
+export { Blog, BlogTag };
