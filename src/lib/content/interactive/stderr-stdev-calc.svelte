@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Label } from '$lib/components/ui/label';
 	import { Input } from '$lib/components/ui/input';
-	import { Debounced } from 'runed';
 	import Katex from '$lib/components/katex.svelte';
 
 	let samplesSize = $state(30);
