@@ -8,17 +8,21 @@ tags:
 ---
 <script>
 	import CiStdevCalc from "$lib/content/interactive/ci-stdev-calc.svelte"
+	import CiStdevVsSampleSize from "$lib/content/interactive/ci-stdev-vs-sample-size.svelte"
+
 </script>
 
 <CiStdevCalc/>
 
-Whenever we discuss sample mean $\hat{x}$, we usually acknowledge the randomness inherent with sampling. This is usually in the form of standard errors, confidence intervals, and hypothesis testing. 
+<CiStdevVsSampleSize/>
 
-I have always been annoyed that the same statistical techniques are rarely extended to standard deviation $s$. See [Standard Deviation of Standard Deviation](/blog/standard-deviation-of-standard-deviation)
+Whenever we discuss sample mean $\hat{x}$, we usually acknowledge the randomness inherent with sampling in the form of standard errors, confidence intervals, and hypothesis tests.
 
-Sample standard deviation, like sample mean, is random. See previous blog post on the standard deviation of standard deviation. 
+This randomness also applies to sample standard deviation $s$, however the same statistical techniques are less common. This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. For standard error of standard deviation, see [Standard Deviation of Standard Deviation](/blog/standard-deviation-of-standard-deviation).
 
-And just like sample mean, it is possible to construct confidence intervals around a sample standard deviation. These confidence intervals and hypothesis testing assume the underlying distribution is normal and the distribution of sample variance follows the chi-squared distribution
+
+
+These confidence intervals and hypothesis testing assume the underlying distribution is normal and the distribution of sample variance follows the chi-squared distribution
 ## Confidence Interval of Sample Standard Deviation
 
 ### Two Sided Confidence Interval
