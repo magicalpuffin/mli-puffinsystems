@@ -12,18 +12,28 @@ tags:
 
 </script>
 
-<CiStdevCalc/>
+
 
 <CiStdevVsSampleSize/>
 
-Whenever we discuss sample mean $\hat{x}$, we usually acknowledge the randomness inherent with sampling in the form of standard errors, confidence intervals, and hypothesis tests.
+Whenever we discuss **sample mean** $\hat{x}$, we usually acknowledge the randomness inherent with sampling in the form of standard errors, confidence intervals, and hypothesis tests.
 
-This randomness also applies to sample standard deviation $s$, however the same statistical techniques are less common. This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. For standard error of standard deviation, see [Standard Deviation of Standard Deviation](/blog/standard-deviation-of-standard-deviation).
+This randomness also applies to **sample standard deviation** $s$. For example, with a sample size of $n=30$, the 95% confidence interval is $[s*0.796, s*1.344]$. We are 95% confident that the population standard deviation is between 0.796x and 1.344x the standard deviation.
+
+This can result in underestimation of standard deviation, especially when sample sizes are low. 
+
+This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. 
+
+For standard error of standard deviation, see [Standard Deviation of Standard Deviation](/blog/standard-deviation-of-standard-deviation). **Note:** The standard error of sample standard deviation doesn't show up in the confidence intervals and hypothesis tests. This is in contrast to the standard error of sample mean which shows up in its confidence intervals and hypothesis tests.
 
 
 
 These confidence intervals and hypothesis testing assume the underlying distribution is normal and the distribution of sample variance follows the chi-squared distribution
 ## Confidence Interval of Sample Standard Deviation
+
+<CiStdevCalc/>
+
+Confidence intervals are used to estimate 
 
 ### Two Sided Confidence Interval
 
@@ -42,19 +52,6 @@ $$
 - $(n-1)$ is the degree of freedom
 - $1-\alpha$ is the confidence level
 - $q_p$ is the $p$-th quantile of the chi-squared distribution, $\chi^2_{1-\alpha/2,n-1}$
-
-```python
-def calc_stdv_ci(sample_size: int, confidence_level: float = 0.95, s: float = 1.0):
-    df = sample_size - 1
-    alpha = 1 - confidence_level
-
-    q_upper = chi2.ppf((1 - alpha / 2), df)
-    q_lower = chi2.ppf(alpha / 2, df)
-    ci_lower = (df * s**2 / q_upper) ** 0.5
-    ci_upper = (df * s**2 / q_lower) ** 0.5
-
-    return ci_lower, ci_upper
-```
 
 We are 95% confident that the population standard deviation is between the lower and upper limits. In other words, if we were to replicate this sample, 95% of the confidence intervals generated would capture the population standard deviation.
 
@@ -79,6 +76,29 @@ $$
 
 ### Two Sided Hypothesis Test
 
+$$
+H_{0}: \sigma = s \\
+H_{a}: \sigma \neq s
+$$
+
+$$
+P(\chi^2 < )
+$$
+
 
 ### One Sided Hypothesis Test
+
+**Left Sided:**
+
+$$
+H_{0}: \sigma \ge s \\
+H_{a}: \sigma < s
+$$
+
+**Right Sided:**
+
+$$
+H_{0}: \sigma \le s \\
+H_{a}: \sigma > s
+$$
 
