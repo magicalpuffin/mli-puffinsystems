@@ -4,12 +4,11 @@ description: How to calculate the standard deviation of standard deviation. Form
 createdDate: 2025-12-18
 updatedDate: 2026-01-06
 tags:
-  - python
   - statistics
 ---
 <script>
-	import {SampleStdevDemo} from "$lib/content/interactive/sample-stdev-demo"
-	import StderrStdevCalc from "$lib/content/interactive/stderr-stdev-calc.svelte"
+	import {SampleStdevDemo} from "$lib/content/interactive/demo/sample-stdev-demo"
+	import StderrStdevCalc from "$lib/content/interactive/calc/stderr-stdev-calc.svelte"
 </script>
 
 

@@ -2,8 +2,8 @@
 	import { bin, mean, range, deviation } from 'd3-array';
 	import { randomNormal } from 'd3-random';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import BasicHist from '../basic-hist.svelte';
-	import NormPdf from './norm-pdf.svelte';
+	import BasicHist from '$lib/content/interactive/chart/basic-hist.svelte';
+	import NormPdf from '$lib/content/interactive/chart/norm-pdf.svelte';
 	import SampleTable from './sample-table.svelte';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';

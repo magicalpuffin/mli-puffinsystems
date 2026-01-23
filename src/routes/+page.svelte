@@ -5,7 +5,7 @@
 	import BlogMenuItem from '$lib/components/blog/blog-menu-item.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import ProjectCard from '$lib/components/section/project-card.svelte';
-	import RandomHist from '$lib/content/interactive/random-hist.svelte';
+	import RandomHist from '$lib/content/interactive/chart/random-hist.svelte';
 
 	interface Props {
 		data: PageData;
