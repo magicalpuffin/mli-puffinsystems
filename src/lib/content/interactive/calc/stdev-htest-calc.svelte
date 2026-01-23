@@ -56,7 +56,7 @@
 		<div class="grid gap-1.5 my-4 w-full">
 			<Label>Null Hypothesis</Label>
 			<div class="flex flex-row gap-2 items-center">
-				<Katex class="w-24" math={'H_0: \\sigma = '} />
+				<Katex class="w-28" math={'H_0: \\sigma = '} />
 				<Input type="number" min="0" step="0.01" bind:value={sigma} />
 			</div>
 		</div>
@@ -64,11 +64,11 @@
 			<Label>Alternate Hypothesis</Label>
 			<div class="flex flex-row gap-2 items-center">
 				{#if side === 'two_tailed'}
-					<Katex class="w-24" math={'H_1: \\sigma \\neq '} />
+					<Katex class="w-28" math={'H_1: \\sigma \\neq '} />
 				{:else if side === 'left_tailed'}
-					<Katex class="w-24" math={'H_1: \\sigma < '} />
+					<Katex class="w-28" math={'H_1: \\sigma < '} />
 				{:else if side === 'right_tailed'}
-					<Katex class="w-24" math={'H_1: \\sigma > '} />
+					<Katex class="w-28" math={'H_1: \\sigma > '} />
 				{/if}
 				<Input
 					type="number"
