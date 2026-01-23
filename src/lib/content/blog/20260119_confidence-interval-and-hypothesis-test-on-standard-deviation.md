@@ -1,8 +1,8 @@
 ---
-title: Confidence Interval and Hypothesis Test on Standard Deviation
-description: How to calculate the standard deviation of standard deviation. Formulas for standard error of sample sample standard deviation and variance.
+title: Confidence Intervals and Hypothesis Tests on Standard Deviation
+description: How to calculate the confidence interval of standard deviation. How to run hypothesis tests on standard deviation.
 createdDate: 2026-01-19
-updatedDate: 2026-01-19
+updatedDate: 2026-01-23
 tags:
   - statistics
 ---
