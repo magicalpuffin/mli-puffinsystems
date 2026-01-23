@@ -7,9 +7,9 @@ tags:
   - statistics
 ---
 <script>
-	import CiStdevCalc from "$lib/content/interactive/ci-stdev-calc.svelte"
-	import StdevHtestCacl from "$lib/content/interactive/stdev-htest-calc.svelte"
-	import CiStdevVsSampleSize from "$lib/content/interactive/ci-stdev-vs-sample-size.svelte"
+	import CiStdevCalc from "$lib/content/interactive/calc/ci-stdev-calc.svelte"
+	import StdevHtestCacl from "$lib/content/interactive/calc/stdev-htest-calc.svelte"
+	import CiStdevVsSampleSize from "$lib/content/interactive/chart/ci-stdev-vs-sample-size.svelte"
 
 </script>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Table from '$lib/components/ui/table/index.js';
-	import BasicHist from '../basic-hist.svelte';
+	import BasicHist from '$lib/content/interactive/chart/basic-hist.svelte';
 	import Katex from '$lib/components/katex.svelte';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
