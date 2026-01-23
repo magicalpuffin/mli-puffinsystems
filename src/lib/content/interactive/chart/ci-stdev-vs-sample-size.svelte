@@ -110,59 +110,61 @@
 	} satisfies Chart.ChartConfig;
 </script>
 
-<div class="my-2 font-bold">
-	95% Confidence Interval of Standard Deviation vs Sample Size
-</div>
-<Chart.Container config={chartConfig} class={className}>
-	<LineChart
-		data={chartData}
-		x="n"
-		axis
-		padding={{ left: 50, right: 50, top: 50, bottom: 50 }}
-		legend={{ placement: 'top-right' }}
-		series={[
-			{
-				key: 'upper',
-				label: chartConfig.upper.label,
-				color: chartConfig.upper.color
-			},
-			{
-				key: 'lower',
-				label: chartConfig.lower.label,
-				color: chartConfig.lower.color
-			}
-		]}
-		props={{
-			spline: { curve: curveNatural, motion: 'tween', strokeWidth: 2 },
-			highlight: { points: { r: 4 } },
-			yAxis: {
-				label: 'Standard Deviation',
-				labelPlacement: 'middle',
-				classes: { label: 'font-semibold' }
-			},
-			xAxis: {
-				label: 'Sample Size',
-				labelPlacement: 'middle',
-				classes: { label: 'font-semibold' }
-			}
-		}}
-	>
-		{#snippet tooltip()}
-			<Chart.Tooltip labelFormatter={(d) => `Sample Size: ${d}`}>
-				{#snippet formatter({ name, value })}
-					<div
-						class="flex items-center text-xs min-w-[130px] text-muted-foreground"
-					>
-						{chartConfig[name as keyof typeof chartConfig]?.label || name}
+<div class="p-4 w-full rounded-xl border aspect-auto">
+	<div class="my-2 text-sm font-bold md:text-base">
+		95% Confidence Interval of Standard Deviation vs Sample Size
+	</div>
+	<Chart.Container config={chartConfig} class={className}>
+		<LineChart
+			data={chartData}
+			x="n"
+			axis
+			padding={{ left: 50, right: 50, top: 50, bottom: 50 }}
+			legend={{ placement: 'top-right' }}
+			series={[
+				{
+					key: 'upper',
+					label: chartConfig.upper.label,
+					color: chartConfig.upper.color
+				},
+				{
+					key: 'lower',
+					label: chartConfig.lower.label,
+					color: chartConfig.lower.color
+				}
+			]}
+			props={{
+				spline: { curve: curveNatural, motion: 'tween', strokeWidth: 2 },
+				highlight: { points: { r: 4 } },
+				yAxis: {
+					label: 'Confidence Interval Multiple',
+					labelPlacement: 'middle',
+					classes: { label: 'font-semibold' }
+				},
+				xAxis: {
+					label: 'Sample Size',
+					labelPlacement: 'middle',
+					classes: { label: 'font-semibold' }
+				}
+			}}
+		>
+			{#snippet tooltip()}
+				<Chart.Tooltip labelFormatter={(d) => `Sample Size: ${d}`}>
+					{#snippet formatter({ name, value })}
 						<div
-							class="flex gap-0.5 items-baseline font-mono font-medium tabular-nums ms-auto text-foreground"
+							class="flex items-center text-xs min-w-[130px] text-muted-foreground"
 						>
-							s*
-							{value.toFixed(3)}
+							{chartConfig[name as keyof typeof chartConfig]?.label || name}
+							<div
+								class="flex gap-0.5 items-baseline font-mono font-medium tabular-nums ms-auto text-foreground"
+							>
+								s*
+								{value.toFixed(3)}
+							</div>
 						</div>
-					</div>
-				{/snippet}
-			</Chart.Tooltip>
-		{/snippet}
-	</LineChart>
-</Chart.Container>
+					{/snippet}
+				</Chart.Tooltip>
+			{/snippet}
+		</LineChart>
+	</Chart.Container>
+</div>

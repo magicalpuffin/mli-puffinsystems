@@ -17,11 +17,11 @@ tags:
 
 Whenever we discuss **sample mean** $\hat{x}$, we usually acknowledge the randomness inherent with sampling in the form of standard errors, confidence intervals, and hypothesis tests. These same principles apply to **sample standard deviation** $s$ but are often times over looked.
 
-In the figure above, we can see how the 95% confidence interval narrows as **sample size** $n$ increases. It shows us how much better our estimation of **population standard deviation** $\sigma$ improves as **sample size** $n$ increases.
+In the figure above, we can see how the 95% confidence interval narrows as **sample size** $n$ increases. Our estimation of **population standard deviation** $\sigma$ improves as **sample size** $n$ increases.
 
-For example, sample size of $n=30$, results in 95% confidence interval of $[s*0.796, s*1.344]$. We are 95% confident that the **population standard deviation** $\sigma$ is between 0.796x and 1.344x the **sample standard deviation** $s$.
+At low samples, the randomness from sampling can be significant. For example, sample size of $n=30$, results in 95% confidence interval of $[s*0.796, s*1.344]$. We are 95% confident that the **population standard deviation** $\sigma$ is between 0.796x and 1.344x the **sample standard deviation** $s$.
 
-This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. Note that these calculations assume the underlying distribution is normal.
+This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. **Note:** These calculations assume the underlying distribution is normal.
 
 Also see the previous blog post for [Standard Error of Sample Standard Deviation](/blog/standard-deviation-of-standard-deviation)
 
@@ -36,7 +36,7 @@ $$
 \frac{(n-1)s^2}{q_{1-\alpha/2}} \leq \sigma^2 \leq \frac{(n-1)s^2}{q_{\alpha/2}}
 $$
 
-Which can be simplified as:
+This can be simplified as:
 $$
 \sqrt\frac{(n-1)}{q_{1-\alpha/2}}*s \leq \sigma \leq \sqrt\frac{(n-1)}{q_{\alpha/2}}*s
 $$
@@ -50,18 +50,18 @@ $$
 
 ### One Sided Confidence Interval
 
-The one sided confidence interval is derived from the two sided confidence interval
-
 **Left Sided:**
 
-Confidence interval with an upper limit on population standard deviation. Note that standard deviation can not be negative 
+Confidence interval with an upper limit on population standard deviation. **Note:** Standard deviation can not be negative.
+
 $$
 \sigma \leq \sqrt\frac{(n-1)}{q_{\alpha}}*s
 $$
 
 **Right Sided:**
 
-Confidence interval with an lower limit on population standard deviation
+Confidence interval with an lower limit on population standard deviation.
+
 $$
 \sqrt\frac{(n-1)}{q_{1-\alpha}}*s \leq \sigma
 $$
@@ -72,44 +72,64 @@ $$
 
 <StdevHtestCacl/>
 
-Closely related to the idea of confidence intervals is hypothesis testing. Often times the objective of a study is to determine if standard deviation is less than some acceptable value. 
+Closely related to the idea of confidence intervals is hypothesis testing, which evaluates if the sample standard deviation is significant compared to an assumed population standard deviation (null hypothesis). 
 
-Uses the test statistic
-
-Based on [LibreTexts Hypothesis Test on a Single Standard Deviation](https://stats.libretexts.org/Courses/Rio_Hondo_College/Math_130%3A_Statistics/08%3A_Hypothesis_Testing_with_One_Sample/8.05%3A_Hypothesis_Test_on_a_Single_Standard_Deviation)
+The following test statistic is used for chi squared distribution:   
 
 $$
 \chi^2 = \frac{(n-1)s^2}{\sigma^2}
 $$
 
+
+Calculations based on [LibreTexts Hypothesis Test on a Single Standard Deviation](https://stats.libretexts.org/Courses/Rio_Hondo_College/Math_130%3A_Statistics/08%3A_Hypothesis_Testing_with_One_Sample/8.05%3A_Hypothesis_Test_on_a_Single_Standard_Deviation) and [Elgin EDU Hypothesis Tests for a Population Standard Deviation](https://faculty.elgin.edu/dkernler/statistics/ch10/10-4.html)
+
+
+
 ### Two Tailed Hypothesis Test
 
+Evaluates if the sample standard deviation is significantly different than the expected standard deviation. The chi squared distribution is not symmetric, both tails of the distribution need to be evaluated.
+
+The p-value would be compared with the significance level $a$, usually $a=0.05$
+
 $$
-H_{0}: \sigma = s \\
-H_{a}: \sigma \neq s
+H_0: \sigma = \sigma_0 \\
+H_1: \sigma \neq \sigma_0
 $$
 
 $$
-P(\chi^2 < )
+min(P(\chi^2 < \chi^2_0), P(\chi^2 > \chi^2_0))*2
 $$
 
+
+- $H_0$ is the null hypothesis
+- $H_1$ is the alternate hypothesis
+- $\sigma$ is the population standard deviation
+- $\sigma_0$ is the value selected for the null hypothesis
+- $\chi^2_0$ is the calculated test statistic
 
 ### One Tail Hypothesis Test
 
 **Left Tailed:**
 
+Evaluates if the standard deviation is less than a upper limit. Ex. $\sigma$ is less than 5 based on sample data.
+
 $$
-H_{0}: \sigma \ge s \\
-H_{a}: \sigma < s
+H_0: \sigma = \sigma_0 \\
+H_1: \sigma < \sigma_0
 $$
+$$
+P(\chi^2 < \chi^2_0)
+$$
+
 
 **Right Tailed:**
 
-$$
-H_{0}: \sigma \le s \\
-H_{a}: \sigma > s
-$$
+Evaluates if the standard deviation is greater than a lower limit. Ex. $\sigma$ is greater than 5 based on sample data.
 
-## Additional Notes
-
-The standard error of sample standard deviation doesn't show up in the confidence intervals and hypothesis tests. This is in contrast to the standard error of sample mean which shows up in its confidence intervals and hypothesis tests.
+$$
+H_0: \sigma = \sigma_0 \\
+H_1: \sigma > \sigma_0
+$$
+$$
+P(\chi^2 > \chi^2_0)
+$$

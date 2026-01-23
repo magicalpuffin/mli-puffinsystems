@@ -34,7 +34,9 @@
 		}
 	}
 
-	let ci = $derived(calcCiStdev(1, samplesSize, confidence_level));
+	let ci = $derived(
+		calcCiStdev(standardDeviation, samplesSize, confidence_level)
+	);
 	const sideOptions = [
 		{ value: 'left_sided', label: 'Left Sided' },
 		{ value: 'right_sided', label: 'Right Sided' },
@@ -51,20 +53,21 @@
 		<div class="grid gap-1.5 my-4 w-full">
 			<Label>Standard Deviation</Label>
 			<div class="flex flex-row gap-2 items-center">
-				<div class="w-24"><Katex math="\ s = " /></div>
+				<Katex class="w-24" math="s = " />
 				<Input type="number" min="0" bind:value={standardDeviation} />
 			</div>
 		</div>
 		<div class="grid gap-1.5 my-4 w-full">
 			<Label>Sample Size</Label>
 			<div class="flex flex-row gap-2 items-center">
-				<div class="w-24"><Katex math="n = " /></div>
+				<Katex class="w-24" math="n = " />
 				<Input type="number" min="2" bind:value={samplesSize} />
 			</div>
 		</div>
 		<div class="grid gap-1.5 my-4 w-full">
 			<Label>Confidence Level</Label>
 			<div class="flex flex-row gap-2 items-center">
+				<Katex class="w-24" math="1- \alpha = " />
 				<Input
 					type="number"
 					min="0"
@@ -95,7 +98,15 @@
 			<Label>Confidence Interval</Label>
 			<div class="flex items-center h-9">
 				{#if ci}
-					[{ci[0].toFixed(3)}, {ci[1].toFixed(3)}]
+					{#if side == 'two_sided'}
+						<Katex
+							math={`${ci[0].toFixed(3)} \\leq \\sigma \\leq ${ci[1].toFixed(3)}`}
+						/>
+					{:else if side === 'left_sided'}
+						<Katex math="\sigma \leq {ci[1].toFixed(3)}" />
+					{:else if side === 'right_sided'}
+						<Katex math="{ci[0].toFixed(3)} \leq \sigma" />
+					{/if}
 				{/if}
 			</div>
 		</div>

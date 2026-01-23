@@ -5,10 +5,11 @@
 	import chisquare from '@stdlib/stats-base-dists-chisquare';
 	import * as Select from '$lib/components/ui/select/index.js';
 
-	let samplesSize = $state(30);
-	let standardDeviation = $state(1);
-	let sigma = $state(1);
+	let samplesSize = $state(25);
+	let standardDeviation = $state(9.76);
+	let sigma = $state(12);
 	let side = $state('two_tailed');
+	let significanceLevel = $state(0.05);
 
 	function stdev_hypothesis_test(s: number, sigma: number, n: number) {
 		const df = n - 1;
@@ -53,24 +54,47 @@
 <div class="gap-4 p-4 w-full rounded-2xl border md:grid md:grid-cols-2">
 	<div>
 		<div class="grid gap-1.5 my-4 w-full">
-			<Label>Population Standard Deviation</Label>
+			<Label>Null Hypothesis</Label>
 			<div class="flex flex-row gap-2 items-center">
-				<div class="w-24"><Katex math="\sigma = " /></div>
-				<Input type="number" min="0" bind:value={sigma} />
+				<Katex class="w-24" math={'H_0: \\sigma = '} />
+				<Input type="number" min="0" step="0.01" bind:value={sigma} />
 			</div>
 		</div>
 		<div class="grid gap-1.5 my-4 w-full">
-			<Label>Sample Standard Deviation</Label>
+			<Label>Alternate Hypothesis</Label>
 			<div class="flex flex-row gap-2 items-center">
-				<div class="w-24"><Katex math="s = " /></div>
-				<Input type="number" min="0" bind:value={standardDeviation} />
+				{#if side === 'two_tailed'}
+					<Katex class="w-24" math={'H_1: \\sigma \\neq '} />
+				{:else if side === 'left_tailed'}
+					<Katex class="w-24" math={'H_1: \\sigma < '} />
+				{:else if side === 'right_tailed'}
+					<Katex class="w-24" math={'H_1: \\sigma > '} />
+				{/if}
+				<Input
+					type="number"
+					min="0"
+					step="0.01"
+					bind:value={standardDeviation}
+				/>
 			</div>
 		</div>
 		<div class="grid gap-1.5 my-4 w-full">
 			<Label>Sample Size</Label>
 			<div class="flex flex-row gap-2 items-center">
-				<div class="w-24"><Katex math="n = " /></div>
+				<Katex class="w-24" math="n = " />
 				<Input type="number" min="2" bind:value={samplesSize} />
+			</div>
+		</div>
+		<div class="grid gap-1.5 my-4 w-full">
+			<Label>Significance Level</Label>
+			<div class="flex flex-row gap-2 items-center">
+				<Katex class="w-24" math="a = " />
+				<Input
+					type="number"
+					min="0"
+					step="0.01"
+					bind:value={significanceLevel}
+				/>
 			</div>
 		</div>
 	</div>
@@ -91,11 +115,50 @@
 			</Select.Root>
 		</div>
 		<div class="grid gap-1.5 my-4 w-full">
-			<Label>Confidence Interval</Label>
+			<Label>P Value</Label>
 			<div class="flex items-center h-9">
 				{#if htest_result}
-					P Value: {htest_result[0].toFixed(3)}
-					Test Statistic: {htest_result[1].toFixed(3)}
+					{#if side === 'two_tailed'}
+						{#if standardDeviation >= sigma}
+							<Katex
+								math="P(\chi^2 >{htest_result[1].toFixed(
+									3
+								)} ) * 2 = {htest_result[0].toFixed(3)} "
+							/>
+						{:else}
+							<Katex
+								math="P(\chi^2 <{htest_result[1].toFixed(
+									3
+								)} ) * 2 = {htest_result[0].toFixed(3)} "
+							/>
+						{/if}
+					{:else if side === 'left_tailed'}
+						<Katex
+							math="P(\chi^2 <{htest_result[1].toFixed(
+								3
+							)} ) = {htest_result[0].toFixed(3)} "
+						/>
+					{:else if side === 'right_tailed'}
+						<Katex
+							math="P(\chi^2 >{htest_result[1].toFixed(
+								3
+							)} ) = {htest_result[0].toFixed(3)} "
+						/>
+					{/if}
+				{/if}
+			</div>
+		</div>
+		<div class="grid gap-1.5 my-4 w-full">
+			<Label>Evaluate Null Hypothesis</Label>
+			<div class="flex items-center h-9">
+				{#if htest_result}
+					{#if htest_result[0] < significanceLevel}
+						<Katex math="p" />-value <Katex class="mx-1" math="< a" /> Reject null
+						hypothesis
+					{:else}
+						<Katex math="p" />-value <Katex class="mx-1" math="> a" /> Fail to reject
+						null hypothesis
+					{/if}
 				{/if}
 			</div>
 		</div>
