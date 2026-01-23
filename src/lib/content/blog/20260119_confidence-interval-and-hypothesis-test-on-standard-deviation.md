@@ -8,32 +8,26 @@ tags:
 ---
 <script>
 	import CiStdevCalc from "$lib/content/interactive/ci-stdev-calc.svelte"
+	import StdevHtestCacl from "$lib/content/interactive/stdev-htest-calc.svelte"
 	import CiStdevVsSampleSize from "$lib/content/interactive/ci-stdev-vs-sample-size.svelte"
 
 </script>
 
-
-
 <CiStdevVsSampleSize/>
 
-Whenever we discuss **sample mean** $\hat{x}$, we usually acknowledge the randomness inherent with sampling in the form of standard errors, confidence intervals, and hypothesis tests.
+Whenever we discuss **sample mean** $\hat{x}$, we usually acknowledge the randomness inherent with sampling in the form of standard errors, confidence intervals, and hypothesis tests. These same principles apply to **sample standard deviation** $s$ but are often times over looked.
 
-This randomness also applies to **sample standard deviation** $s$. For example, with a sample size of $n=30$, the 95% confidence interval is $[s*0.796, s*1.344]$. We are 95% confident that the population standard deviation is between 0.796x and 1.344x the standard deviation.
+In the figure above, we can see how the 95% confidence interval narrows as **sample size** $n$ increases. It shows us how much better our estimation of **population standard deviation** $\sigma$ improves as **sample size** $n$ increases.
 
-This can result in underestimation of standard deviation, especially when sample sizes are low. 
+For example, sample size of $n=30$, results in 95% confidence interval of $[s*0.796, s*1.344]$. We are 95% confident that the **population standard deviation** $\sigma$ is between 0.796x and 1.344x the **sample standard deviation** $s$.
 
-This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. 
+This blog post will shows how to calculate confidence intervals and hypothesis tests for standard deviation. Note that these calculations assume the underlying distribution is normal.
 
-For standard error of standard deviation, see [Standard Deviation of Standard Deviation](/blog/standard-deviation-of-standard-deviation). **Note:** The standard error of sample standard deviation doesn't show up in the confidence intervals and hypothesis tests. This is in contrast to the standard error of sample mean which shows up in its confidence intervals and hypothesis tests.
+Also see the previous blog post for [Standard Error of Sample Standard Deviation](/blog/standard-deviation-of-standard-deviation)
 
-
-
-These confidence intervals and hypothesis testing assume the underlying distribution is normal and the distribution of sample variance follows the chi-squared distribution
 ## Confidence Interval of Sample Standard Deviation
 
 <CiStdevCalc/>
-
-Confidence intervals are used to estimate 
 
 ### Two Sided Confidence Interval
 
@@ -51,18 +45,32 @@ $$
 - $\sigma$ is the population standard deviation or true standard deviation
 - $(n-1)$ is the degree of freedom
 - $1-\alpha$ is the confidence level
+- $\alpha$ is the significance level
 - $q_p$ is the $p$-th quantile of the chi-squared distribution, $\chi^2_{1-\alpha/2,n-1}$
-
-We are 95% confident that the population standard deviation is between the lower and upper limits. In other words, if we were to replicate this sample, 95% of the confidence intervals generated would capture the population standard deviation.
 
 ### One Sided Confidence Interval
 
-The one sided confidence interval is derived similarly to the two sided confidence interval.
+The one sided confidence interval is derived from the two sided confidence interval
 
+**Left Sided:**
+
+Confidence interval with an upper limit on population standard deviation. Note that standard deviation can not be negative 
 $$
-\frac{(n-1)s^2}{q_{1-\alpha}} \leq \sigma^2  \qquad \sigma^2 \leq \frac{(n-1)s^2}{q_{\alpha}}
+\sigma \leq \sqrt\frac{(n-1)}{q_{\alpha}}*s
 $$
+
+**Right Sided:**
+
+Confidence interval with an lower limit on population standard deviation
+$$
+\sqrt\frac{(n-1)}{q_{1-\alpha}}*s \leq \sigma
+$$
+
+
 ## Hypothesis Testing of Sample Standard Deviation
+
+
+<StdevHtestCacl/>
 
 Closely related to the idea of confidence intervals is hypothesis testing. Often times the objective of a study is to determine if standard deviation is less than some acceptable value. 
 
@@ -74,7 +82,7 @@ $$
 \chi^2 = \frac{(n-1)s^2}{\sigma^2}
 $$
 
-### Two Sided Hypothesis Test
+### Two Tailed Hypothesis Test
 
 $$
 H_{0}: \sigma = s \\
@@ -86,19 +94,22 @@ P(\chi^2 < )
 $$
 
 
-### One Sided Hypothesis Test
+### One Tail Hypothesis Test
 
-**Left Sided:**
+**Left Tailed:**
 
 $$
 H_{0}: \sigma \ge s \\
 H_{a}: \sigma < s
 $$
 
-**Right Sided:**
+**Right Tailed:**
 
 $$
 H_{0}: \sigma \le s \\
 H_{a}: \sigma > s
 $$
 
+## Additional Notes
+
+The standard error of sample standard deviation doesn't show up in the confidence intervals and hypothesis tests. This is in contrast to the standard error of sample mean which shows up in its confidence intervals and hypothesis tests.
