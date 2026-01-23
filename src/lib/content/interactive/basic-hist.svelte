@@ -26,7 +26,7 @@
 	}: Props = $props();
 
 	let binMethod = $derived.by(() => {
-		if (min && max) {
+		if (typeof min !== 'undefined' && typeof max !== 'undefined') {
 			return bin()
 				.domain([min, max])
 				.thresholds(range(min, max, binSize));
@@ -47,19 +47,13 @@
 	});
 
 	const chartConfig = {
-		// x0: {
-		// 	color: '#2563eb'
-		// },
-		// length: {
-		// 	color: '#2563eb'
-		// }
+		length: {
+			label: 'Size',
+			color: 'var(--primary)'
+		}
 	} satisfies Chart.ChartConfig;
 
 	let context = $state<ChartContextValue>();
-
-	// $effect(() => {
-	// 	console.log(bins);
-	// });
 </script>
 
 <Chart.Container config={chartConfig} class={className}>
@@ -71,7 +65,13 @@
 		x="binLabel"
 		y="length"
 		bandPadding={0.1}
-		series={[{ key: 'length', label: 'Size', color: 'var(--primary)' }]}
+		series={[
+			{
+				key: 'length',
+				label: chartConfig.length.label,
+				color: chartConfig.length.color
+			}
+		]}
 		props={{
 			bars: {
 				stroke: 'none',
