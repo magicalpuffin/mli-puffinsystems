@@ -86,7 +86,7 @@
 	<div
 		class="flex justify-between items-center px-4 mx-auto max-w-4xl h-12 border-b border-secondary"
 	>
-		<div class="flex justify-center md:w-40">
+		<div class="flex justify-center md:w-44">
 			<a
 				href="/"
 				class="py-1 px-2 font-mono text-lg font-bold text-center rounded-lg md:text-2xl hover:bg-secondary/30 hover:text-primary"
@@ -102,7 +102,7 @@
 				/>
 			{/each}
 		</div>
-		<div class="hidden gap-2 sm:flex md:w-40">
+		<div class="hidden gap-2 sm:flex md:w-44">
 			{@render externalIconLinks()}
 		</div>
 		<div class="sm:hidden">
@@ -124,7 +124,7 @@
 						{/each}
 					</div>
 					<Sheet.Footer>
-						<div class="flex gap-2 w-40">
+						<div class="flex gap-2 w-44">
 							{@render externalIconLinks()}
 						</div>
 					</Sheet.Footer>
